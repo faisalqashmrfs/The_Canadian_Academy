@@ -38,6 +38,9 @@ export default function Navbar() {
             <Nav.Link as={Link} to="/ContactUs" className="text-secondary hover:text-danger">
               Contact Us
             </Nav.Link>
+            <Nav.Link as={Link} to="/Inroll" className="text-secondary hover:text-danger">
+              Inroll
+            </Nav.Link>
           </Nav>
         </RBNavbar.Collapse>
       </Container>
