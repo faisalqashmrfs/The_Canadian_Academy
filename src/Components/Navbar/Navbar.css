@@ -1,0 +1,13 @@
+.navnav
+{
+    position: fixed;
+    width: 84%;
+    height: 80px;
+    top: 56px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #282828;
+    margin: 0px auto;
+    border-radius: 100px;
+    
+}
