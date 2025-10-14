@@ -65,6 +65,7 @@
     width: max-content;
     z-index: 10;
     transition: .4s;
+    margin-top: 40px;
 }
 .Hero .Title h1 .span1
 {
@@ -176,6 +177,16 @@
 
 @media(max-width:992px)
 {
+    .Hero .Contact-FolowingBox
+    {
+      width: 75px;
+      height: 350px;
+    }
+    .Hero .Contact-FolowingBox p h4
+    {
+        right: -23px;
+        font-size: 14px;
+    }
     .Hero
     {
         padding: 0px 90px;
@@ -221,11 +232,12 @@
         margin-right: 0px;
     }
 }
-@media(max-width:666px)
+@media(max-width:676px)
 {
         .Hero
     {
         padding: 0px 30px;
+        height: 80vh;
     }
     .Hero .Title h1
     {
@@ -259,4 +271,34 @@
         width: 274px;
         height: 50px;
     }
+    .Hero .Contact-FolowingBox
+    {
+        width: 50px;
+        height: 224px;
+        border-top-left-radius: 18px;
+        border-bottom-left-radius: 18px;
+        top: 45%;
+    }
+    .Hero .Contact-FolowingBox .Icons
+    {
+        width: 80%;
+    }
+    .Hero .Contact-FolowingBox p
+    {
+        width: 20%;
+    }
+    .Hero .Contact-FolowingBox p h4
+    {
+        right: -23px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width:375px)
+{
+        .Hero .Contact-FolowingBox
+    {
+        display: none;
+    }
+    
 }

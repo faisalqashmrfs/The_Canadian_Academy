@@ -1,0 +1,197 @@
+.UsDifferent
+{
+    width: 100%;
+    margin-top: -280px;
+}
+
+.UsDifferent .card1
+{
+    width: 100%;
+    padding-left: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.UsDifferent .card1 .Info
+{
+    width: 60%;
+}
+.UsDifferent .card1 h2
+{
+    font-family: var(--title-font-family);
+    color: var(--red);
+    font-size: 96px;
+}
+
+.UsDifferent .card1 p
+{
+    font-family: var(--text-font-family);
+    color: var(--black);
+    font-size: 24px;
+}
+.UsDifferent .card1 .Image
+{
+    background-image: url('./girll.svg');
+    width: 834px;
+    height: 915px;
+    background-position: left;
+}
+.UsDifferent .card2
+{
+    width: 100%;
+    display: flex;
+    padding-left: 150px;
+    justify-content: space-between;
+    align-items: center;
+}
+.UsDifferent .card2 img
+{
+    width: 781px;
+    height: 624px;
+    margin-top: -100px;
+}
+.UsDifferent .card2 p 
+{
+    font-family: var(--text-font-family);
+    color: var(--black);
+    font-size: 24px;
+    padding-right: 40px;
+    width: 50%;
+}
+
+
+
+
+
+
+
+
+@media(max-width:1350px)
+{
+    .UsDifferent
+    {
+        width: 100%;
+        margin-top: -150px;
+    }
+    .UsDifferent .card1
+    {
+        padding-left: 50px;
+    }
+    .UsDifferent .card1 h2
+    {
+        font-family: var(--title-font-family);
+        color: var(--red);
+        font-size: 60px;
+    }
+
+    .UsDifferent .card1 p
+    {
+        font-family: var(--text-font-family);
+        color: var(--black);
+        font-size: 20px;
+    }
+    .UsDifferent .card1 .Image
+    {
+        background-image: url('./girll.svg');
+        width: 684px;
+        height: 885px;
+        background-position: left;
+    }
+    .UsDifferent .card2
+    {
+        padding-left: 50px;
+    }
+    .UsDifferent .card2 img
+    {
+        width: 481px;
+        height: 524px;
+    }
+    .UsDifferent .card2 p 
+    {
+        padding-right: 40px;
+        width: 60%;
+    }
+}
+@media(max-width:992px)
+{
+    .UsDifferent
+    {
+        margin-top: 0px;
+    }
+    .UsDifferent .card1 .Info
+    {
+        width: 100%;
+    }
+    .UsDifferent .card1
+    {
+        padding: 0 50px;
+    }
+    .UsDifferent .card1 h2
+    {
+        font-family: var(--title-font-family);
+        color: var(--red);
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .UsDifferent .card1 p
+    {
+        font-family: var(--text-font-family);
+        color: var(--black);
+        font-size: 20px;
+        text-align: center;
+    }
+    .UsDifferent .card1 .Image
+    {
+        display: none;
+    }
+        .UsDifferent .card2
+    {
+        padding-left: 50px;
+        flex-direction: column;
+    }
+    .UsDifferent .card2 img
+    {
+        width: 581px;
+        height: 524px;
+        margin-top: 0px;
+    }
+    .UsDifferent .card2 p 
+    {
+        padding: 40px;
+        width: 100%;
+    }
+}
+@media(max-width:650px)
+{
+    .UsDifferent .card1
+    {
+        padding: 0 10px;
+    }
+    .UsDifferent .card1 h2
+    {
+        font-size: 40px;
+    }
+
+    .UsDifferent .card1 p
+    {
+        font-size: 16px;
+        padding: 0 30px;
+    }
+        .UsDifferent .card2
+    {
+        padding-left: 10px;
+    }
+    .UsDifferent .card2 img
+    {
+        width: 341px;
+        height: 324px;
+    }
+    .UsDifferent .card2 p 
+    {
+        padding: 40px;
+        width: 100%;
+        font-size: 16px;
+        text-align: center;
+    }
+}

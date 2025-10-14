@@ -1,0 +1,67 @@
+.RealExperiences
+{
+    width: 100%;
+    padding: 0 150px;
+}
+.RealExperiences .Infoslide
+{
+    width: 55%;
+}
+
+.RealExperiences .Infoslide h2
+{
+    font-family: var(--title-font-family);
+    font-size: 96px;
+    font-weight: 400;
+    color: var(--red);
+}
+.RealExperiences .Infoslide h3
+{
+    font-family: var(--title-font-family);
+    font-size: 96px;
+    font-weight: 400;
+    color: var(--red);
+    padding-left: 270px;
+}
+.RealExperiences .Infoslide p
+{
+    font-family: var(--text-font-family);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--black);
+    transition: .6s;
+}
+.RealExperiences .sLIDEaREA h4
+{
+    font-family: var(--text-font-family);
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+.RealExperiences .sLIDEaREA .slidewindows
+{
+    width: 60vw;
+    overflow: hidden;
+
+}
+.RealExperiences .sLIDEaREA .slidewindows p
+{
+    width: 300vw;
+    display: flex;
+    border-radius: 40px;
+    border-bottom-right-radius: 0px;
+    transition: .6s;
+    /* background-color: var(--black);
+    color: #fff; */
+}
+.RealExperiences .sLIDEaREA .slidewindows p div
+{
+    padding: 24px;
+    background-color: var(--black);
+    color: #fff;
+    border-radius: 40px;
+    border-bottom-right-radius: 0px;
+    transition: .6s;
+    margin-right:2vw;
+}

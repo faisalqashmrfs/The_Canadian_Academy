@@ -9,5 +9,15 @@
     background-color: #282828;
     margin: 0px auto;
     border-radius: 100px;
+    z-index: 20;
     
+}
+
+@media(max-width:1450px)
+{
+    .navnav
+    {
+        top: 30px;
+        height: 60px;
+    }
 }
