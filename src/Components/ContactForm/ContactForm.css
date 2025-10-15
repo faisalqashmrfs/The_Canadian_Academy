@@ -1,0 +1,69 @@
+/* تحديد اللون الأحمر المخصص */
+:root {
+  --custom-red: #e53e3e;
+}
+
+/* العنوان الرئيسي */
+.custom-red-text {
+  color: var(--custom-red) !important;
+}
+
+/* زر الإرسال */
+.custom-red-bg {
+  background-color: var(--custom-red) !important;
+  border-color: var(--custom-red) !important;
+  border-radius: 0.3rem !important;
+}
+
+/* تنسيق الحقول بخط سفلي فقط */
+.form-group-underline {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 5px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  align-items: center;
+}
+
+/* إزالة حدود الحقول ولون الخلفية */
+.form-input-no-border {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+  padding-left: 0 !important;
+  height: auto !important;
+}
+
+/* تنسيق أيقونات الإدخال */
+.input-group-text {
+  background-color: transparent;
+  border: none;
+  padding-right: 0.75rem;
+}
+
+/* تنسيق الخريطة */
+.map-container iframe {
+  width: 100%;
+  height: 300px;
+  border: none;
+  border-radius: 8px;
+}
+
+/* تنسيق معلومات التواصل */
+.contact-detail {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.contact-detail i {
+  margin-right: 10px;
+  font-size: 1.2rem;
+}
+
+/* الحاوية العامة */
+.contact-form-wrapper {
+  background-color: #fff;
+  padding-top: 40px;
+  padding-bottom: 60px;
+}

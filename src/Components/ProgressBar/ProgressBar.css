@@ -1,0 +1,37 @@
+.maple-icon {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    image-rendering: auto;
+    transition: transform 0.3s ease;
+}
+
+.step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    min-width: 80px;
+}
+
+.step-title {
+    font-size: 14px;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.step-line {
+    flex-grow: 1;
+    height: 2px;
+    margin: 0 8px;
+    background-color: #ccc;
+}
+
+.progress-bar-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 12px;
+    padding: 10px 0;
+}
