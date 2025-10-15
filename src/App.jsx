@@ -14,6 +14,9 @@ import HelpCenter from './Pages/HelpCenter/HelpCenter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 
+
+import CourseDetailsPage from './Components/CourseDetails';
+
 function App() {
   const location = useLocation();
 
@@ -22,7 +25,8 @@ function App() {
     location.pathname === '/Inroll' ||
     location.pathname === '/enroll-alt' ||
     location.pathname === '/enroll-final' ||
-    location.pathname === '/enroll-summary';
+    location.pathname === '/enroll-summary' ||
+    location.pathname === '/course-details';
 
   return (
     <>
@@ -34,6 +38,9 @@ function App() {
         <Route path="/HelpCenter" element={<HelpCenter />} />
         <Route path="/Admission" element={<Admission />} />
         <Route path="/ContactUs" element={<ContactUs />} />
+
+        <Route path="/course-details" element={<CourseDetailsPage />} />
+
         <Route path="/Inroll" element={<Inroll />} />
         <Route path="/enroll-alt" element={<InrollAlt />} />
         <Route path="/enroll-final" element={<InrollFinal />} />

@@ -1,0 +1,9 @@
+/* تفعيل التمرير السلس */
+html {
+    scroll-behavior: smooth;
+}
+
+/* منع اختفاء العنوان خلف الـ Navbar */
+:target {
+    scroll-padding-top: 100px;
+}
