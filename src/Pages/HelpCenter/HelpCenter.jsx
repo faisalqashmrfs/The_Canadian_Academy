@@ -1,7 +1,7 @@
-import React from 'react'
+import './HelpCenter..css'
 
-export default function HelpCenter() {
+export default function Courses() {
   return (
-    <div>HelpCenter</div>
+    <div>Courses</div>
   )
 }
