@@ -1,0 +1,63 @@
+.WhatDrivesUs 
+{
+    width: 100%;
+    background-image: url("/BG-Image.png");
+    height: 54vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    padding-top: 180px;
+}
+
+.WhatDrivesUs  h2 
+{
+    font-size: 96px;
+    font-family: var(--title-font-family);
+    font-weight: 400;
+    color: var(--red);
+    text-align: center;
+}
+
+.WhatDrivesUs  p
+{
+    font-size: 24px;
+    font-family: var(--text-font-family);
+    font-weight: 400;
+    color: #fff;
+    text-align: center;
+    padding: 0 10vw;
+}
+
+
+@media(max-width:992px)
+{
+    .WhatDrivesUs  h2 
+    {
+        font-size: 66px;
+        margin-bottom: 20px;
+    }
+
+    .WhatDrivesUs  p
+    {
+        font-size: 20px;
+    }    
+}
+
+@media(max-width:550px)
+{
+    .WhatDrivesUs 
+    {
+        height: 38vh;
+        padding-top: 80px;
+    }
+    .WhatDrivesUs  h2 
+    {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .WhatDrivesUs  p
+    {
+        font-size: 14px;
+    }    
+}

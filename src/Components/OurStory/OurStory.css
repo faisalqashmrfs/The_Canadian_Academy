@@ -37,6 +37,24 @@
     transform: rotate(180deg);
 }
 
+.backgraoundSection
+{
+    background-image: url("/OurGoalsSection.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 69vh;
+    margin: 50px 0px;
+}
+
+@media (max-width: 1600px)
+{
+.backgraoundSection
+{
+    height: 50vh;
+}
+}
+
 
 @media (max-width: 1250px)
 {
@@ -67,7 +85,23 @@
         width: 248px;
         top: -80px;
     }
+    .backgraoundSection
+    {
+        background-image: url("/OurGoalsSection2.svg");
+        height: 300px;
+    }
 }
+
+@media (max-width: 650px)
+{
+.backgraoundSection
+{
+    background-image: url("/OurGoalsSection2.svg");
+    height: 250px;
+}
+}
+
+
 
 @media (max-width: 870px)
 {
@@ -127,4 +161,13 @@
     {
                 display: none;
     }
+}
+
+@media (max-width: 430px)
+{
+.backgraoundSection
+{
+    background-image: url("/OurGoalsSection2.svg");
+    height: 150px;
+}
 }

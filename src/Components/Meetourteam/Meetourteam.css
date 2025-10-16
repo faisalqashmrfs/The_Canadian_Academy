@@ -1,0 +1,82 @@
+.Meetourteam
+{
+    width: 100%;
+}
+
+.Meetourteam .title
+{
+    font-family: var(--title-font-family);
+    font-size: 96px;
+    color: var(--red);
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.Meetourteam .slide
+{
+    width: 96vw;
+    overflow-x: scroll;
+    margin: 0 auto 50px auto;
+}
+.Meetourteam .slide .son
+{
+    width: 195vw;
+    height: 750px;
+    display: flex;
+    justify-content: space-between;
+    transition: .4s;
+}
+.Meetourteam .slide .son .one
+{  
+    width: 28vw;
+    margin-right: 10px;
+    background-image: url("/Imageteatcher.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    position: relative;
+}
+.Meetourteam .slide .son .one div
+{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    position: absolute;
+    justify-content: flex-end;
+    bottom: 24px;
+    left: 24px;
+    color: #fff;
+}
+.ControllBtnslideteam
+{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+}
+.ControllBtnslideteam button
+{
+    border: none;
+    background-color: #9F9F9F;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: .4s;
+}
+.ControllBtnslideteam .activeatedteam
+{
+    border: none;
+    background-color: var(--red);
+    width: 104px;
+    height: 24px;
+    border-radius: 25px;
+}
+@media(max-width:630px)
+{
+    .Meetourteam .title
+    {
+        font-size: 32px;
+    }
+}

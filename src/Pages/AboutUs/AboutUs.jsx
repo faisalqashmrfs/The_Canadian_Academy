@@ -1,5 +1,8 @@
 import Hero from '../../Components/Hero/Hero'
+import InternationalAccreditations from '../../Components/InternationalAccreditations/InternationalAccreditations'
+import Meetourteam from '../../Components/Meetourteam/Meetourteam'
 import OurStory from '../../Components/OurStory/OurStory'
+import WhatDrivesUs from '../../Components/WhatDrivesUs/WhatDrivesUs'
 import './AboutUs.css'
 
 export default function AboutUs() {
@@ -7,6 +10,9 @@ export default function AboutUs() {
     <div>
         <Hero title1={"Building Futures"} title2={"Through Education"} p={"At The Canadian Academy, we believe education goes beyond classrooms. Our inclusive learning environment and dedicated instructors help students build knowledge, skills, and confidence to succeed in academics, careers, and life. What makes us unique is our commitment to support every learner and celebrate diverse paths to success."}/>
         <OurStory />
+        <WhatDrivesUs />
+        <InternationalAccreditations />
+        <Meetourteam />
     </div>
   )
 }
