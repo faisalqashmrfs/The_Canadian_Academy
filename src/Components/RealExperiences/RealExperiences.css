@@ -1,0 +1,293 @@
+.RealExperiences
+{
+    width: 100%;
+    padding: 0 150px;
+    position: relative;
+    margin-top: 100px;
+}
+
+.RealExperiences .Infoslide h2
+{
+    font-family: var(--title-font-family);
+    font-size: 96px;
+    font-weight: 400;
+    color: var(--red);
+}
+.RealExperiences .Infoslide h3
+{
+    font-family: var(--title-font-family);
+    font-size: 96px;
+    font-weight: 400;
+    color: var(--red);
+    padding-left: 270px;
+
+}
+.RealExperiences .Infoslide p
+{
+    font-family: var(--text-font-family);
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--black);
+    transition: .6s;
+        width: 60%;
+}
+.RealExperiences .sLIDEaREA h4
+{
+    font-family: var(--text-font-family);
+    font-size: 40px;
+    font-weight: 500;
+    color: var(--red);
+    margin-bottom: 20px;
+}
+.RealExperiences .sLIDEaREA .slidewindows
+{
+    width: 60vw;
+    overflow: hidden;
+
+}
+.RealExperiences .sLIDEaREA .slidewindows p
+{
+    width: 300vw;
+    display: flex;
+    border-radius: 40px;
+    border-bottom-right-radius: 0px;
+    transition: .6s;
+}
+.RealExperiences .sLIDEaREA .slidewindows p div
+{
+    padding: 24px;
+    background-color: var(--black);
+    color: #fff;
+    border-radius: 40px;
+    border-bottom-right-radius: 0px;
+    transition: .6s;
+    margin-right:2vw;
+}
+.sLIDEaREA .buttonsslide
+{
+    margin: 10px 0;
+    text-align: center;
+    width: 70%;
+}
+.sLIDEaREA .buttonsslide .disbuttons
+{
+    width: 24px;
+    height: 24px;
+    background-color: #9f9f9f;
+    border-radius: 50%;
+    margin: 8px 4px;
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+}
+.sLIDEaREA .buttonsslide .activbuttons
+{
+    width: 100px;
+    height: 24px;
+    background-color: var(--red);
+    border-radius: 20px;
+    margin: 5px 4px;
+    border: none;
+    transition: .3s;
+}
+.StudentLife
+{
+    background-image: url('./StudentLife.png');
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 800px;
+    height: 1004px;
+    right: 0px;
+    top: -100px;
+    z-index: -10;
+}
+
+@media (max-width:1550px)
+{
+    .RealExperiences .Infoslide h2
+    {
+        font-size: 66px;
+    }
+    .RealExperiences .Infoslide h3
+    {
+        font-size: 66px;
+        padding-left: 190px;
+    }
+    .RealExperiences .Infoslide p
+    {
+        font-size: 20px;;
+        width: 50%;
+    }
+    .RealExperiences .sLIDEaREA h4
+    {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .StudentLife
+    {
+        width: 600px;
+        height: 804px;
+        right: 0px;
+        top: -100px;
+        z-index: -10;
+    }
+}
+
+
+@media (max-width:1150px)
+{
+    .RealExperiences
+    {
+        width: 100%;
+        padding: 0 70px;
+        position: relative;
+        margin-top: 100px;
+    }
+    .RealExperiences .Infoslide h2
+    {
+        font-size: 46px;
+    }
+    .RealExperiences .Infoslide h3
+    {
+        font-size: 46px;
+        padding-left: 130px;
+    }
+    .RealExperiences .Infoslide p
+    {
+        font-size: 18px;;
+        width: 50%;
+    }
+    .RealExperiences .sLIDEaREA .slidewindows p
+    {
+        font-size: 14px;
+    }
+    .RealExperiences .sLIDEaREA .slidewindows p div
+    {
+        padding: 20px;
+    }
+    .RealExperiences .sLIDEaREA h4
+    {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    .StudentLife
+    {
+        width: 450px;
+        height: 604px;
+        right: 0px;
+        top: -100px;
+        z-index: -10;
+    }
+}
+
+@media (max-width:775px)
+{
+    .RealExperiences
+    {
+        padding: 0 20px;
+    }
+    .RealExperiences .Infoslide h2
+    {
+        font-size: 32px;
+    }
+    .RealExperiences .Infoslide h3
+    {
+        font-size: 32px;
+        padding-left: 90px;
+    }
+    .RealExperiences .Infoslide p
+    {
+        font-size: 16px;;
+        width: 50%;
+    }
+    .RealExperiences .sLIDEaREA .slidewindows p
+    {
+        font-size: 14px;
+    }
+    .RealExperiences .sLIDEaREA .slidewindows p div
+    {
+        padding: 20px;
+        margin-right: 4vw;
+    }
+    .RealExperiences .sLIDEaREA h4
+    {
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+    .StudentLife
+    {
+        width: 300px;
+        height: 354px;
+        top: -70px;
+    }
+    .RealExperiences .sLIDEaREA .slidewindows
+    {
+        width: 90vw;
+    }
+    .RealExperiences .sLIDEaREA .slidewindows p
+    {
+        width: 450vw;
+    }
+    .sLIDEaREA .buttonsslide
+    {
+        width: 100%;
+    }
+}
+
+
+@media (max-width:555px)
+{
+    .RealExperiences
+    {
+        padding: 0 10px;
+    }
+    .RealExperiences .Infoslide h2
+    {
+        font-size: 32px;
+    }
+    .RealExperiences .Infoslide h3
+    {
+        font-size: 32px;
+        padding-left: 60px;
+        margin-bottom: 30px;
+    }
+    .RealExperiences .Infoslide p
+    {
+        font-size: 16px;;
+        width: 50%;
+        display: none;
+    }
+    .RealExperiences .sLIDEaREA .slidewindows p
+    {
+        font-size: 14px;
+    }
+    .RealExperiences .sLIDEaREA .slidewindows p div
+    {
+        padding: 20px;
+        margin-right: 4vw;
+    }
+    .RealExperiences .sLIDEaREA h4
+    {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    .StudentLife
+    {
+        width: 182px;
+        height: 232px;
+        top: -20px;
+    }
+    .RealExperiences .sLIDEaREA .slidewindows
+    {
+        width: 99vw;
+    }
+    .RealExperiences .sLIDEaREA .slidewindows p
+    {
+        width: 495vw;
+    }
+    .sLIDEaREA .buttonsslide
+    {
+        width: 100%;
+    }
+}

@@ -1,0 +1,306 @@
+.Hero
+{
+    width: 100%;
+    height: 100vh;
+    background-image: url('./BG.png');
+    background-position: bottom;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 156px;
+}
+.Hero .Contact-FolowingBox
+{
+    width: 101px;
+    height: 424px;
+    background-color: var(--red);
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    display: flex;
+}
+.Hero .Contact-FolowingBox .Icons
+{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 60%;
+    align-items: center; 
+    color: #fff;
+}
+.Hero .Contact-FolowingBox p
+{
+    color: #fff;
+    position: relative;
+    width: 40%;
+    height: 100%;
+}
+.Hero .Contact-FolowingBox p h4
+{
+    position: absolute;
+    width: max-content;
+    right: -45px;
+    top: 47%;
+    transform:rotate(-90deg) ;
+}
+.Hero .Title
+{
+    display: flex;
+    flex-direction: column;
+}
+.Hero .Title h1
+{
+    font-family: var(--title-font-family);
+    color: var(--black);
+    font-weight: 400;
+    font-size: 96px;
+    line-height: 47px;
+    position: relative;
+    width: max-content;
+    z-index: 10;
+    transition: .4s;
+    margin-top: 40px;
+}
+.Hero .Title h1 .span1
+{
+    width: 340.1px;
+    height: 54.16px;
+    background-image: url('./UnderLine.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -40px;
+    bottom: -30px;
+    z-index: 9;
+}
+.Hero .Title h1 .span2
+{
+    width: 209.1px;
+    height: 35.16px;
+    background-image: url('./AbouveLine.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: -40px;
+    bottom: -26px;
+    z-index: 11;
+}
+.Hero .Title h2
+{
+    font-family: var(--title-font-family);
+    color: var(--red);
+    font-weight: 400;
+    font-size: 140px;
+    padding-left: 190px;
+    transition: .4s;   
+}
+.Hero .Title p
+{
+    font-family: var(--text-font-family);
+    color: var(--black);
+    font-weight: 400;
+    font-size: 24px;
+    width: 75%;
+    transition: .4s;
+}   
+.Hero .Title p span
+{
+    font-family: var(--text-font-family);
+    color: var(--red);
+    font-weight: 500;
+}
+.Hero .Title .Buttons
+{
+    display: flex;
+    margin-top: 50px;
+    transition: .4s;
+}
+.Hero .Title .Buttons button:nth-child(1)
+{
+    font-family: var(--text-font-family);
+    color: #fff;
+    background-color: var(--red);
+    font-size: 22px;
+    font-weight: 700;
+    width: 424px;
+    height: 54px;
+    border-radius: 52px;
+    border: none;
+    cursor: pointer;
+    margin-right: 32px;
+}
+.Hero .Title .Buttons button:nth-child(2)
+{
+    font-family: var(--text-font-family);
+    color: var(--red);
+    background-color: transparent;
+    font-size: 22px;
+    font-weight: 700;
+    width: 424px;
+    height: 54px;
+    border-radius: 52px;
+    border: 4px solid var(--red);
+    cursor: pointer;
+}
+
+
+@media(max-width:1470px)
+{
+    .Hero .Title h1
+    {
+        font-size: 60px;
+    }
+    .Hero .Title h2
+    {
+        font-size: 80px;
+    }
+    .Hero .Title p
+    {
+        font-size: 18px;
+    }
+    .Hero .Title .Buttons
+    {
+        flex-direction: column-reverse;
+        margin-top: 28px;
+    }
+    .Hero .Title .Buttons button
+    {
+        margin-top: 20px;
+    }
+}
+
+@media(max-width:992px)
+{
+    .Hero .Contact-FolowingBox
+    {
+      width: 75px;
+      height: 350px;
+    }
+    .Hero .Contact-FolowingBox p h4
+    {
+        right: -23px;
+        font-size: 14px;
+    }
+    .Hero
+    {
+        padding: 0px 90px;
+    }
+    .Hero .Title h1
+    {
+        font-size: 60px;
+    }
+        .Hero .Title h1 .span1
+    {
+        bottom: -26px;
+    }
+    .Hero .Title h1 .span2
+    {
+        bottom: -24px;
+    }
+    .Hero .Title h2
+    {
+        font-size: 80px;
+    }
+    .Hero .Title p
+    {
+        font-size: 18px;
+        width: 80%;
+    }
+    .Hero .Title .Buttons
+    {
+        flex-direction: column;
+        margin-top: 28px;
+
+    }
+    .Hero .Title .Buttons button
+    {
+        margin-top: 20px;
+
+    }
+    .Hero .Title .Buttons button:nth-child(2),.Hero .Title .Buttons button:nth-child(1)
+    {
+        font-size: 20px;
+        width: 324px;
+        height: 54px;
+        border: 2px solid var(--red);
+        margin-right: 0px;
+    }
+}
+@media(max-width:676px)
+{
+        .Hero
+    {
+        padding: 0px 30px;
+        height: 80vh;
+    }
+    .Hero .Title h1
+    {
+        font-size: 24px;
+        line-height: 17px;
+    }
+    .Hero .Title h2
+    {
+        font-size: 32px;
+        padding-left: 40px;
+    }
+    .Hero .Title p
+    {
+        font-size: 14px;
+        width: 100%;
+        display: none;
+    }
+    .Hero .Title h1 .span1
+    {
+        width: 100px;
+        bottom: -36px;
+        right: -10px;
+    }
+    .Hero .Title h1 .span2
+    {
+        width: 60px;
+        bottom: -24px;
+        right: -10px;
+    }
+        .Hero .Title .Buttons button:nth-child(2),.Hero .Title .Buttons button:nth-child(1)
+    {
+        font-size: 16px;
+        width: 274px;
+        height: 50px;
+    }
+    .Hero .Contact-FolowingBox
+    {
+        width: 50px;
+        height: 224px;
+        border-top-left-radius: 18px;
+        border-bottom-left-radius: 18px;
+        top: 45%;
+    }
+    .Hero .Contact-FolowingBox .Icons
+    {
+        width: 80%;
+    }
+    .Hero .Contact-FolowingBox p
+    {
+        width: 20%;
+    }
+    .Hero .Contact-FolowingBox p h4
+    {
+        right: -23px;
+        font-size: 12px;
+    }
+}
+
+@media(max-width:375px)
+{
+        .Hero .Contact-FolowingBox
+    {
+        display: none;
+    }
+    
+}

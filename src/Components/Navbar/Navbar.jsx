@@ -1,49 +1,45 @@
-
 import { Link } from "react-router-dom";
-
-import { Navbar as RBNavbar, Container, Nav, NavDropdown } from 'react-bootstrap';
+import './Navbar.css'
+import { useState } from "react";
 
 export default function Navbar() {
+
+  const [activ , setactiv] = useState(0)
+
+  const [togle , settogle] = useState(true)
+
   return (
-    <RBNavbar 
-        expand="md" 
-        data-bs-theme="dark" 
-        className="bg-dark rounded-3 shadow-sm mx-4 mt-4" 
-        style={{ '--bs-bg-opacity': 0.95 }} 
-    >
-      <Container fluid className="px-3">
-        <RBNavbar.Brand as={Link} to="/" className="text-xl md:text-2xl font-bold">
-          <span className="text-white">The Canadian </span>
-          <span className="text-danger">Academy</span>
-        </RBNavbar.Brand>
-        <RBNavbar.Toggle aria-controls="responsive-navbar-nav" />
-        <RBNavbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto gap-3 text-base font-medium">
-            <Nav.Link as={Link} to="/" className="text-danger border-bottom border-danger pb-1">
-              Home
-            </Nav.Link>   
-            {/* About Us Link */}
-            <Nav.Link as={Link} to="/AboutUs" className="text-secondary hover:text-danger">
-              About Us
-            </Nav.Link>
-            {/* Courses Link */}
-            <Nav.Link as={Link} to="/Courses" className="text-secondary hover:text-danger">
-              Courses
-            </Nav.Link>
-            {/* English For Kids Link */}
-            <Nav.Link as={Link} to="/HelpCenter" className="text-secondary hover:text-danger">
-              Help Center
-            </Nav.Link>
-            {/* Contact Us Link */}
-            <Nav.Link as={Link} to="/ContactUs" className="text-secondary hover:text-danger">
-              Contact Us
-            </Nav.Link>
-            <Nav.Link as={Link} to="/Inroll" className="text-secondary hover:text-danger">
-              Inroll
-            </Nav.Link>
-          </Nav>
-        </RBNavbar.Collapse>
-      </Container>
-    </RBNavbar>
+    <>
+    <nav className="navbarAcademy">
+      <img src="/Logo.svg" alt="" />
+      <ul className="links">
+        <li className="link"><Link to={'/'} className={activ == 0 ? 'activlinkfornav' : ''} onClick={() => setactiv(0)}>Home</Link></li>
+        <li className="link"><Link to={'/AboutUs'} className={activ == 1 ? 'activlinkfornav' : ''} onClick={() => setactiv(1)}>About Us</Link></li>
+        <li className="link"><Link to={'/Courses'}  className={activ == 2 ? 'activlinkfornav' : ''} onClick={() => setactiv(2)}>Courses</Link></li>
+        <li className="link"><Link to={'/HelpCenter'}  className={activ == 3 ? 'activlinkfornav' : ''} onClick={() => setactiv(3)}>Help Center</Link></li>
+        <li className="link"><Link to={'/ContactUs'}  className={activ == 4 ? 'activlinkfornav' : ''} onClick={() => setactiv(4)}>Contact Us</Link></li>
+      </ul>
+    </nav>
+    <nav>
+      <div className="NavForMobilemain">
+        <img src="/Logored.svg" alt="Logo" />
+        <img src="/Frame18.svg" alt="togel-icone" onClick={() => settogle(!togle)}/>
+      </div>
+    </nav>
+    <nav className="NavForMobile" style={{transform: `translateX(${togle ? '100vw' : '0vw'})`}}>
+      <div className="Top">
+        <img src="/Logored.svg" alt="Logo" />
+        <img src="/cross1.svg" alt="close"  onClick={() => settogle(!togle)}/>
+      </div>
+      <ul className="linkss">
+        <li className="link"><Link to={'/'}  className={activ == 0 ? 'activlinkfornav' : ''} onClick={() => (setactiv(0) , settogle(!togle))}>Home</Link></li>
+        <li className="link"><Link to={'/AboutUs'}  className={activ == 1 ? 'activlinkfornav' : ''} onClick={() => (setactiv(1) , settogle(!togle))}>About Us</Link></li>
+        <li className="link"><Link to={'/Courses'}  className={activ == 2 ? 'activlinkfornav' : ''} onClick={() => (setactiv(2) , settogle(!togle))}>Courses</Link></li>
+        <li className="link"><Link to={'/HelpCenter'}  className={activ == 3 ? 'activlinkfornav' : ''} onClick={() => (setactiv(3) , settogle(!togle))}>Help Center</Link></li>
+        <li className="link"><Link to={'/ContactUs'}  className={activ == 4 ? 'activlinkfornav' : ''} onClick={() => (setactiv(4) , settogle(!togle))}>Contact Us</Link></li>
+      </ul>
+      <span>x</span>
+    </nav>
+    </>
   );
 }

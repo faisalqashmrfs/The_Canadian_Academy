@@ -7,3 +7,8 @@ html {
 :target {
     scroll-padding-top: 100px;
 }
+
+.UltraSection
+{
+    overflow: hidden;
+}

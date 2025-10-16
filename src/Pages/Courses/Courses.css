@@ -1,0 +1,50 @@
+.Controllh
+{
+    padding: 0px 150px;
+    margin-top: 40px;
+}
+.Controllh button
+{
+    margin: 0 20px;
+    background-color: transparent;
+    color: #9F9F9F;
+    font-family: var(--title-font-family);
+    border: none;
+    font-size: 56px;
+}
+.Controllh .activebtn
+{
+    margin: 0 20px;
+    background-color: transparent;
+    color: var(--red);
+    font-family: var(--title-font-family);
+    border: none;
+    font-size: 56px;
+    position: relative;
+}
+.Controllh .activebtn::before
+{
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 10px;
+    background-color: var(--red);
+    bottom: -10px;
+    border-radius: 8px;
+}
+
+@media(max-width:760px)
+{
+    .Controllh
+    {
+        padding: 0 40px;
+    }
+    .Controllh button
+    {
+        font-size: 26px;
+    }
+    .Controllh .activebtn
+    {
+        font-size: 26px;
+    }
+}

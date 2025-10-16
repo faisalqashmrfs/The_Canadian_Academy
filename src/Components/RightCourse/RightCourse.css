@@ -1,0 +1,277 @@
+.RightCourse
+{
+    width: 100%;
+    text-align: center;
+    margin-top: 50px;
+    padding: 0 126px;
+}
+.RightCourse .Title
+{
+    font-family: var(--title-font-family);
+    font-size: 96px;
+    font-weight: 400;
+    color: var(--red);
+}
+.RightCourse .Discription
+{
+    font-family: var(--text-font-family);
+    font-size: 24px;
+    font-weight: 500;
+    color: var(--black);
+    width: 992px;
+    margin: 10px auto;
+}
+.RightCourse .Discription span
+{
+    color: var(--red);
+}
+
+.RightCourse .CardsContainer 
+{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+}
+.RightCourse .CardsContainer .card
+{
+    width: 49%;
+    margin-top: 40px;
+    border-radius: 40px;
+    border: 4px solid #282828;
+}
+.RightCourse .CardsContainer .card img 
+{
+    width: 100%;
+    height: 383px;
+    border-top-left-radius: 40px;
+    border-top-right-radius: 40px;
+}
+
+.RightCourse .CardsContainer .card .bodyCard
+{
+    padding: 30px;
+}
+.RightCourse .CardsContainer .card .TitleCard
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 10px;
+}
+.RightCourse .CardsContainer .card .TitleCard .subTitle
+{
+    font-family: var(--text-font-family);
+    font-size: 32px;
+    font-weight: 600;
+    color: #000;  
+}
+
+.RightCourse .CardsContainer .card .TitleCard .SpansInfo
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.RightCourse .CardsContainer .card .TitleCard .SpansInfo span
+{
+    padding: 4px 16px;
+    background-color: #E6E6E6;
+    margin: 0 8px;
+}
+.RightCourse .CardsContainer .card .bodyCard .discrip
+{
+    font-family: var(--text-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--black);
+    font-style: Light;
+    text-align: start;
+    margin-bottom: 20px;
+}
+.RightCourse .CardsContainer .card .bodyCard .Buttonss
+{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.RightCourse .CardsContainer .card .bodyCard .Buttonss button:nth-child(1)
+{
+    width: 237px;
+    border-radius: 40px;
+    height: 40px;
+    background-color: var(--red);
+    color: #fff;
+    border: none;
+    margin-right: 10px;
+}
+.RightCourse .CardsContainer .card .bodyCard .Buttonss button:nth-child(2)
+{
+    width: 237px;
+    border-radius: 40px;
+    height: 40px;
+    background-color: var(--black);
+    color: #fff;
+    border: none;
+}
+
+.RightCourse .ExploreMoreCourses
+{
+    width: 586px;
+    height: 54px;
+    background-color: var(--red);
+    color: #fff;
+    border-radius: 12px;
+    border: none;
+    margin: 20px auto;
+}
+
+@media (max-width:1150px)
+{
+    .RightCourse
+    {
+        padding: 0 50px;
+    }
+    .RightCourse .Title
+    {
+        font-size: 46px;
+    }
+    .RightCourse .Discription
+    {
+        font-size: 20px;
+        width: 90%;
+    }
+
+    .RightCourse .CardsContainer .card
+    {
+        width: 99%;
+    }
+}
+
+@media (max-width:750px)
+{
+    .RightCourse
+    {
+        padding: 0 23px;
+    }
+    .RightCourse .Title
+    {
+        font-size: 32px;
+    }
+    .RightCourse .Discription
+    {
+        font-size: 18px;
+    }
+
+    .RightCourse .CardsContainer .card
+    {
+        width: 99%;
+    }
+    .RightCourse .CardsContainer .card .bodyCard
+    {
+        padding: 20px;
+    }
+    .RightCourse .CardsContainer .card .TitleCard .subTitle
+    {
+        font-size: 18px;
+    }
+    .RightCourse .CardsContainer .card .TitleCard .SpansInfo span
+    {
+        font-size: 12px;
+        margin: 0 5px;
+    }
+    .RightCourse .CardsContainer .card .bodyCard .discrip
+    {
+        font-size: 14px;
+    }
+    .RightCourse .ExploreMoreCourses
+    {
+        width: 306px;
+        height: 44px;
+    }
+}
+
+@media (max-width:550px)
+{
+    .RightCourse .Title
+    {
+        font-size: 32px;
+        width: 300px;
+        margin: 0 auto;
+    }
+    .RightCourse .Discription
+    {
+        font-size: 18px;
+        display: none;
+    }
+
+    .RightCourse .CardsContainer .card
+    {
+        width: 99%;
+    }
+    .RightCourse .CardsContainer .card .bodyCard
+    {
+        padding: 8px;
+    }
+    .RightCourse .CardsContainer .card .TitleCard
+    {
+        align-items: center;
+    }
+    .RightCourse .CardsContainer .card .TitleCard .subTitle
+    {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+    .RightCourse .CardsContainer .card .TitleCard .SpansInfo span
+    {
+        font-size: 12px;
+        margin: 0 5px;
+    }
+    .RightCourse .CardsContainer .card .bodyCard .discrip
+    {
+        font-size: 10px;
+    }
+    .RightCourse .CardsContainer .card .bodyCard .Buttonss button:nth-child(1)
+    {
+        width: 127px;
+        height: 35px;
+        font-size: 14px;
+    }
+    .RightCourse .CardsContainer .card .bodyCard .Buttonss button:nth-child(2)
+    {
+        width: 127px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width:430px)
+{
+    .RightCourse .CardsContainer .card .TitleCard
+    {
+        align-items: center;
+        flex-direction: column;
+    }
+    .RightCourse .CardsContainer .card .bodyCard .discrip
+    {
+        font-size: 10px;
+        text-align: center;
+    }
+    .RightCourse .CardsContainer .card .bodyCard .Buttonss
+    {
+       justify-content: center;
+       font-size: 12px;
+    }
+    .RightCourse .CardsContainer .card .bodyCard .Buttonss button
+    {
+       font-size: 12px;
+    }
+        .RightCourse .ExploreMoreCourses
+    {
+        width: 276px;
+        height: 44px;
+    }
+}
