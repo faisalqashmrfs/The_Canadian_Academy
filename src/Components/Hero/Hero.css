@@ -150,15 +150,15 @@
 }
 
 
-@media(max-width:1450px)
+@media(max-width:1470px)
 {
     .Hero .Title h1
     {
-        font-size: 72px;
+        font-size: 60px;
     }
     .Hero .Title h2
     {
-        font-size: 105px;
+        font-size: 80px;
     }
     .Hero .Title p
     {
@@ -166,7 +166,7 @@
     }
     .Hero .Title .Buttons
     {
-        flex-direction: column;
+        flex-direction: column-reverse;
         margin-top: 28px;
     }
     .Hero .Title .Buttons button
@@ -241,13 +241,13 @@
     }
     .Hero .Title h1
     {
-        font-size: 40px;
-            line-height: 17px;
+        font-size: 24px;
+        line-height: 17px;
     }
     .Hero .Title h2
     {
-        font-size: 55px;
-        padding-left: 90px;
+        font-size: 32px;
+        padding-left: 40px;
     }
     .Hero .Title p
     {
@@ -257,13 +257,15 @@
     }
     .Hero .Title h1 .span1
     {
-        width: 160px;
+        width: 100px;
         bottom: -36px;
+        right: -10px;
     }
     .Hero .Title h1 .span2
     {
-        width: 100px;
+        width: 60px;
         bottom: -24px;
+        right: -10px;
     }
         .Hero .Title .Buttons button:nth-child(2),.Hero .Title .Buttons button:nth-child(1)
     {

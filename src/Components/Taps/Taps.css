@@ -1,0 +1,32 @@
+.TapsandContant
+{
+    width: 100%;
+}
+.TapsandContant .div1
+{
+    width: 94vw;
+    overflow-x: scroll;
+    margin: 0 auto;
+}
+
+.TapsandContant .div1 .div2
+{
+    width: 1804px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.TapsandContant .div1 .div2 button
+{
+    margin: 10px 0px;
+    background-color: transparent;
+    font-family: var(--title-font-family);
+    color: #9F9F9F;
+    font-size: 56px;
+    border: none;
+}
+.TapsandContant .div1 .div2 .active
+{
+    font-size: 53px;
+    color: var(--red);
+}

@@ -16,6 +16,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 
 
 import CourseDetailsPage from './Components/CourseDetails';
+import Footer from './Components/Footer/Footer';
 
 function App() {
   const location = useLocation();
@@ -25,11 +26,10 @@ function App() {
     location.pathname === '/Inroll' ||
     location.pathname === '/enroll-alt' ||
     location.pathname === '/enroll-final' ||
-    location.pathname === '/enroll-summary' ||
-    location.pathname === '/course-details';
+    location.pathname === '/enroll-summary';
 
   return (
-    <>
+    <main className='UltraSection'>
       {!hideNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
@@ -38,15 +38,14 @@ function App() {
         <Route path="/HelpCenter" element={<HelpCenter />} />
         <Route path="/Admission" element={<Admission />} />
         <Route path="/ContactUs" element={<ContactUs />} />
-
         <Route path="/course-details" element={<CourseDetailsPage />} />
-
         <Route path="/Inroll" element={<Inroll />} />
         <Route path="/enroll-alt" element={<InrollAlt />} />
         <Route path="/enroll-final" element={<InrollFinal />} />
         <Route path="/enroll-summary" element={<EnrollSummary />} />
       </Routes>
-    </>
+      <Footer />
+    </main>
   );
 }
 

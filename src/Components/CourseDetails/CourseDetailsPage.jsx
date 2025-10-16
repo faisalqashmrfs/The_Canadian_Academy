@@ -8,6 +8,7 @@ import CourseSidebar from './CourseSidebar';
 import CourseSection from './CourseSection';
 import ProgramHighlights from './ProgramHighlights';
 import MeetEducator from './MeetEducator';
+import Hero from '../Hero/Hero';
 
 // بيانات الدورة الوهمية
 const MOCK_COURSE_DATA = {
@@ -64,6 +65,8 @@ const CourseDetailsPage = () => {
     }, []);
 
     return (
+       <>
+        <Hero title1={"Discover Our Language"} title2={"courses"} span={"Master Languages, Connect Globally"} p={"At The Canadian Academy, we make language learning simple, engaging, and tailored to your journey. Learn from expert teachers, practice real-world communication, and discover new cultures — all in one vibrant community."}/>
         <Container className="my-5">
             <h1 className="text-danger fw-bold mb-5" style={{ fontSize: '3rem' }}>Course Details</h1>
 
@@ -109,6 +112,7 @@ const CourseDetailsPage = () => {
                 </Col>
             </Row>
         </Container>
+       </>
     );
 };
 

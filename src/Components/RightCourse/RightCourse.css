@@ -29,7 +29,7 @@
 .RightCourse .CardsContainer 
 {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
