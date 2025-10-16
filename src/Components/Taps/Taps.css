@@ -29,4 +29,40 @@
 {
     font-size: 53px;
     color: var(--red);
+    position: relative;
+}
+.TapsandContant .div1 .div2 .active::before
+{
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 5px;
+    background-color: var(--red);
+    bottom: -10px;
+    left: 0;
+}
+
+
+
+
+
+
+
+
+
+
+@media(max-width : 500px)
+{
+    .TapsandContant .div1 .div2
+    {
+        width: 900px;
+    }
+    .TapsandContant .div1 .div2 button
+    {
+        font-size: 24px;
+    }
+    .TapsandContant .div1 .div2 .active
+    {
+        font-size: 32px;
+    }
 }
