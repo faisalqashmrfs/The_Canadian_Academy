@@ -42,7 +42,15 @@
     left: 0;
 }
 
-
+.section1 , .section2 , .section3 , .section4 , .section5
+{
+    width: 100%;
+    padding: 0 80px;
+    margin-top: 30px;
+    height: 80vh;
+    border: 1px solid var(--red);
+    transition: 1s;
+}
 
 
 

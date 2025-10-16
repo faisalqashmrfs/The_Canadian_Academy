@@ -18,11 +18,11 @@ export default function Taps() {
         </div>
         <div>
       
-            {active == 0 ? <div>0</div> : <></>} {/*   القسم الأول  */}
-            {active == 1 ? <div>1</div> : <></>} {/* القسم الثاني  */}
-            {active == 2 ? <div>2</div> : <></>} {/* القسم الثالث  */}
-            {active == 3 ? <div>3</div> : <></>} {/* القسم الرابع  */}
-            {active == 4 ? <div>4</div> : <></>} {/* القسم الخامس  */}
+            {active == 0 ? <div className='section1' >0</div> : <></>} {/*   القسم الأول  */}
+            {active == 1 ? <div className='section2' >1</div> : <></>} {/* القسم الثاني  */}
+            {active == 2 ? <div className='section3' >2</div> : <></>} {/* القسم الثالث  */}
+            {active == 3 ? <div className='section4' >3</div> : <></>} {/* القسم الرابع  */}
+            {active == 4 ? <div className='section5' >4</div> : <></>} {/* القسم الخامس  */}
         </div>
         
     </section>
