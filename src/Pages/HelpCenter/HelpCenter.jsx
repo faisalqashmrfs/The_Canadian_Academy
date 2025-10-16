@@ -2,6 +2,6 @@ import './HelpCenter..css'
 
 export default function Courses() {
   return (
-    <div>Courses</div>
+    <div>Help Center</div>
   )
 }
