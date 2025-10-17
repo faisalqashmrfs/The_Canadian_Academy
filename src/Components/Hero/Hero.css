@@ -34,6 +34,10 @@
     align-items: center; 
     color: #fff;
 }
+.Hero .Contact-FolowingBox .Icons img 
+{
+    width: 20px;
+}
 .Hero .Contact-FolowingBox p
 {
     color: #fff;

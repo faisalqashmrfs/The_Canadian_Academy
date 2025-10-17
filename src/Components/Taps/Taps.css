@@ -4,16 +4,16 @@
 }
 .TapsandContant .div1
 {
-    width: 94vw;
+    width: 90vw;
     overflow-x: scroll;
     margin: 0 auto;
 }
 
 .TapsandContant .div1 .div2
 {
-    width: 1804px;
+    width: 1704px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 }
 .TapsandContant .div1 .div2 button
@@ -45,11 +45,212 @@
 .section1 , .section2 , .section3 , .section4 , .section5
 {
     width: 100%;
-    padding: 0 80px;
-    margin-top: 30px;
-    height: 80vh;
-    border: 1px solid var(--red);
+    padding: 0 150px;
+    margin: 50px 0;
     transition: 1s;
+}
+.section1
+{
+    display: flex;
+}
+.section1 div
+{
+    position: relative;
+    width: 40vw;
+    margin-bottom: 5px;
+}
+.section1 div
+{
+    background-image: url("/Rectangle4320.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 30px;
+}
+.section1 div::before
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    content: "";
+    left: -55px;
+    bottom: -55px;
+    background-color: var(--red);
+    z-index: -1;
+    border-radius: 30px;
+}
+.section1 p
+{
+    font-size: 24px;
+    color: var(--black);
+    font-weight: 400;
+    padding: 0px 140px 0 40px;
+    width: 60vw;
+}
+.section2 
+{
+    padding-right: 0;
+}
+
+.section2 .info1
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+}
+.section2 .info1 .leftinfo h2 , .section2 .info2 h2
+{
+    font-size: 64px;
+    font-family: var(--title-font-family);
+    color: var(--black);
+    font-weight: 400;
+    margin-bottom: 40px;
+}
+.section2 .info1 .leftinfo h2 span , .section2 .info2 h2 span
+{
+    font-size: 40px;
+    font-family: var(--title-font-family);
+    color: var(--red);
+    font-weight: 400;
+    margin-left: 10px;
+}
+.section2 .info1 .leftinfo p , .section2 .info2 p
+{
+    font-size: 20px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.section2 .info1 .leftinfo p img , .section2 .info2 p img
+{
+    margin-right: 10px;
+}
+.section2 .info1 .rightImages
+{
+    margin-top: -100px;
+}
+.section2 .info2
+{
+    margin-top: -20vw;
+}
+.section3
+{
+    display: flex;
+    justify-content: space-between;
+}
+.section3 .Leftinfo 
+{
+    width: 60%;
+}
+.section3 .Leftinfo h2 
+{
+    font-size: 64px;
+    font-family: var(--title-font-family);
+    color: var(--black);
+    font-weight: 400;
+    margin-bottom: 70px;
+}
+
+.section3 .Leftinfo h2 span
+{
+    font-size: 64px;
+    font-family: var(--title-font-family);
+    color: var(--red);
+    font-weight: 400;
+    margin-left: 10px;
+}
+.section3 .Leftinfo p
+{
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 30px;
+}
+.section3 .Leftinfo p span
+{
+    color: var(--red);
+}
+.section3 .Leftinfo p img 
+{
+    margin-right: 15px;
+}
+.section3 .Imagesrightside 
+{
+    width: 40%;
+    background-image: url("/Rectangle02.png");
+    background-position: center;
+    background-size: cover;
+    height: 500px;
+    border-radius: 40px;
+    position: relative;
+}
+.section3 .Imagesrightside::before
+{
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    right: -75px;
+    background-color: var(--red);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 40px;
+}
+
+.section4
+{
+    display: flex;
+    flex-direction: column;
+}
+
+.section4 .BackIMgsec4
+{
+    background-image: url("/Rectangsec4.png");
+    background-position: center;
+    background-size: cover;
+    width: 98%;
+    height: 850px;
+    margin-bottom: 100px;
+    position: relative;
+}
+.section4 .BackIMgsec4::before
+{
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    right: -100px;
+    background-color: var(--red);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    border-radius: 20px;
+}
+.section4 span
+{
+    font-size: 40px;
+    font-family: var(--title-font-family);
+    color: var(--black);
+    font-weight: 400;
+    margin-left: 10px;    
+}
+.section4 h2
+{
+    font-size: 64px;
+    font-family: var(--title-font-family);
+    color: var(--red);
+    font-weight: 400;
+    margin-left: 10px;    
+    margin-bottom: 50px;
+}
+.section4 p
+{
+    font-size: 20px;
+    color: #000;
+    margin-bottom: 30px;    
+}
+.section4 p img 
+{
+    margin-right: 15px;
 }
 
 
@@ -57,10 +258,152 @@
 
 
 
-
-
-@media(max-width : 500px)
+@media(max-width : 1530px)
 {
+    .section2 .info1 .rightImages
+    {
+        margin-top: -50px;
+        width: 500px;
+    }
+    .section2 .info2
+    {
+        margin-top: -0vw;
+    }
+}
+
+@media(max-width : 1470px)
+{
+    .section1 , .section2 , .section3 , .section4 , .section5
+    {
+            padding: 0 75PX;
+    }
+    .section2
+    {
+        padding-right: 0;
+    }
+    .section1 div
+    {
+        width: 50vw;
+    }
+    .section1 p
+    {
+        font-size: 20px;
+        padding: 0px 0px 0 40px;
+        width: 50vw;
+    }
+    .section4 .BackIMgsec4::before
+    {
+        content: "";
+        position: absolute;
+        bottom: -20px;
+        right: -33px;
+        background-color: var(--red);
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        border-radius: 20px;
+    }
+}
+@media(max-width : 1130px)
+{
+    .section2 .info1
+    {
+        flex-direction: column;
+    }
+    .section2 .info1 .rightImages
+    {
+        margin-top: -50px;
+        width: 500px;
+        align-self: flex-end;
+    }
+    .section2 .info2
+    {
+        margin-top: -0vw;
+    }
+}
+
+@media(max-width : 992px)
+{
+    .section1 , .section2 , .section3 , .section4 , .section5
+    {
+            padding: 0 45PX;
+    }
+        .section2
+    {
+        padding-right: 0;
+    }
+    .section1
+    {
+        flex-direction: column;
+        margin-bottom: 0;
+    }
+    .section1 div
+    {
+        width: 90vw;
+        height: 500px;
+    }
+    .section1 div::before
+    {
+        left: -20px;
+        bottom: -20px;
+    }
+    .section1 p
+    {
+        width: 90vw;
+        padding: 0;
+        margin-top: 30px;
+    }
+    .section3
+    {
+        flex-direction: column-reverse;
+    }
+    .section3 .Leftinfo 
+    {
+        width: 100%;
+    }
+    .section3 .Imagesrightside 
+    {
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: 50px;
+    }
+    .section3 .Imagesrightside::before
+    {
+        bottom: -25px;
+        right: -25px;
+    }
+    .section4 .BackIMgsec4
+    {
+        height: 450px;
+    }
+}
+
+@media(max-width : 540px)
+{
+    .section1 , .section2 , .section3 , .section4 , .section5
+    {
+            padding: 0 10PX;
+    }
+        .section2
+    {
+        padding-right: 0;
+    }
+    .section1 div
+    {
+        margin-left: 10px;
+    }
+    .section1 div::before
+    {
+        left: -10px;
+        bottom: -10px;
+    }
+    .section1 p
+    {
+        font-size: 14px;
+        width: 90vw;
+        padding: 0;
+        margin-top: 30px;
+    }
     .TapsandContant .div1 .div2
     {
         width: 900px;
@@ -72,5 +415,78 @@
     .TapsandContant .div1 .div2 .active
     {
         font-size: 32px;
+    }
+    .section2 .info1 .leftinfo h2 , .section2 .info2 h2
+    {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+    .section2 .info1 .leftinfo h2 span , .section2 .info2 h2 span
+    {
+        font-size: 24px;
+    }
+    .section2 .info1 .leftinfo p , .section2 .info2 p
+    {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    .section2 .info1 .rightImages
+    {
+        margin-top: -20px;
+        margin-bottom: 20px;
+        width: 100%;
+    }
+    .section3 .Leftinfo h2 
+    {
+        font-size: 32px;
+        margin-bottom: 20px;
+        margin-top: 50px;
+    }
+
+    .section3 .Leftinfo h2 span
+    {
+        font-size: 32px;
+    }
+    .section3 .Leftinfo p
+    {
+        font-size: 16px;
+        color: #000;
+        margin-bottom: 30px;
+    }
+    .section4 .BackIMgsec4
+    {
+        background-image: url("/Rectangsec4.png");
+        background-position: center;
+        background-size: cover;
+        width: 90%;
+        margin: 0 auto;
+        height: 330px;
+        margin-bottom: 50px;
+    }
+    .section4 .BackIMgsec4::before
+    {
+        bottom: -10px;
+        right: -20px;
+        background-color: var(--red);
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        border-radius: 20px;
+    }
+    .section4 span
+    {
+        font-size: 20px;
+    }
+    .section4 h2
+    {
+        font-size: 32px;
+    }
+    .section4 p
+    {
+        font-size: 16px;  
+    }
+    .section4 p img 
+    {
+        margin-right: 5px;
     }
 }

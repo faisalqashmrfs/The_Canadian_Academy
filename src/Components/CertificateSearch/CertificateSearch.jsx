@@ -3,7 +3,7 @@ import './CertificateSearch.css';
 
 export default function CertificateSearch() {
     const [certNumber, setCertNumber] = useState('');
-    const [showCertificate, setShowCertificate] = useState(false);
+    const [showCertificate, setShowCertificate] = useState(true);
 
     const handleSearch = () => {
         const cleaned = certNumber.trim(); // يشيل الفراغات

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './RightCourse.css'
 
 export default function RightCourse({btn}) {
@@ -15,8 +16,8 @@ export default function RightCourse({btn}) {
                         </div>
                         <p className='discrip'>At The Canadian Academy, we make learning English an exciting adventure for children aged 7–14. Our English for Kids program combines fun, interactive activities with effective teaching methods, helping ...</p>
                         <div className='Buttonss'>
-                            <button className='Inrorll'>Enroll Now</button>
-                            <button className='SeeNow'>Enroll Nowh</button>
+                            <Link to={"/Inroll"}><button className='Inrorll'>Enroll Now</button></Link>
+                            <Link to={"/Courses"}><button className='SeeNow'style={{backgroundColor : "black"}}>See More</button></Link>
                         </div>
                     </div>
                 </div>
@@ -29,8 +30,8 @@ export default function RightCourse({btn}) {
                         </div>
                         <p className='discrip'>At The Canadian Academy, we make learning English an exciting adventure for children aged 7–14. Our English for Kids program combines fun, interactive activities with effective teaching methods, helping ...</p>
                         <div className='Buttonss'>
-                            <button className='Inrorll'>Enroll Now</button>
-                            <button className='SeeNow'>Enroll Nowh</button>
+                            <Link to={"/Inroll"}><button className='Inrorll'>Enroll Now</button></Link>
+                            <Link to={"/Courses"}><button className='SeeNow'style={{backgroundColor : "black"}}>See More</button></Link>
                         </div>
                     </div>
                 </div>
@@ -43,8 +44,8 @@ export default function RightCourse({btn}) {
                         </div>
                         <p className='discrip'>At The Canadian Academy, we make learning English an exciting adventure for children aged 7–14. Our English for Kids program combines fun, interactive activities with effective teaching methods, helping ...</p>
                         <div className='Buttonss'>
-                            <button className='Inrorll'>Enroll Now</button>
-                            <button className='SeeNow'>Enroll Nowh</button>
+                            <Link to={"/Inroll"}><button className='Inrorll'>Enroll Now</button></Link>
+                            <Link to={"/Courses"}><button className='SeeNow'style={{backgroundColor : "black"}}>See More</button></Link>
                         </div>
                     </div>
                 </div>
@@ -57,8 +58,8 @@ export default function RightCourse({btn}) {
                         </div>
                         <p className='discrip'>At The Canadian Academy, we make learning English an exciting adventure for children aged 7–14. Our English for Kids program combines fun, interactive activities with effective teaching methods, helping ...</p>
                         <div className='Buttonss'>
-                            <button className='Inrorll'>Enroll Now</button>
-                            <button className='SeeNow'>Enroll Nowh</button>
+                            <Link to={"/Inroll"}><button className='Inrorll'>Enroll Now</button></Link>
+                            <Link to={"/Courses"}><button className='SeeNow'style={{backgroundColor : "black"}}>See More</button></Link>
                         </div>
                     </div>
                 </div>
@@ -71,13 +72,15 @@ export default function RightCourse({btn}) {
                         </div>
                         <p className='discrip'>At The Canadian Academy, we make learning English an exciting adventure for children aged 7–14. Our English for Kids program combines fun, interactive activities with effective teaching methods, helping ...</p>
                         <div className='Buttonss'>
-                            <button className='Inrorll'>Enroll Now</button>
-                            <button className='SeeNow'>Enroll Nowh</button>
+                            <Link to={"/Inroll"}><button className='Inrorll'>Enroll Now</button></Link>
+                            <Link to={"/Courses"}><button className='SeeNow'style={{backgroundColor : "black"}}>See More</button></Link>
                         </div>
                     </div>
                 </div>
             </div>
-                {btn && <button className='ExploreMoreCourses'>{btn}</button>}
+                <Link to="/Courses">
+                    {btn && <button className='ExploreMoreCourses'>{btn}</button>}
+                </Link>
         </section>
     )
 }
