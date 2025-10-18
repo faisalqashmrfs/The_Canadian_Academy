@@ -22,10 +22,10 @@ const CourseSidebar = ({ isEnrolled, onEnrollClick, activeSection, onNavClick })
     if (page) {
       page.classList.add('slide-out');
       setTimeout(() => {
-        navigate('/enrollment/personal-info');
+        navigate('/Inroll');
       }, 600);
     } else {
-      navigate('/enrollment/personal-info');
+      navigate('/Inroll');
     }
   };
 

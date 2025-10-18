@@ -33,7 +33,7 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Courses" element={<Courses />} />
         <Route path="/HelpCenter" element={<HelpCenter />} />
-        <Route path="/Admission" element={<Admission />} />
+        {/* <Route path="/Admission" element={<Admission />} /> */}
         <Route path="/ContactUs" element={<ContactUs />} />
         <Route path="/course-details" element={<CourseDetailsPage />} />
         <Route path="/Inroll" element={<Inroll />} />

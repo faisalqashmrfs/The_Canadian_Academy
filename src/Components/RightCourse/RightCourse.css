@@ -51,7 +51,7 @@
 
 .RightCourse .CardsContainer .card .bodyCard
 {
-    padding: 30px;
+    padding: 20px;
 }
 .RightCourse .CardsContainer .card .TitleCard
 {
@@ -71,14 +71,15 @@
 .RightCourse .CardsContainer .card .TitleCard .SpansInfo
 {
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
+    gap: 5px;
 }
 .RightCourse .CardsContainer .card .TitleCard .SpansInfo span
 {
     padding: 4px 16px;
     background-color: #E6E6E6;
-    margin: 0 8px;
+    font-size: 14px;
 }
 .RightCourse .CardsContainer .card .bodyCard .discrip
 {
