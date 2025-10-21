@@ -92,7 +92,7 @@
 }
 .StudentLife
 {
-    background-image: url('./StudentLife.png');
+    background-image: url('/StudentLife.png');
     position: absolute;
     background-size: cover;
     background-repeat: no-repeat;

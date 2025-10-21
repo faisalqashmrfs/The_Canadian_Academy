@@ -2,11 +2,11 @@
 {
     width: 100%;
     background-image: url("/BG-Image.png");
-    height: 54vh;
+    height: 64vh;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    padding-top: 180px;
+    padding-top: 150px;
 }
 
 .WhatDrivesUs  h2 

@@ -31,7 +31,7 @@
 }
 .UsDifferent .card1 .Image
 {
-    background-image: url('./girll.svg');
+    background-image: url('/girll.svg');
     width: 834px;
     height: 915px;
     background-position: left;
@@ -92,7 +92,7 @@
     }
     .UsDifferent .card1 .Image
     {
-        background-image: url('./girll.svg');
+        background-image: url('/girll.svg');
         width: 684px;
         height: 885px;
         background-position: left;

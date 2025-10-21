@@ -2,7 +2,7 @@
 {
     width: 100%;
     height: 100vh;
-    background-image: url('./BG.png');
+    background-image: url('/BG.png');
     background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
@@ -102,7 +102,7 @@
 {
     width: 340.1px;
     height: 54.16px;
-    background-image: url('./UnderLine.png');
+    background-image: url('/UnderLine.png');
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
@@ -114,7 +114,7 @@
 {
     width: 209.1px;
     height: 35.16px;
-    background-image: url('./AbouveLine.png');
+    background-image: url('/AbouveLine.png');
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
