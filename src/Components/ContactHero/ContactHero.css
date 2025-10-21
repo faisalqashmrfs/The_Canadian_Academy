@@ -1,0 +1,50 @@
+.contactHeroc .Title h1:nth-child(2) 
+{
+    margin-top: 0;
+
+}
+.contactHeroc .contacthhero
+{
+    transform: translate(300px , -110px);
+}
+
+
+@media(max-width : 1470px)
+{
+   .contactHeroc .contacthhero
+    {
+        transform: translate(120px , -110px);
+    }
+}
+@media(max-width : 992px)
+{
+    .contactHeroc .Title h1:nth-child(1) 
+    {
+        font-size: 40px;
+        line-height: 10px;
+    }
+   .contactHeroc .contacthhero
+    {
+        transform: translate(20px , -50px);
+    }
+    .contactHeroc .contacthhero h2 
+    {
+        font-size: 60px;
+    }
+}
+@media(max-width : 677px)
+{
+    .contactHeroc .Title h1:nth-child(1) 
+    {
+        font-size: 24px;
+        line-height: 0px;
+    }
+   .contactHeroc .contacthhero
+    {
+        transform: translate(80px , -45px);
+    }
+    .contactHeroc .contacthhero h2 
+    {
+        font-size: 40px;
+    }
+}

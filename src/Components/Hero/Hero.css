@@ -3,7 +3,7 @@
     width: 100%;
     height: 100vh;
     background-image: url('./BG.png');
-    background-position: bottom;
+    background-position: right;
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -70,6 +70,33 @@
     z-index: 10;
     transition: .4s;
     margin-top: 40px;
+}
+.course-deatils 
+{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+}
+.course-deatils span
+{
+    font-family: var(--text-font-family);
+    font-size: 20px;
+    color: var(--red);
+    background-color: #FFBDC1;
+    padding: 0px 32px;
+    font-weight: 600;
+}
+.inroll-deatils button
+{
+    font-family: var(--text-font-family);
+    width: 300px;
+    background-color: var(--red);
+    color: #fff;
+    border-radius: 40px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
 }
 .Hero .Title h1 .span1
 {
@@ -197,7 +224,7 @@
     }
     .Hero .Title h1
     {
-        font-size: 60px;
+        font-size: 40px;
     }
         .Hero .Title h1 .span1
     {
@@ -241,7 +268,7 @@
         .Hero
     {
         padding: 0px 30px;
-        height: 80vh;
+        height: 50vh !important;
     }
     .Hero .Title h1
     {
@@ -297,6 +324,21 @@
     {
         right: -23px;
         font-size: 12px;
+    }
+        .course-deatils
+        {
+            margin: 20px 0;
+        }
+    .course-deatils span
+    {
+        font-size: 14px;
+        padding: 10px 32px;
+        font-weight: 600;
+    }
+    .inroll-deatils button
+    {
+        padding: 10px 0;
+        font-size: 16px;
     }
 }
 

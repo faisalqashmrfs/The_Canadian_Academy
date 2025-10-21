@@ -1,8 +1,10 @@
 // src/Components/ContactForm/ContactForm.jsx
 
-import React from 'react';
+import React, { useRef } from 'react'; // 1. استيراد useRef
+import emailjs from '@emailjs/browser'; // 2. استيراد مكتبة emailjs
 import './ContactForm.css';
 
+// لا يوجد تغيير هنا
 const ContactDetail = ({ icon, text, color }) => (
     <div className="contact-detail">
         <i className={`bi bi-${icon} me-2 ${color}`}></i>
@@ -10,7 +12,36 @@ const ContactDetail = ({ icon, text, color }) => (
     </div>
 );
 
+// ✅ المكون الذي تم تعديله
 const ContactFormFields = () => {
+    // 3. إنشاء مرجع (Ref) للنموذج
+    const form = useRef();
+
+    // 4. دالة إرسال البريد الإلكتروني
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        // ⚠️ يجب تغيير هذه القيم إلى قيمك الخاصة من EmailJS
+        const SERVICE_ID = 'YOUR_SERVICE_ID'; 
+        const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+        const PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; 
+
+        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, {
+            publicKey: PUBLIC_KEY,
+          })
+          .then(
+            (result) => {
+              console.log('SUCCESS!', result.text);
+              alert('تم إرسال الرسالة بنجاح!');
+              e.target.reset(); // تفريغ حقول النموذج بعد النجاح
+            },
+            (error) => {
+              console.log('FAILED...', error.text);
+              alert('عذراً، حدث خطأ في الإرسال. يرجى المحاولة لاحقاً.');
+            },
+          );
+    };
+
     return (
         <div className="contact-form-wrapper p-4">
             <div className="mb-5">
@@ -18,16 +49,19 @@ const ContactFormFields = () => {
                 <p className="lead text-secondary">Feel free to drop your message</p>
             </div>
 
-            <form>
+            {/* 5. ربط دالة sendEmail و ref بالنموذج */}
+            <form ref={form} onSubmit={sendEmail}>
                 <div className="input-group mb-4 form-group-underline">
-                    <input type="text" className="form-control form-input-no-border" placeholder="Full Name" aria-label="Full Name" />
+                    {/* 6. إضافة خاصية name لتطابق متغيرات قالب EmailJS */}
+                    <input type="text" className="form-control form-input-no-border" placeholder="Full Name" aria-label="Full Name" name="user_name" required/>
                     <span className="input-group-text custom-red-text bg-transparent">
                         <i className="bi bi-person-fill"></i>
                     </span>
                 </div>
 
                 <div className="input-group mb-4 form-group-underline">
-                    <input type="email" className="form-control form-input-no-border" placeholder="Email" aria-label="Email" />
+                    {/* 6. إضافة خاصية name */}
+                    <input type="email" className="form-control form-input-no-border" placeholder="Email" aria-label="Email" name="user_email" required/>
                     <span className="input-group-text custom-red-text bg-transparent">
                         <i className="bi bi-envelope-fill"></i>
                     </span>
@@ -35,19 +69,18 @@ const ContactFormFields = () => {
 
                 <div className="input-group mb-4 form-group-underline">
                     <div className="input-group-prepend d-flex align-items-center me-2">
-                        <span className="text-secondary me-1"><i className="bi bi-globe"></i></span>
-                        <span className="text-secondary me-1">Country</span>
-                        <span className="custom-red-text"><i className="bi bi-caret-down-fill"></i></span>
                     </div>
-                    <input type="tel" className="form-control form-input-no-border" placeholder="Phone" aria-label="Phone" />
+                    {/* 6. إضافة خاصية name */}
+                    <input type="tel" className="form-control form-input-no-border" placeholder="Phone" aria-label="Phone" name="user_phone" />
                     <span className="input-group-text custom-red-text bg-transparent">
                         <i className="bi bi-telephone-fill"></i>
                     </span>
                 </div>
 
                 <div className="input-group mb-4 form-group-underline">
-                    <input type="text" className="form-control form-input-no-border" placeholder="Message" aria-label="Message" />
-                    <span className="input-group-text custom-red-text bg-transparent">
+                    {/* 6. إضافة خاصية name */}
+                    <textarea rows="4" className="form-control form-input-no-border" placeholder="Message" aria-label="Message" name="message" required></textarea>
+                    <span className="input-group-text custom-red-text bg-transparent align-self-start pt-3">
                         <i className="bi bi-chat-dots-fill"></i>
                     </span>
                 </div>
@@ -60,6 +93,7 @@ const ContactFormFields = () => {
     );
 };
 
+// لا يوجد تغيير هنا
 const ContactForm = () => {
     return (
         <div className="contact-form-wrapper py-5">

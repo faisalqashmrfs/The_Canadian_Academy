@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import './Hero.css'
+import './ContactHero.css'
 // eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
@@ -18,12 +18,13 @@ const itemVariants = {
     visible: { y: 0, opacity: 1 },
 };
 
-export default function Hero({ title1, title2, span, p, buttom , height , sing , deatils , enroll , id}) {
-    
+export default function ContactHero({ title1, title11, title2, title3, span, p, buttom , height , sing}) {
+
     const words = title1.split(" ");
+    const words1 = title11.split(" ");
 
     return (
-        <div className='Hero' style={{height : `${height ? "50vh" : "100vh"}`}}>
+        <div className='Hero contactHeroc' style={{height : `${height ? "50vh" : "100vh"}`}}>
             <div className='Title'>
                 <h1>
                     <motion.h1
@@ -43,24 +44,32 @@ export default function Hero({ title1, title2, span, p, buttom , height , sing ,
                         </motion.span>
                     ))}
                     </motion.h1>
-                    {enroll &&<div className='course-deatils'>
-                        {
-                            deatils?.map((item) => (
-                                <span key={item.id}>
-                                    {item.name}
-                                </span>
-                            ))
-                        }
-                    </div>}
-                    {
-                        enroll && <div  className='inroll-deatils'>
-                        <Link to={`/Inroll/${id}`}><button>Enroll Now</button></Link>
-                    </div>
-                    }
                     {sing && <span className='span1'></span>}
                     {sing && <span className='span2'></span>}
                 </h1>
-                <h2>{title2}</h2>
+                <h1>
+                    <motion.h1
+                        variants={containerVariants}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true }}
+                    >
+                        {words1.map((word, index) => (
+                        <motion.span
+                        viewport={{ once: true, amount: 0.5 }}
+                        key={index}
+                        variants={itemVariants}
+                        style={{ display: "inline-block", marginRight: "0.25em" }}
+                        >
+                        {word}
+                        </motion.span>
+                    ))}
+                    </motion.h1>
+                </h1>
+                <div className='contacthhero'>
+                    <h2>{title2}</h2>
+                    <h2>{title3}</h2>
+                </div>
                 <p><span>{span}</span>{p}</p>
                 {buttom &&
                     <motion.div

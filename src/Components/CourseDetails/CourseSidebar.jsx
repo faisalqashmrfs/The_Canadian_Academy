@@ -4,7 +4,7 @@ import React from 'react';
 import { ListGroup, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
-const CourseSidebar = ({ isEnrolled, onEnrollClick, activeSection, onNavClick }) => {
+const CourseSidebar = ({ isEnrolled, activeSection, onNavClick , id}) => {
   const navigate = useNavigate();
 
   // تمرير سلس إلى القسم المطلوب
@@ -22,15 +22,15 @@ const CourseSidebar = ({ isEnrolled, onEnrollClick, activeSection, onNavClick })
     if (page) {
       page.classList.add('slide-out');
       setTimeout(() => {
-        navigate('/Inroll');
+        navigate(`/Inroll/${id}`);
       }, 600);
     } else {
-      navigate('/Inroll');
+      navigate(`/Inroll/${id}`);
     }
   };
 
   return (
-    <div>
+    <div className='courseSliderforhid'>
       {/* قائمة الروابط الجانبية */}
       <ListGroup variant="flush" className="border rounded mb-4">
         <ListGroup.Item

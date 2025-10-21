@@ -1,10 +1,152 @@
 import './Inroll.css';
 import Hero from '../../Components/Hero/Hero';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
+import { useParams } from 'react-router-dom';
+import { getNames } from 'country-list';
+
+// مصفوفات الدورات
+const englesh = [
+    { id: 1, title: "English For Kids", description: "...", span1: "Flexibility in timing", span2: "7 14 years", image: "Imagec1.png", },
+    { id: 2, title: "Academic English", description: "...", span1: "IELTS", span2: "PTEh", image: "Imagec2.png", },
+    { id: 3, title: "Professional Business English", description: "...", span1: "Flexibility in timing", span2: "4-Skills", image: "Imagec3.png", },
+    { id: 4, title: "VIP English Course", description: "...", span1: "Choose your hours", span2: "One to One Teaching", image: "Courses.png", },
+    { id: 5, title: "Summer/Winter Camp", description: "...", span1: "Flexibility in timing", span2: "Choose your Time", image: "Imagec5.png", },
+];
+const mandarin = [
+    { id: 6, title: "HSK ( Hanyu Shuiping Kaoshi )", description: "...", span1: "Flexibility in timing", span2: "7 14 years", image: "Image(6).png", },
+    { id: 7, title: "YCT ( Youth Chinese Test )", description: "...", span1: "IELTS - Lingua", span2: "PTE", image: "Image(7).png", },
+    { id: 8, title: "Professional Business English", description: "...", span1: "Flexibility in timing", span2: "4-Skills", image: "Image(8).png", },
+    { id: 9, title: "VIP English Course", description: "...", span1: "Choose your hours", span2: "One to One Teaching", image: "Courses.png", },
+    { id: 10, title: "Summer/Winter Camp", description: "...", span1: "Choose your Time", image: "Image(10).png", },
+];
+
+// دمج مصفوفات الدورات في مصفوفة واحدة
+const allCourses = [...englesh, ...mandarin];
+
+// الرابط الثابت للـ API
+const API_URL = 'https://api.thecanadianacademy.edu.my/api/notifications'; 
 
 export default function Inroll() {
     const [progress, setprogress] = useState(0);
 
+    // 1. استخراج الـ id وتحويله إلى رقم
+    const { id } = useParams();
+    const courseId = parseInt(id, 10); 
+
+    // --- حالات الخطوة الأولى (معلومات شخصية) ---
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [mobile, setMobile] = useState('');
+    const [email, setEmail] = useState('');
+    
+    // --- حالات القوائم المنسدلة ---
+    const [selectedCountry, setSelectedCountry] = useState('');
+    const [enrollPeriod, setEnrollPeriod] = useState(''); // per
+
+    // --- حالات اللغة والنوع ---
+    const getDefaultLanguage = () => (courseId < 6 ? "English" : "Mandarin");
+    const [selectedLanguage, setSelectedLanguage] = useState(getDefaultLanguage);
+    
+    const getDefaultType = () => {
+        const matchingCourse = allCourses.find(course => course.id === courseId);
+        return matchingCourse ? matchingCourse.title : "";
+    };
+    const [selectedType, setSelectedType] = useState(getDefaultType);
+
+    // --- حالات VIP ---
+    const [wantsVipHours, setWantsVipHours] = useState(false);
+    const [vipHoursCount, setVipHoursCount] = useState(''); // hours
+    const [isSubmitting, setIsSubmitting] = useState(false); // حالة الإرسال
+
+    // دالة للتحقق من بيانات الخطوة الأولى
+    const handleNextStep1 = () => {
+        if (!firstName || !lastName || !selectedCountry || !mobile || !email) {
+            alert("Please fill in all personal information fields.");
+            return;
+        }
+        setprogress(1);
+    };
+
+    // دالة لتأكيد وإرسال البيانات (في الخطوة الثانية)
+    const handleEnrollSubmission = async (e) => {
+        e.preventDefault();
+
+        // التحقق من الحقول الأساسية في الخطوة 2
+        if (!selectedLanguage || !selectedType || !enrollPeriod) {
+            alert("Please complete all course fields.");
+            return;
+        }
+        
+        // التحقق من حقل VIP إذا كان مفعّلاً
+        if (wantsVipHours && !vipHoursCount) {
+             alert("Please specify the number of VIP hours.");
+             return;
+        }
+
+        // 🚨 مرحلة التأكيد (البوب اب)
+        const isConfirmed = window.confirm("Are you sure you want to submit your enrollment request?");
+
+        if (!isConfirmed) {
+            return; // إلغاء الإرسال
+        }
+
+        setIsSubmitting(true);
+
+        const payload = {
+            name: `${firstName} ${lastName}`, // دمج الاسم الأول والأخير
+            mobile: mobile,
+            email: email,
+            nation: selectedCountry,
+            lang: selectedLanguage,
+            per: enrollPeriod.replace(/[^0-9]/g, ''), 
+            hours: wantsVipHours ? parseInt(vipHoursCount, 10) : 0, 
+            message: "sdsdsdsd",
+        };
+
+        try {
+            // تنفيذ طلب الـ API
+            const response = await fetch(API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: payload,
+            });
+
+            if (response.ok) {
+                // نجاح الإرسال
+                setprogress(2);
+                alert("Enrollment submitted successfully!");
+            } else {
+                // فشل الإرسال
+                alert(`Submission failed. Status: ${response.status}. Please check your inputs.`);
+            }
+        } catch (error) {
+            // خطأ في الشبكة
+            console.error('Network or server error:', error);
+            alert("A network error occurred. Please try again.");
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+
+    // دالة تغيير VIP
+    const handleVipToggle = (e) => {
+        const isChecked = e.target.checked;
+        setWantsVipHours(isChecked);
+        if (!isChecked) {
+            setVipHoursCount(''); // مسح القيمة عند الإلغاء
+        }
+    };
+
+
+    const countryNames = useMemo(() => {
+        return getNames('en'); 
+    }, []);
+
+    // **ملاحظة**: تم استرجاع الـ CSS الذي تم حذفه سابقاً لضمان عدم وجود مشاكل في التنسيق الأساسي 
+    // إذا كنت تفضل وضعه في ملف منفصل (Inroll.css)، يمكنك حذف هذا الـ useEffect.
     useEffect(() => {
         const styleTag = document.createElement('style');
         styleTag.innerHTML = `
@@ -25,6 +167,12 @@ export default function Inroll() {
       .form-group-custom {
         position: relative;
         margin-bottom: 1.5rem;
+      }
+      
+      /* نمط حقل ساعات VIP */
+      .form-group-custom.vip-hours-input input {
+          margin-top: 10px;
+          border-bottom: 2px solid #dc3545;
       }
 
       .form-group-custom select,
@@ -118,8 +266,9 @@ export default function Inroll() {
 
     return (
         <div>
-            <Hero title1="The Canadian" title2="Academy" height={true} />
+            <Hero title1="" title2="Enroll Now" height={true} sing={false} />
             <div className="inrollWindows">
+                {/* شريط التقدم */}
                 <div className="Progressbar">
                     <div onClick={() => setprogress(0)}>
                         <img src="/Vectoron.svg" alt="" />
@@ -138,23 +287,34 @@ export default function Inroll() {
                 </div>
 
                 <div className="automaticform">
-                    {/* الخطوة الأولى */}
+                    {/* الخطوة الأولى: المعلومات الشخصية */}
                     {progress === 0 && (
                         <nav className="form1">
                             <h2 className="form-title">Personal Information</h2>
                             <div>
-                                <input type="text" placeholder="First Name" />
-                                <input type="text" placeholder="Last Name" />
+                                {/* ربط الحقول بالحالات */}
+                                <input type="text" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+                                <input type="text" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
                             </div>
-                            <select name="Country" defaultValue="">
-                                <option value="" disabled hidden>Country</option>
-                                <option value="EG">Egypt</option>
-                                <option value="SA">Saudi Arabia</option>
-                                <option value="AE">UAE</option>
+                            <select
+                                id="country-select"
+                                value={selectedCountry}
+                                onChange={(e) => setSelectedCountry(e.target.value)}
+                                required
+                            >
+                                <option value="">Country</option>
+                                {countryNames.map((countryName) => (
+                                    <option key={countryName} value={countryName}>
+                                        {countryName}
+                                    </option>
+                                ))}
                             </select>
-                            <input type="text" placeholder="Phone" />
-                            <input type="email" placeholder="Email" />
-                            <button onClick={() => setprogress(1)} className="enroll-button">
+                            {/* ربط الحقول بالحالات */}
+                            <input type="text" placeholder="Phone" value={mobile} onChange={(e) => setMobile(e.target.value)} required />
+                            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                            
+                            {/* زر الانتقال مع التحقق */}
+                            <button onClick={handleNextStep1} className="enroll-button">
                                 Continue
                                 <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor">
                                     <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="2" fill="none" />
@@ -163,32 +323,49 @@ export default function Inroll() {
                         </nav>
                     )}
 
-                    {/* الخطوة الثانية */}
+                    {/* الخطوة الثانية: معلومات الدورة (نموذج الإرسال) */}
                     {progress === 1 && (
                         <div className="form1">
-                            <h2 className="form-title">Language</h2>
-                            <form>
+                            <h2 className="form-title">Course Information</h2>
+                            {/* ربط النموذج بدالة الإرسال */}
+                            <form onSubmit={handleEnrollSubmission}>
+                                {/* قائمة اللغة */}
                                 <div className="form-group-custom">
-                                    <select required defaultValue="">
+                                    <select 
+                                        required 
+                                        value={selectedLanguage} 
+                                        onChange={(e) => setSelectedLanguage(e.target.value)}
+                                    >
                                         <option value="" disabled hidden>Choose the Language</option>
-                                        <option value="EN">English</option>
-                                        <option value="AR">Arabic</option>
-                                        <option value="FR">French</option>
+                                        <option value="English">English</option>
+                                        <option value="Mandarin">Mandarin</option>
                                     </select>
                                 </div>
 
+                                {/* قائمة نوع الدورة (الـ Type) */}
                                 <div className="form-group-custom">
-                                    <select required defaultValue="">
+                                    <select 
+                                        required 
+                                        value={selectedType} 
+                                        onChange={(e) => setSelectedType(e.target.value)} 
+                                    >
                                         <option value="" disabled hidden>Choose the Course Type</option>
-                                        <option value="INTENSIVE">Intensive</option>
-                                        <option value="GENERAL">General</option>
-                                        <option value="CONVERSATION">Conversation</option>
+                                        {allCourses.map((course) => (
+                                            <option key={course.id} value={course.title}>
+                                                {course.title}
+                                            </option>
+                                        ))}
                                     </select>
                                 </div>
 
+                                {/* فترة التسجيل (per) */}
                                 <div className="form-group-custom">
-                                    <select required defaultValue="">
-                                        <option value="" disabled hidden>Enroll Period</option>
+                                    <select 
+                                        required 
+                                        value={enrollPeriod} 
+                                        onChange={(e) => setEnrollPeriod(e.target.value)}
+                                    >
+                                        <option value="" disabled hidden>Enroll Period (Months)</option>
                                         <option value="1M">1 Month</option>
                                         <option value="3M">3 Months</option>
                                         <option value="6M">6 Months</option>
@@ -197,20 +374,37 @@ export default function Inroll() {
 
                                 <h3 className="form-subtitle">Other Preference</h3>
 
+                                {/* مفتاح تبديل VIP */}
                                 <div className="toggle-group">
                                     <label htmlFor="vipHoursToggle">Want VIP hours</label>
                                     <div className="toggle-switch">
-                                        <input type="checkbox" id="vipHoursToggle" />
+                                        <input 
+                                            type="checkbox" 
+                                            id="vipHoursToggle" 
+                                            checked={wantsVipHours}
+                                            onChange={handleVipToggle}
+                                        />
                                         <label htmlFor="vipHoursToggle"></label>
                                     </div>
                                 </div>
+                                
+                                {/* حقل إدخال ساعات VIP - تم إزالة الـ inline style هنا */}
+                                {wantsVipHours && (
+                                    <div className="form-group-custom vip-hours-input">
+                                        <input
+                                            type="number"
+                                            placeholder="Enter number of VIP hours"
+                                            value={vipHoursCount}
+                                            onChange={(e) => setVipHoursCount(e.target.value)}
+                                            required={wantsVipHours}
+                                            min="1" 
+                                        />
+                                    </div>
+                                )}
 
-                                <div className="form-group-custom">
-                                    <textarea placeholder="Additional notes" rows="2" />
-                                </div>
-
-                                <button type="button" onClick={() => setprogress(2)} className="enroll-button">
-                                    Enroll
+                                {/* زر الإرسال */}
+                                <button type="submit" className="enroll-button" disabled={isSubmitting}>
+                                    {isSubmitting ? 'Submitting...' : 'Enroll'}
                                     <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor">
                                         <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="2" fill="none" />
                                     </svg>
@@ -219,13 +413,13 @@ export default function Inroll() {
                         </div>
                     )}
 
-                    {/* الخطوة الثالثة */}
+                    {/* الخطوة الثالثة: التأكيد */}
                     {progress === 2 && (
                         <nav className="form1">
                             <h2 className="form-title">Confirmation</h2>
-                            <p>تم التسجيل بنجاح</p>
+                            <p>تم إرسال طلبك بنجاح. سيتم التواصل معك قريباً.</p>
                             <button type="button" className="enroll-button">
-                                Enroll
+                                Go to Home
                                 <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor">
                                     <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="2" fill="none" />
                                 </svg>

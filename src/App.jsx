@@ -16,14 +16,10 @@ import Footer from './Components/Footer/Footer';
 import Inroll from './Pages/Inroll/Inroll';
 
 function App() {
-  const location = useLocation();
 
-  // ✅ إخفاء الـ Navbar في صفحات التسجيل
+  const location = useLocation();
   const hideNavbar =
-    location.pathname === '/Inroll' ||
-    location.pathname === '/enroll-alt' ||
-    location.pathname === '/enroll-final' ||
-    location.pathname === '/enroll-summary';
+    location.pathname === '/Inroll'
 
   return (
     <main className='UltraSection'>
@@ -33,10 +29,9 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/Courses" element={<Courses />} />
         <Route path="/HelpCenter" element={<HelpCenter />} />
-        {/* <Route path="/Admission" element={<Admission />} /> */}
         <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/course-details" element={<CourseDetailsPage />} />
-        <Route path="/Inroll" element={<Inroll />} />
+        <Route path="/course-details/:id" element={<CourseDetailsPage />} />
+        <Route path="/Inroll/:id" element={<Inroll />} />
       </Routes>
       <Footer />
     </main>
