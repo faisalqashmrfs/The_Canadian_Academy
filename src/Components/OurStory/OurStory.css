@@ -11,6 +11,7 @@
     font-size: 96px;
     font-family: var(--title-font-family);
     color: var(--red);
+    margin-bottom: 16px;
 }
 
 .OurStory p

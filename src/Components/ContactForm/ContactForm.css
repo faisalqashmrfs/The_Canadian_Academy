@@ -95,5 +95,131 @@
   font-size: 32px;
   color: #262338;
   font-family: var(--text-font-family);
-  margin-bottom: 64px;
+  margin-bottom: 44px;
+}
+.liftFormSide form
+{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.liftFormSide form div
+{
+  position: relative;
+  height: 50px;
+}
+.liftFormSide form div input
+{
+  width: 100%;
+  padding: 0 10px;
+  margin-top: 15px;
+  height: 100%;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid black;
+  font-size: 24px;
+}
+.liftFormSide form div img
+{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+}
+
+.buttoncontactform button
+{
+  color: #fff;
+  background-color: var(--red);
+  width: 300px;
+  padding: 6px;
+  border-radius: 40px;
+  border: none;
+  margin-top: 16px;
+}
+
+@media(max-width:1650px)
+{
+  .continerforform
+{
+  padding: 40px 106px;
+}
+  .contact-detail span{
+  font-size: 18px;
+}
+.liftFormSide h1
+{
+  font-size: 78px;
+}
+.liftFormSide p
+{
+  font-size: 28px;
+}
+}
+
+@media(max-width:1250px)
+{
+.continerforform
+{
+  display: flex;
+  padding: 50px 80px;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.continerforform .rightsideform
+{
+  width: 100%;
+}
+.continerforform .liftFormSide
+{
+  margin-bottom: 32px;
+}
+  .contact-detail span{
+  font-size: 18px;
+}
+.liftFormSide h1
+{
+  font-size: 78px;
+}
+.liftFormSide p
+{
+  font-size: 28px;
+}
+}
+
+
+@media(max-width:735px)
+{
+  .continerforform
+{
+  padding: 50px 19px;
+}
+.contact-detail span{
+  font-size: 12px;
+}
+.liftFormSide h1
+{
+  font-size: 32px;
+}
+.liftFormSide p
+{
+  font-size: 14px;
+}
+.liftFormSide form div input
+{
+  font-size: 14px;
+}
+.liftFormSide form div img
+{
+  width: 24px;
+}
+
+}
+
+@media(max-width:439px)
+{
+  .forsrespons
+{
+  display: flex;
+  flex-direction: column;
+}
 }

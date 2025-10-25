@@ -16,20 +16,23 @@ const ContactFormFields = () => {
             <p>Feel free to drop your message</p>
             <form action="">
                 <div>
-                    <input type="text" />
+                    <input type="text" placeholder='Full Name'/>
                     <img src="/frame1.svg" alt="profile" />
                 </div>
                 <div>
-                    <input type="text" />
+                    <input type="text"  placeholder='Email'/>
                     <img src="/sms.svg" alt="" />
                 </div>
                 <div>
-                    <input type="text" />
+                    <input type="text"  placeholder='Phone'/>
                     <img src="/call.svg" alt="" />
                 </div>
                 <div>
-                    <input type="text" />
+                    <input type="text"  placeholder='Message'/>
                     <img src="/message-text.svg" alt="" />
+                </div>
+                <div className='buttoncontactform'>
+                    <button>Send</button>
                 </div>
             </form>
         </div>
@@ -59,13 +62,13 @@ const ContactForm = () => {
                             ></iframe>
                         </div>
 
-                        <div className="row mt-3">
-                            <div className="col-sm-6 col-12">
+                        <div className="row mt-3 forsrespons">
+                            <div className="col-sm-6 col-6">
                                 <ContactDetail icon="geo-alt-fill" text="Tripureshwar, Kathmandu" color="text-danger" />
                                 <ContactDetail icon="facebook" text="academia@gmail.com" color="text-danger" />
                                 <ContactDetail icon="instagram" text="academia@gmail.com" color="text-danger" />
                             </div>
-                            <div className="col-sm-6 col-12">
+                            <div className="col-sm-6 col-6">
                                 <ContactDetail icon="envelope-fill" text="academia@gmail.com" color="text-danger" />
                                 <ContactDetail icon="telephone-fill" text="+60-147580403" color="text-danger" />
                                 <ContactDetail icon="tiktok" text="academia@gmail.com" color="text-danger" />
