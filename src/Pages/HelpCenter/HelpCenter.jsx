@@ -19,7 +19,7 @@ export default function Courses() {
 
       {/*  القسم الثالث: نموذج التواصل */}
       <section className="contact-section bg-white py-5">
-        <div className="container">
+        <div className="">
           <ContactForm />
         </div>
       </section>
