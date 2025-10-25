@@ -1,6 +1,6 @@
 /* تحديد اللون الأحمر المخصص */
 :root {
-  --custom-red: #e53e3e;
+  --custom-red: #D91E1E;
 }
 
 /* العنوان الرئيسي */
@@ -55,6 +55,12 @@
   align-items: center;
   margin-bottom: 15px;
 }
+.contact-detail span{
+  font-family: var(--text-font-family);
+  font-size: 24px;
+  font-weight: 600;
+  color: #262338;
+}
 
 .contact-detail i {
   margin-right: 10px;
@@ -66,4 +72,28 @@
   background-color: #fff;
   padding-top: 40px;
   padding-bottom: 60px;
+}
+.continerforform
+{
+  display: flex;
+  padding: 50px 156px;
+  justify-content: space-between;
+}
+.continerforform .rightsideform
+{
+  width: 55%;
+}
+.liftFormSide h1
+{
+  font-size: 96px;
+  color: var(--red);
+  font-family: var(--title-font-family);
+  /* margin-bottom: 32px; */
+}
+.liftFormSide p
+{
+  font-size: 32px;
+  color: #262338;
+  font-family: var(--text-font-family);
+  margin-bottom: 64px;
 }

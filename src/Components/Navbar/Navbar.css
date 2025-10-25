@@ -32,10 +32,10 @@
 .NavForMobile
 {
     width: 100vw;
-    height: 80vh;
+    height: 100vh;
     position: fixed;
     top: 0;
-    background-color: #000000d5;
+    background-color: #000000e1;
     z-index: 20;
     transition: .4s;
     display: none;
@@ -43,6 +43,7 @@
     align-items: center;
     justify-content: space-between;
     padding:50px;
+    z-index: 123123123123123;
 }
 .NavForMobile .Top
 {
@@ -101,7 +102,7 @@
 }
 .navbarAcademy .links .link 
 {
-    margin: 0 10px;
+    margin: 0 16px;
 }
 .navbarAcademy .links .link a
 {

@@ -13,7 +13,7 @@ export default function RightCourse({ btn, englesh }) {
                         <div className='bodyCard'>
                             <div className='TitleCard'>
                                 <h3 className='subTitle'>{card.title}</h3>
-                                <div className='SpansInfo'><span>{card.span1}</span><span>{card.span2}</span></div>
+                                {/* <div className='SpansInfo'><span>{card.span1}</span><span>{card.span2}</span></div> */}
                             </div>
                             <p className='discrip'>{card.description}</p>
                             <div className='Buttonss'>

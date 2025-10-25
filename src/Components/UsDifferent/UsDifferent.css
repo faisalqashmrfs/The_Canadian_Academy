@@ -21,6 +21,7 @@
     font-family: var(--title-font-family);
     color: var(--red);
     font-size: 96px;
+    margin-bottom: 32px;
 }
 
 .UsDifferent .card1 p

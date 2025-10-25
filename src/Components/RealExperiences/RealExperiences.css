@@ -20,6 +20,7 @@
     font-weight: 400;
     color: var(--red);
     padding-left: 270px;
+        margin-bottom: 32px;
 
 }
 .RealExperiences .Infoslide p
@@ -29,7 +30,8 @@
     font-weight: 400;
     color: var(--black);
     transition: .6s;
-        width: 60%;
+    width: 60%;
+    margin-bottom: 64px;
 }
 .RealExperiences .sLIDEaREA h4
 {

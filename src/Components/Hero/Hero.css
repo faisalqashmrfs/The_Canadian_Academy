@@ -36,7 +36,7 @@
 }
 .Hero .Contact-FolowingBox .Icons img 
 {
-    width: 20px;
+    width: 40px;
 }
 .Hero .Contact-FolowingBox p
 {
@@ -130,6 +130,7 @@
     font-size: 140px;
     padding-left: 190px;
     transition: .4s;   
+    margin-bottom: 32px;
 }
 .Hero .Title p
 {
@@ -139,6 +140,7 @@
     font-size: 24px;
     width: 75%;
     transition: .4s;
+
 }   
 .Hero .Title p span
 {
