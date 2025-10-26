@@ -1,0 +1,271 @@
+.Detalseofall
+{
+    width: 100%;
+}
+.Detalseofall h1
+{
+    font-size: 96px;
+    color: var(--red);
+    font-family: var(--title-font-family);
+    margin-top: 120px;
+    margin-bottom: 32px;
+    padding: 0px 156px;
+}
+
+.Detalseofall .containerForDitells
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 0px 99px;
+}
+.Detalseofall .containerForDitells .controller
+{
+    display: flex;
+    flex-direction: column;
+    width: 355px !important;
+    margin-right: 32px;
+    border: 3px solid #282828;
+    border-radius: 12px;
+    padding: 16px;
+    position: relative;
+}
+.Detalseofall .containerForDitells .controller a
+{
+    font-size: 30px;
+    color: #262338;
+    font-family: var(--text-font-family);
+    text-decoration: none;
+    margin-bottom: 40px; 
+    transition: .1s;
+}
+.Detalseofall .containerForDitells .controller a:nth-child(5)
+{
+    margin: 0;
+}
+.Detalseofall .containerForDitells .controller .active
+{
+    font-weight: 700;
+    color: var(--red);
+}
+.Detalseofall .containerForDitells .controller button
+{
+    width: 100%;
+    padding: 12px 6px;
+    color: #fff;
+    background-color: var(--red);
+    border: none;
+    border-radius: 40px;
+    position: absolute;
+    bottom: -86px;
+    left: 0;
+}
+
+.Detalseofall .containerForDitells .parts
+{
+    width: calc(100% - 355px);
+}
+.Detalseofall .containerForDitells .parts .part
+{
+    border: 3px solid #282828;
+    border-radius: 24px;
+    padding: 32px;
+    margin-bottom: 32px;
+    width: 100%;
+}
+.Detalseofall .containerForDitells .parts .part h2
+{
+    font-size: 32px;
+    font-family: var(--text-font-family);
+    font-weight: 800;
+    border-bottom: 1px solid black;
+    padding-bottom: 8px;
+    margin-bottom: 24px;
+}
+.Detalseofall .containerForDitells .parts .part p
+{
+    font-size: 24px;
+    font-family: var(--text-font-family);
+    font-weight: 400;
+    letter-spacing: -1.4px;
+    margin: 0;
+}
+.Detalseofall .containerForDitells .parts .part .fatherEducator
+{
+    display: flex;
+}
+.Detalseofall .containerForDitells .parts .part .fatherEducator .Educator
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.Detalseofall .containerForDitells .parts .part .fatherEducator .Educator span
+{
+    font-weight: 700;
+    margin-top: 5px;
+}
+.Detalseofall .containerForDitells .parts .Educatorp p
+{
+    width: 60%;
+    margin-left: 36px;
+    font-size: 24px;
+    font-family: var(--text-font-family);
+}
+.Detalseofall .containerForDitells .parts .part .fatherspiction
+{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.Detalseofall .containerForDitells .parts .part:nth-child(3)
+{
+    padding-bottom: 8px;
+}
+.Detalseofall .containerForDitells .parts .part .fatherspiction .spiction
+{
+    width: 408px;
+    margin-bottom: 24px;
+}
+.Detalseofall .containerForDitells .parts .part .fatherspiction .spiction span
+{
+    color: var(--red);
+    font-family: var(--title-font-family);
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+.Detalseofall .containerForDitells .parts .part .fatherspiction .spiction h3
+{
+    color: #262338;
+    font-family: var(--text-font-family);
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.Detalseofall .containerForDitells .parts .part .fatherspiction .spiction p
+{
+    color: #262338;
+    font-family: var(--text-font-family);
+    font-size: 16px;
+    font-weight: 400;
+    padding-right: 20px;
+}
+
+
+@media(max-width:1100px)
+{
+    .Detalseofall h1
+    {
+        font-size: 76px;
+        color: var(--red);
+        font-family: var(--title-font-family);
+        margin-top: 64px;
+        margin-bottom: 32px;
+        padding: 0px 60px;
+    }
+    .Detalseofall .containerForDitells
+    {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 50px;
+    }
+    .Detalseofall .containerForDitells .parts
+    {
+        width: calc(100%);
+    }
+    .Detalseofall .containerForDitells .controller
+    {
+        display: none;
+    }
+}
+
+@media(max-width:675px)
+{
+    .Detalseofall h1
+    {
+        font-size: 32px;
+        padding: 0px 24px;
+    }
+    .Detalseofall .containerForDitells
+    {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 24px;
+    }
+    .Detalseofall .containerForDitells .parts .part h2
+    {
+        font-size: 24px;
+                border-bottom: 1px solid black;
+    }
+    .Detalseofall .containerForDitells .parts .part p
+    {
+        font-size: 18px;
+    }
+}
+@media(max-width:475px)
+{
+    .Detalseofall h1
+    {
+        font-size: 32px;
+        padding: 0px 24px;
+    }
+    .Detalseofall .containerForDitells
+    {
+        flex-direction: column;
+        align-items: center;
+        padding: 0 24px;
+    }
+    .Detalseofall .containerForDitells .parts .part
+    {
+        padding: 8px;
+        margin-bottom: 16px;
+        border: 1px solid black;
+        border-radius: 8px;
+    }
+    .Detalseofall .containerForDitells .parts .part h2
+    {
+        font-size: 16px;
+        margin-bottom: 8px;
+        border-bottom: 1px solid black;
+    }
+    .Detalseofall .containerForDitells .parts .part p
+    {
+        font-size: 12px;
+        letter-spacing: 0px;
+        
+    }
+    .Detalseofall .containerForDitells .parts .part .fatherspiction .spiction span
+    {
+        font-size: 12px;
+        margin-bottom: 12px;
+    }
+    .Detalseofall .containerForDitells .parts .part .fatherspiction .spiction h3
+    {
+        font-size: 12px;
+        margin-bottom: 8px;
+    }
+
+    .Detalseofall .containerForDitells .parts .part .fatherspiction .spiction p
+    {
+        font-size: 12px;
+        padding-right: 20px;
+    }
+    .Detalseofall .containerForDitells .parts .part .fatherEducator .Educator span
+    {
+        font-size: 12px;
+    }
+    .Detalseofall .containerForDitells .parts .Educatorp p
+    {
+        width: 80%;
+        margin-left: 8px;
+        font-size: 12px;
+    }
+    .Detalseofall .containerForDitells .parts .Educatorp img
+    {
+        width: 40px;
+    }
+}

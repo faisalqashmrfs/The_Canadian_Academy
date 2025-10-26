@@ -3,7 +3,7 @@ import './Meetourteam.css'
 
 export default function Meetourteam() {
 
-    const [status, setstatus] = useState(3)
+    const [status, setstatus] = useState(1)
 
         const [widthscreen, setWidthscreen] = useState(window.innerWidth);
       const [widtharia, setWidtharia] = useState(28);
@@ -85,8 +85,6 @@ export default function Meetourteam() {
                 <button className={status == 1 ? "activeatedteam" : ""} onClick={() => setstatus(1)}></button>
                 <button className={status == 2 ? "activeatedteam" : ""} onClick={() => setstatus(2)}></button>
                 <button className={status == 3 ? "activeatedteam" : ""} onClick={() => setstatus(3)}></button>
-                <button className={status == 4 ? "activeatedteam" : ""} onClick={() => setstatus(4)}></button>
-                <button className={status == 5 ? "activeatedteam" : ""} onClick={() => setstatus(5)}></button>
             </div>
         </div>
     )

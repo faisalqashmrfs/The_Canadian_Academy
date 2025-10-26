@@ -1,10 +1,5 @@
-import { useState, useEffect } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
-
-import CourseSidebar from './CourseSidebar';
-import CourseSection from './CourseSection';
-import ProgramHighlights from './ProgramHighlights';
-import MeetEducator from './MeetEducator';
+import { useState } from 'react';
+import './CourseDetailsPage.css';
 import Hero from '../Hero/Hero';
 import { Link, useParams } from 'react-router-dom';
 
@@ -291,90 +286,73 @@ const CourseDetailsPage = () => {
     ]
     const MOCK_COURSE_DATA = AllCourses.filter(item => item.id == id);
     const data = MOCK_COURSE_DATA[0];
-
-    const [isEnrolled, setIsEnrolled] = useState(false);
-    const [activeSection, setActiveSection] = useState('overview');
-
-    const handleEnroll = () => {
-        setIsEnrolled(true);
-        alert("تهانينا! تم تسجيلك في الدورة.");
-    };
-
-    const handleNavClick = (sectionId) => {
-        setActiveSection(sectionId);
-    };
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const sections = ['overview', 'prerequisites', 'highlights', 'levels-offered', 'meet-educator'];
-            for (let id of sections) {
-                const el = document.getElementById(id);
-                if (el) {
-                    const rect = el.getBoundingClientRect();
-                    if (rect.top >= 0 && rect.top <= window.innerHeight / 2) {
-                        setActiveSection(id);
-                        break;
-                    }
-                }
-            }
-        };
-
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    const [activ , setactiv] = useState(1);
 
     return (
         <>
             <Hero title1={data.title}  deatils={data.deatils} enroll={true} id={id}/>
-            <Container className="my-5">
-                <h1 className="text-danger fw-bold mb-5" style={{ fontSize: '3rem' }}>Course Details</h1>
-
-                <Row>
-                    <Col md={3} className="pe-4">
-                        <CourseSidebar
-                            isEnrolled={isEnrolled}
-                            onEnrollClick={handleEnroll}
-                            activeSection={activeSection}
-                            onNavClick={handleNavClick}
-                            id={id}
-                        />
-                    </Col>
-
-                    <Col md={9}>
-                        <div id="overview">
-                            <CourseSection
-                                title="Course Overview"
-                                content={data.overview}
-                            />
+            <section className='Detalseofall'>
+                <h1>Course Details </h1>
+                <div className='containerForDitells'>
+                    <div className='controller'>
+                        <Link className={activ == 1 ? 'active' : ''} onClick={() => setactiv(1)}>Course Overview</Link>
+                        <Link className={activ == 2 ? 'active' : ''} onClick={() => setactiv(2)}>Prerequisites</Link>
+                        <Link className={activ == 3 ? 'active' : ''} onClick={() => setactiv(3)}>Program Highlights</Link>
+                        <Link className={activ == 4 ? 'active' : ''} onClick={() => setactiv(4)}>Levels Offered</Link>
+                        <Link className={activ == 5 ? 'active' : ''} onClick={() => setactiv(5)}>Meet Our Educator</Link>
+                        <button>Enroll Now</button>
+                    </div>
+                    <div className='parts'>
+                        <div className='part'>
+                            <h2>Course Overview</h2>
+                            <p>At The Canadian Academy, we make learning English an exciting adventure for children aged 7–14. Our English for Kids program combines fun, interactive activities with effective teaching methods, helping young learners build strong communication skills and confidence. Every lesson is age-appropriate, engaging, and designed to spark a love for language.</p>
                         </div>
-
-                        <div id="prerequisites">
-                            <CourseSection
-                                title="Prerequisites"
-                                content={data.prerequisites}
-                            />
+                        <div className='part'>
+                            <h2>Prerequisites</h2>
+                            <p>No prior knowledge is required to successfully participate in the course.</p>
                         </div>
-
-                        <div id="highlights">
-                            <ProgramHighlights highlights={data.highlights} />
+                        <div className='part'>
+                            <h2>Program Highlights</h2>
+                            <div className='fatherspiction'>
+                                <div className='spiction'>
+                                    <span>01</span>
+                                    <h3>Native Teachers</h3>
+                                    <p>Learn from native educators, ensuring authentic language exposure and cultural insights.</p>
+                                </div>
+                                <div className='spiction'>
+                                    <span>01</span>
+                                    <h3>Native Teachers</h3>
+                                    <p>Learn from native educators, ensuring authentic language exposure and cultural insights.</p>
+                                </div>
+                                <div className='spiction'>
+                                    <span>01</span>
+                                    <h3>Native Teachers</h3>
+                                    <p>Learn from native educators, ensuring authentic language exposure and cultural insights.</p>
+                                </div>
+                                <div className='spiction'>
+                                    <span>01</span>
+                                    <h3>Native Teachers</h3>
+                                    <p>Learn from native educators, ensuring authentic language exposure and cultural insights.</p>
+                                </div>
+                            </div>
                         </div>
-
-                        <div id="levels-offered">
-                            <CourseSection
-                                title="Levels Offered"
-                                content={data.levelsOffered}
-                            />
+                        <div className='part'>
+                            <h2>Levels Offered</h2>
+                            <p>Beginner to Advanced Tailored curriculum for each age group</p>
                         </div>
-
-                        <div id="meet-educator">
-                            <MeetEducator educator={data.educator} />
+                        <div className='part Educatorp'>
+                            <h2>Meet Our Educator</h2>
+                            <div className='fatherEducator'>
+                                <div className='Educator'>
+                                    <img src="/images/Avatar.png" alt="" />
+                                    <span>Mr. Li Wei</span>
+                                </div>
+                                <p>Mr. Li Wei is a Mandarin teacher from Beijing, China. With over 8 years of teaching experience, he combines authentic cultural knowledge with interactive methods, making learning engaging and effective for all students.</p>
+                            </div>
                         </div>
-                        <div className='courseSliderforhidbuttom'>
-                            <Link to={`/Inroll/${id}`}><button >Enroll Now</button></Link>
-                        </div>
-                    </Col>
-                </Row>
-            </Container>
+                    </div>
+                </div>
+            </section>
         </>
     );
 };

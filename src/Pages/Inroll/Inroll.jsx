@@ -3,6 +3,8 @@ import Hero from '../../Components/Hero/Hero';
 import { useState, useEffect, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
 import { getNames } from 'country-list';
+// استيراد مكتبة Axios
+import axios from 'axios';
 
 // مصفوفات الدورات
 const englesh = [
@@ -98,33 +100,38 @@ export default function Inroll() {
             email: email,
             nation: selectedCountry,
             lang: selectedLanguage,
+            // استخلاص الرقم من قيمة الـ select
             per: enrollPeriod.replace(/[^0-9]/g, ''), 
             hours: wantsVipHours ? parseInt(vipHoursCount, 10) : 0, 
             message: "sdsdsdsd",
         };
 
         try {
-            // تنفيذ طلب الـ API
-            const response = await fetch(API_URL, {
-                method: 'POST',
+            // تنفيذ طلب الـ API باستخدام **Axios**
+            const response = await axios.post(API_URL, payload, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: payload,
             });
 
-            if (response.ok) {
-                // نجاح الإرسال
+            // Axios يستخدم response.status بدلاً من response.ok
+            if (response.status >= 200 && response.status < 300) {
+                // نجاح الإرسال (حالة 2xx)
                 setprogress(2);
                 alert("Enrollment submitted successfully!");
             } else {
-                // فشل الإرسال
+                // فشل الإرسال (للحالات التي قد تكون ضمن نطاق Axios)
+                // في الواقع، Axios يطلق خطأ للحالات 4xx/5xx، لكن هذا كاحتياط
                 alert(`Submission failed. Status: ${response.status}. Please check your inputs.`);
             }
         } catch (error) {
-            // خطأ في الشبكة
-            console.error('Network or server error:', error);
-            alert("A network error occurred. Please try again.");
+            // خطأ في الشبكة أو خطأ حالة (4xx أو 5xx)
+            console.error('Network or server error:', error.response ? error.response.data : error.message);
+            // عرض رسالة خطأ أكثر دقة إذا كان هناك استجابة من السيرفر
+            const errorMessage = error.response 
+                ? `Submission failed. Status: ${error.response.status}.` 
+                : "A network error occurred. Please try again.";
+            alert(errorMessage);
         } finally {
             setIsSubmitting(false);
         }
@@ -150,115 +157,115 @@ export default function Inroll() {
     useEffect(() => {
         const styleTag = document.createElement('style');
         styleTag.innerHTML = `
-      .form-title {
-        font-weight: 800;
-        font-size: 1.8rem;
-        color: #333;
-        margin-bottom: 25px;
-      }
+     .form-title {
+         font-weight: 800;
+         font-size: 1.8rem;
+         color: #333;
+         margin-bottom: 25px;
+     }
 
-      .form-subtitle {
-        font-size: 1.2rem;
-        margin-top: 30px;
-        margin-bottom: 15px;
-        font-weight: bold;
-      }
+     .form-subtitle {
+         font-size: 1.2rem;
+         margin-top: 30px;
+         margin-bottom: 15px;
+         font-weight: bold;
+     }
 
-      .form-group-custom {
-        position: relative;
-        margin-bottom: 1.5rem;
-      }
-      
-      /* نمط حقل ساعات VIP */
-      .form-group-custom.vip-hours-input input {
+     .form-group-custom {
+         position: relative;
+         margin-bottom: 1.5rem;
+     }
+     
+     /* نمط حقل ساعات VIP */
+     .form-group-custom.vip-hours-input input {
           margin-top: 10px;
           border-bottom: 2px solid #dc3545;
-      }
+     }
 
-      .form-group-custom select,
-      .form-group-custom textarea,
-      .form-group-custom input {
-        width: 100%;
-        padding: 8px;
-        border: none;
-        border-bottom: 1px solid #ccc;
-        background-color: transparent;
-        font-size: 1rem;
-        color: #333;
-      }
+     .form-group-custom select,
+     .form-group-custom textarea,
+     .form-group-custom input {
+         width: 100%;
+         padding: 8px;
+         border: none;
+         border-bottom: 1px solid #ccc;
+         background-color: transparent;
+         font-size: 1rem;
+         color: #333;
+     }
 
-      .form-group-custom select:focus,
-      .form-group-custom textarea:focus,
-      .form-group-custom input:focus {
-        outline: none;
-        border-color: #dc3545;
-      }
+     .form-group-custom select:focus,
+     .form-group-custom textarea:focus,
+     .form-group-custom input:focus {
+         outline: none;
+         border-color: #dc3545;
+     }
 
-      .toggle-group {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-bottom: 25px;
-        font-size: 1rem;
-        color: #6c757d;
-      }
+     .toggle-group {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         margin-bottom: 25px;
+         font-size: 1rem;
+         color: #6c757d;
+     }
 
-      .toggle-switch input {
-        display: none;
-      }
+     .toggle-switch input {
+         display: none;
+     }
 
-      .toggle-switch label {
-        cursor: pointer;
-        width: 40px;
-        height: 20px;
-        background: #ccc;
-        border-radius: 10px;
-        position: relative;
-        transition: background-color 0.3s;
-      }
+     .toggle-switch label {
+         cursor: pointer;
+         width: 40px;
+         height: 20px;
+         background: #ccc;
+         border-radius: 10px;
+         position: relative;
+         transition: background-color 0.3s;
+     }
 
-      .toggle-switch label:after {
-        content: '';
-        position: absolute;
-        top: 2px;
-        left: 2px;
-        width: 16px;
-        height: 16px;
-        background: #fff;
-        border-radius: 50%;
-        transition: transform 0.3s;
-      }
+     .toggle-switch label:after {
+         content: '';
+         position: absolute;
+         top: 2px;
+         left: 2px;
+         width: 16px;
+         height: 16px;
+         background: #fff;
+         border-radius: 50%;
+         transition: transform 0.3s;
+     }
 
-      .toggle-switch input:checked + label {
-        background: #dc3545;
-      }
+     .toggle-switch input:checked + label {
+         background: #dc3545;
+     }
 
-      .toggle-switch input:checked + label:after {
-        transform: translateX(20px);
-      }
+     .toggle-switch input:checked + label:after {
+         transform: translateX(20px);
+     }
 
-      .enroll-button {
-        font-weight: bold;
-        padding: 10px 0;
-        width: 100%;
-        margin-top: 20px;
-        border-radius: 25px;
-        background-color: #dc3545;
-        color: #fff;
-        font-size: 1.1rem;
-        border: none;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
+     .enroll-button {
+         font-weight: bold;
+         padding: 10px 0;
+         width: 100%;
+         margin-top: 20px;
+         border-radius: 25px;
+         background-color: #dc3545;
+         color: #fff;
+         font-size: 1.1rem;
+         border: none;
+         cursor: pointer;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+     }
 
-      .enroll-button svg {
-        margin-left: 8px;
-        width: 10px;
-        height: 14px;
-        fill: currentColor;
-      }
+     .enroll-button svg {
+         margin-left: 8px;
+         width: 10px;
+         height: 14px;
+         fill: currentColor;
+     }
     `;
         document.head.appendChild(styleTag);
         return () => document.head.removeChild(styleTag);

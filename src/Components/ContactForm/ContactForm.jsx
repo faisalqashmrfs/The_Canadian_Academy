@@ -1,8 +1,8 @@
 import './ContactForm.css';
 
-const ContactDetail = ({ icon, text, color }) => (
+const ContactDetail = ({ icon, text }) => (
     <div className="contact-detail">
-        <i className={`bi bi-${icon} me-2 ${color}`}></i>
+        <img src={icon} />
         <span>{text}</span>
     </div>
 );
@@ -13,26 +13,28 @@ const ContactFormFields = () => {
     return (
         <div className='liftFormSide'>
             <h1>Let’s Talk!</h1>
+
             <p>Feel free to drop your message</p>
             <form action="">
                 <div>
-                    <input type="text" placeholder='Full Name'/>
+                    <input type="text" placeholder='Full Name' />
                     <img src="/frame1.svg" alt="profile" />
                 </div>
                 <div>
-                    <input type="text"  placeholder='Email'/>
+                    <input type="text" placeholder='Email' />
                     <img src="/sms.svg" alt="" />
                 </div>
                 <div>
-                    <input type="text"  placeholder='Phone'/>
+                    <input type="text" placeholder='Phone' />
                     <img src="/call.svg" alt="" />
                 </div>
                 <div>
-                    <input type="text"  placeholder='Message'/>
+                    <input type="text" placeholder='Message' />
                     <img src="/message-text.svg" alt="" />
                 </div>
                 <div className='buttoncontactform'>
                     <button>Send</button>
+
                 </div>
             </form>
         </div>
@@ -64,14 +66,14 @@ const ContactForm = () => {
 
                         <div className="row mt-3 forsrespons">
                             <div className="col-sm-6 col-6">
-                                <ContactDetail icon="geo-alt-fill" text="Tripureshwar, Kathmandu" color="text-danger" />
-                                <ContactDetail icon="facebook" text="academia@gmail.com" color="text-danger" />
-                                <ContactDetail icon="instagram" text="academia@gmail.com" color="text-danger" />
+                                <ContactDetail icon="/locationRED.svg" text="Tripureshwar, Kathmandu" color="text-danger" />
+                                <ContactDetail icon="/mdi_facebookred.svg" text="academia@gmail.com" color="text-danger" />
+                                <ContactDetail icon="" text="academia@gmail.com" color="text-danger" />
                             </div>
                             <div className="col-sm-6 col-6">
-                                <ContactDetail icon="envelope-fill" text="academia@gmail.com" color="text-danger" />
-                                <ContactDetail icon="telephone-fill" text="+60-147580403" color="text-danger" />
-                                <ContactDetail icon="tiktok" text="academia@gmail.com" color="text-danger" />
+                                <ContactDetail icon="" text="academia@gmail.com" color="text-danger" />
+                                <ContactDetail icon="" text="+60-147580403" color="text-danger" />
+                                <ContactDetail icon="" text="academia@gmail.com" color="text-danger" />
                             </div>
                         </div>
                     </div>

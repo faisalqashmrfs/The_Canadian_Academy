@@ -4,16 +4,13 @@ import Navbar from './Components/Navbar/Navbar';
 import Home from './Pages/Home/Home';
 import AboutUs from './Pages/AboutUs/AboutUs';
 import Courses from './Pages/Courses/Courses';
-import Admission from './Pages/Admission/Admission';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import HelpCenter from './Pages/HelpCenter/HelpCenter';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-
-
-import CourseDetailsPage from './Components/CourseDetails';
 import Footer from './Components/Footer/Footer';
 import Inroll from './Pages/Inroll/Inroll';
+import CourseDetailsPage from './Components/CourseDetails/CourseDetailsPage';
 
 function App() {
 
