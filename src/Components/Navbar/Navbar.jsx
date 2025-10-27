@@ -6,6 +6,42 @@ export default function Navbar() {
 
   const location = useLocation();
   
+  const [isScrolledPast40, setIsScrolledPast40] = useState(false);
+
+  // 2. دالة التعامل مع حدث التمرير
+  const handleScroll = () => {
+    // الحصول على قيمة التمرير العمودي (vertical scroll position)
+    const scrollPosition = window.scrollY;
+
+    // الشرط: إذا كان التمرير 40 بكسل أو أكثر
+    if (scrollPosition >= 40) {
+      // قم بتحديث الحالة فقط إذا لم تكن قد تحققت بالفعل
+      if (!isScrolledPast40) {
+        setIsScrolledPast40(true);
+        console.log('✅ الشرط تحقق: تم التمرير 40 بكسل للأسفل أو أكثر.');
+      }
+    } else {
+      // قم بتحديث الحالة فقط إذا كانت قد تحققت سابقاً والآن عادت للصفر
+      if (isScrolledPast40) {
+        setIsScrolledPast40(false);
+        console.log('❌ الشرط لم يعد محققاً: التمرير أقل من 40 بكسل.');
+      }
+    }
+  };
+
+  // 3. استخدام useEffect لإضافة وإزالة مستمع الحدث
+  useEffect(() => {
+    // إضافة مستمع لحدث 'scroll' عند تحميل المكون
+    window.addEventListener('scroll', handleScroll);
+
+    // دالة التنظيف (Cleanup Function)
+    // مهمة جداً: لإزالة مستمع الحدث عند إزالة المكون (unmounting) لتجنب تسرب الذاكرة
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isScrolledPast40]); // نضع isScrolledPast40 كـ dependency لتجنب مشاكل الـ closure في الدالة handleScroll
+
 
   const [activ , setactiv] = useState(() => {
     const savedActiv = localStorage.getItem('activeNavLink');
@@ -61,7 +97,7 @@ export default function Navbar() {
     </nav>
     
     <nav>
-      <div className="NavForMobilemain">
+      <div className="NavForMobilemain" style={{backgroundColor :`${isScrolledPast40 ? '#ffffffb6' : ''}`}}>
         <img src="/Logored.svg" alt="Logo" />
         <img src="/Frame18.svg" alt="togel-icone" onClick={() => settogle(!togle)}/>
       </div>

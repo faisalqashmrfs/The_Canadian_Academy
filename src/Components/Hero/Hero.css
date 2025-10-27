@@ -14,7 +14,10 @@
 .Hero .Contact-FolowingBox {
     width: 101px;
     height: 424px;
-    background-color: var(--red);
+    background-image: url(/BGsotiosal.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     position: absolute;
     right: 0;
     top: 50%;
@@ -227,15 +230,18 @@
     .Hero .Title h1 {
         font-size: 40px;
     }
-
     .Hero .Title h1 .span1 {
-        bottom: -26px;
+        width: 150px;
+        height: 44.16px;
+        right: -10px;
+        bottom: -15px;
     }
-
     .Hero .Title h1 .span2 {
-        bottom: -24px;
+        width: 90px;
+        height: 28.16px;
+        right: -10px;
+        bottom: -8px;
     }
-
     .Hero .Title h2 {
         font-size: 80px;
     }
@@ -280,6 +286,8 @@
     .Hero .Title h2 {
         font-size: 32px;
         padding-left: 40px;
+        margin-top: -5px;
+        margin-bottom: 0;
     }
 
     .Hero .Title p {
@@ -289,22 +297,28 @@
     }
 
     .Hero .Title h1 .span1 {
-        width: 100px;
-        bottom: -36px;
-        right: -10px;
+        width: 80px;
+        height: 44.16px;
+        right: -5px;
+        bottom: -32px;
     }
-
     .Hero .Title h1 .span2 {
-        width: 60px;
-        bottom: -24px;
-        right: -10px;
+        width: 48px;
+        height: 28.16px;
+        right: -5px;
+        bottom: -20px;
     }
-
+    .Hero .Title .Buttons
+    {
+        margin-top: 16px;
+        flex-direction: column-reverse;
+    }
     .Hero .Title .Buttons button:nth-child(2),
     .Hero .Title .Buttons button:nth-child(1) {
-        font-size: 16px;
-        width: 274px;
-        height: 50px;
+        font-size: 10px;
+        width: 208px;
+        height: 19px;
+        margin-top: 8px;
     }
 
     .Hero .Contact-FolowingBox {
@@ -316,11 +330,14 @@
     }
 
     .Hero .Contact-FolowingBox .Icons {
-        width: 80%;
+        width: 70%;
     }
-
+    .Hero .Contact-FolowingBox .Icons img
+    {
+        width: 18px;
+    }
     .Hero .Contact-FolowingBox p {
-        width: 20%;
+        width: 30%;
     }
 
     .Hero .Contact-FolowingBox p h4 {

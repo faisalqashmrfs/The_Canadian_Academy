@@ -18,7 +18,7 @@ export default function RightCourse({ btn, englesh }) {
                             <p className='discrip'>{card.description}</p>
                             <div className='Buttonss'>
                                 <Link to={`/Inroll/${card.id}`}><button className='Inrorll'>Enroll Now</button></Link>
-                                <Link to={`/course-details/${(card.id)}`}><button className='SeeNow' style={{ backgroundColor: "black" }}>See More</button></Link>
+                                <Link to={`/course-details/${(card.id)}`}><button className='SeeNow' style={{ backgroundColor: "black" }}>See More <img src="/arrow-right.svg" alt="" /></button></Link>
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ import './ContactForm.css';
 
 const ContactDetail = ({ icon, text }) => (
     <div className="contact-detail">
-        <img src={icon} />
+        <img src={icon} style={{marginRight:"8px"}}/>
         <span>{text}</span>
     </div>
 );
@@ -68,12 +68,12 @@ const ContactForm = () => {
                             <div className="col-sm-6 col-6">
                                 <ContactDetail icon="/locationRED.svg" text="Tripureshwar, Kathmandu" color="text-danger" />
                                 <ContactDetail icon="/mdi_facebookred.svg" text="academia@gmail.com" color="text-danger" />
-                                <ContactDetail icon="" text="academia@gmail.com" color="text-danger" />
+                                <ContactDetail icon="/basil_instagram-solidRED.svg" text="academia@gmail.com" color="text-danger" />
                             </div>
                             <div className="col-sm-6 col-6">
-                                <ContactDetail icon="" text="academia@gmail.com" color="text-danger" />
-                                <ContactDetail icon="" text="+60-147580403" color="text-danger" />
-                                <ContactDetail icon="" text="academia@gmail.com" color="text-danger" />
+                                <ContactDetail icon="/sms.svg" text="academia@gmail.com" color="text-danger" />
+                                <ContactDetail icon="/mingcute_whatsapp-fillRED.svg" text="+60-147580403" color="text-danger" />
+                                <ContactDetail icon="/streamline-flex_tiktok-solidRED.svg" text="academia@gmail.com" color="text-danger" />
                             </div>
                         </div>
                     </div>
