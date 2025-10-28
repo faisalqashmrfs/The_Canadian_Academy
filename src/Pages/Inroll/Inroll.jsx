@@ -422,15 +422,15 @@ export default function Inroll() {
 
                     {/* الخطوة الثالثة: التأكيد */}
                     {progress === 2 && (
-                        <nav className="form1">
-                            <h2 className="form-title">Confirmation</h2>
-                            <p>تم إرسال طلبك بنجاح. سيتم التواصل معك قريباً.</p>
-                            <button type="button" className="enroll-button">
-                                Go to Home
-                                <svg width="8" height="12" viewBox="0 0 8 12" fill="currentColor">
-                                    <path d="M1 1L6 6L1 11" stroke="currentColor" strokeWidth="2" fill="none" />
-                                </svg>
-                            </button>
+                        <nav className="form1 disabligap">
+                           <div className='PopUpCongrats'>
+                                <h2>Your Course Enrollment  <br /><span>is Confirmed!</span></h2>
+                                <p>We’re excited to have you on board at The Canadian Academy. You’ve successfully reserved your spot in [<span>Course Name</span>]. A confirmation email with all the details has been sent to your Email.</p>
+                           </div>
+                           <div className='lastclassbtninroll'>
+                            <button>Explore More Courses</button>
+                            <button>Go Back to Home</button>
+                           </div>
                         </nav>
                     )}
 
