@@ -324,6 +324,20 @@
 
 @media(max-width : 992px)
 {
+    .TapsandContant .div1 .div2
+    {
+        width: 1000px;
+        justify-content: space-between;
+    }
+    .TapsandContant .div1 .div2 button
+    {
+        margin: 10px 0px;
+        font-size: 32px;
+    }
+    .TapsandContant .div1 .div2 .active
+    {
+        font-size: 32px;
+    }
     .section1 , .section2 , .section3 , .section4 , .section5
     {
             padding: 0 45PX;
@@ -380,6 +394,16 @@
 
 @media(max-width : 540px)
 {
+        .TapsandContant .div1 .div2
+    {
+        width: 750px;
+        justify-content: space-between;
+    }
+    .TapsandContant .div1 .div2 button
+    {
+        margin: 10px 0px;
+        font-size: 24px;
+    }
     .section1 , .section2 , .section3 , .section4 , .section5
     {
             padding: 0 10PX;
@@ -403,10 +427,6 @@
         width: 90vw;
         padding: 0;
         margin-top: 30px;
-    }
-    .TapsandContant .div1 .div2
-    {
-        width: 900px;
     }
     .TapsandContant .div1 .div2 button
     {

@@ -286,11 +286,13 @@ const CourseDetailsPage = () => {
     ]
     const MOCK_COURSE_DATA = AllCourses.filter(item => item.id == id);
     const data = MOCK_COURSE_DATA[0];
-    const [activ , setactiv] = useState(1);
+    const [activ, setactiv] = useState(1);
+
+    console.log(data);
 
     return (
         <>
-            <Hero title1={data.title}  deatils={data.deatils} enroll={true} id={id}/>
+            <Hero title1={data.title} deatils={data.deatils} enroll={true} id={id} inrole={true} />
             <section className='Detalseofall'>
                 <h1>Course Details </h1>
                 <div className='containerForDitells'>
@@ -305,49 +307,39 @@ const CourseDetailsPage = () => {
                     <div className='parts'>
                         <div className='part'>
                             <h2>Course Overview</h2>
-                            <p>At The Canadian Academy, we make learning English an exciting adventure for children aged 7–14. Our English for Kids program combines fun, interactive activities with effective teaching methods, helping young learners build strong communication skills and confidence. Every lesson is age-appropriate, engaging, and designed to spark a love for language.</p>
+                            <p>{data.overview}</p>
                         </div>
                         <div className='part'>
                             <h2>Prerequisites</h2>
-                            <p>No prior knowledge is required to successfully participate in the course.</p>
+                            <p>{data.prerequisites}</p>
                         </div>
                         <div className='part'>
                             <h2>Program Highlights</h2>
                             <div className='fatherspiction'>
-                                <div className='spiction'>
-                                    <span>01</span>
-                                    <h3>Native Teachers</h3>
-                                    <p>Learn from native educators, ensuring authentic language exposure and cultural insights.</p>
-                                </div>
-                                <div className='spiction'>
-                                    <span>01</span>
-                                    <h3>Native Teachers</h3>
-                                    <p>Learn from native educators, ensuring authentic language exposure and cultural insights.</p>
-                                </div>
-                                <div className='spiction'>
-                                    <span>01</span>
-                                    <h3>Native Teachers</h3>
-                                    <p>Learn from native educators, ensuring authentic language exposure and cultural insights.</p>
-                                </div>
-                                <div className='spiction'>
-                                    <span>01</span>
-                                    <h3>Native Teachers</h3>
-                                    <p>Learn from native educators, ensuring authentic language exposure and cultural insights.</p>
-                                </div>
+                                {
+                                    data.highlights.map((item, index) => (
+                                        <div className='spiction' key={index}>
+                                            <span>0{(index + 1)}</span>
+                                            <h3>{item.title}</h3>
+                                            <p>{item.description}</p>
+                                        </div>
+                                    ))
+                                }
+
                             </div>
                         </div>
                         <div className='part'>
                             <h2>Levels Offered</h2>
-                            <p>Beginner to Advanced Tailored curriculum for each age group</p>
+                            <p>{data.levelsOffered}</p>
                         </div>
                         <div className='part Educatorp'>
                             <h2>Meet Our Educator</h2>
                             <div className='fatherEducator'>
                                 <div className='Educator'>
                                     <img src="/images/Avatar.png" alt="" />
-                                    <span>Mr. Li Wei</span>
+                                    <span>{data.educator.name}</span>
                                 </div>
-                                <p>Mr. Li Wei is a Mandarin teacher from Beijing, China. With over 8 years of teaching experience, he combines authentic cultural knowledge with interactive methods, making learning engaging and effective for all students.</p>
+                                <p>{data.educator.bio}</p>
                             </div>
                         </div>
                     </div>

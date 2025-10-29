@@ -104,10 +104,11 @@
      border: none;
      border-radius: 50px;
  }
-.form1.disabligap
-{
-    gap: 0;
-}
+
+ .form1.disabligap {
+     gap: 0;
+ }
+
  .form1 .PopUpCongrats {
      width: 95%;
      padding: 64px;
@@ -120,18 +121,19 @@
      background-color: #fff;
      margin-bottom: 90px;
  }
- .form1 .PopUpCongrats::before
- {
-    content: "";
-    position: absolute;
-    width: 95%;
-    height: 99%;
-    background-color: var(--red);
-    border-radius: 32px;
-    z-index: -1;
-    top: 30px;
-    left: 10%;
+
+ .form1 .PopUpCongrats::before {
+     content: "";
+     position: absolute;
+     width: 95%;
+     height: 99%;
+     background-color: var(--red);
+     border-radius: 32px;
+     z-index: -1;
+     top: 30px;
+     left: 10%;
  }
+
  .form1 .PopUpCongrats h2 {
      font-family: var(--title-font-family);
      font-size: 40px;
@@ -157,26 +159,70 @@
      background-color: transparent;
      color: var(--red);
  }
- .form1 .lastclassbtninroll
- {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
- }
- .form1 .lastclassbtninroll button
-  {
-    height: 54px;
-    font-family: var(--text-font-family);
-    font-weight: 900;
-    font-size: 16px;
-  }
-.form1 .lastclassbtninroll button:nth-child(1)
-{
-    background-color: #fff;
-    color: var(--red);
-    border: 4px solid var(--red);
 
-}
+ .form1 .lastclassbtninroll {
+     display: flex;
+     flex-direction: column;
+     gap: 16px;
+ }
+
+ .form1 .lastclassbtninroll a {
+     width: 100%;
+     font-family: var(--text-font-family);
+     font-weight: 900;
+     font-size: 16px;
+     text-decoration: none;
+ }
+
+ .form1 .lastclassbtninroll .a1 {
+     color: var(--red);
+ }
+
+ .form1 .lastclassbtninroll .a1 button {
+     background-color: #fff;
+     color: var(--red);
+     border: 4px solid var(--red);
+     font-weight: 900;
+ }
+
+ .form1 .lastclassbtninroll .a2 {
+     color: #fff;
+     background-color: #fff;
+ }
+
+ .form1 .lastclassbtninroll .a2 button {
+     font-weight: 900;
+ }
+
+ .form-group-custom input {
+     width: 100% !important;
+ }
+
+ .form-group-custom input::placeholder {
+     font-size: 18px !important;
+ }
+
+ @media(max-width:1497px) {
+     .form1 .PopUpCongrats {
+         padding: 40px;
+     }
+
+     .form1 .PopUpCongrats h2 {
+         font-size: 28px;
+     }
+
+     .form1 .PopUpCongrats h2 span {
+         font-size: 55px;
+     }
+
+ }
+
+ @media(max-width:1185px) {
+     .form1.disabligap {
+         width: 60% !important;
+     }
+ }
+
  @media(max-width:1300px) {
      .inrollWindows {
          width: 100%;
@@ -216,11 +262,16 @@
          width: 100%;
          padding: 0 30px;
      }
+
+     .form1.disabligap {
+         width: 100% !important;
+         margin-top: 64px;
+     }
  }
 
- @media(max-width:492px) {
+ @media(max-width:592px) {
      .inrollWindows {
-         padding: 5px;
+         padding: 24px;
      }
 
      .inrollWindows span {
@@ -253,5 +304,43 @@
          border: none;
          border-bottom: 2px solid rgb(151, 151, 151);
          font-size: 20px;
+     }
+
+     .form1 .PopUpCongrats {
+         border-radius: 16px;
+         margin-bottom: 40px;
+     }
+
+     .form1 .PopUpCongrats::before {
+         width: 95%;
+         height: 100%;
+         border-radius: 16px;
+         top: 8px;
+         left: 8%;
+     }
+
+     .form1 .PopUpCongrats {
+         padding: 16px;
+     }
+
+     .form1 .PopUpCongrats h2 {
+         font-size: 20px;
+     }
+
+     .form1 .PopUpCongrats h2 span {
+         font-size: 32px;
+     }
+
+     .form1 .PopUpCongrats p {
+         font-size: 12px;
+     }
+
+     .form1 .lastclassbtninroll button {
+         height: 27px;
+         font-size: 10.5px;
+     }
+
+     .form1 .lastclassbtninroll button:nth-child(1) {
+         border: 2px solid var(--red);
      }
  }

@@ -1,7 +1,7 @@
 import './Inroll.css';
 import Hero from '../../Components/Hero/Hero';
 import { useState, useEffect, useMemo } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { getNames } from 'country-list';
 // استيراد مكتبة Axios
 import axios from 'axios';
@@ -287,7 +287,7 @@ export default function Inroll() {
                         <p>Course Info</p>
                     </div>
                     <span style={{ backgroundColor: progress > 1 ? "red" : "gray" }}></span>
-                    <div onClick={() => setprogress(2)}>
+                    <div>
                         <img src={progress > 1 ? "/Vectoron.svg" : "/Vectoroff.svg"} alt="" />
                         <p>Confirmation</p>
                     </div>
@@ -376,6 +376,8 @@ export default function Inroll() {
                                         <option value="1M">1 Month</option>
                                         <option value="3M">3 Months</option>
                                         <option value="6M">6 Months</option>
+                                        <option value="9M">9 Months</option>
+                                        <option value="12M">12 Months</option>
                                     </select>
                                 </div>
 
@@ -428,8 +430,8 @@ export default function Inroll() {
                                 <p>We’re excited to have you on board at The Canadian Academy. You’ve successfully reserved your spot in [<span>Course Name</span>]. A confirmation email with all the details has been sent to your Email.</p>
                            </div>
                            <div className='lastclassbtninroll'>
-                            <button>Explore More Courses</button>
-                            <button>Go Back to Home</button>
+                            <Link className={'a1'} to={'/Courses'}> <button>Explore More Courses</button></Link>
+                            <Link className={'a2'} to={'/'} ><button>Go Back to Home</button></Link>
                            </div>
                         </nav>
                     )}

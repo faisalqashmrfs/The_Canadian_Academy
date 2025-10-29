@@ -8,6 +8,7 @@ export default function Courses() {
     <div className="help-center-page">
       {/*  القسم الأول: الهيرو */}
       <Hero
+      inrole={true}
         sing={true}
         title1="You Need a Help"
         title2="For Get Here"

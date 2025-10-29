@@ -18,7 +18,7 @@ const itemVariants = {
     visible: { y: 0, opacity: 1 },
 };
 
-export default function Hero({ title1, title2, span, p, buttom , height , sing , deatils , enroll , id}) {
+export default function Hero({ title1, title2, span, p, buttom , height , sing , deatils , enroll , id , inrole}) {
     
     const words = title1.split(" ");
 
@@ -54,7 +54,7 @@ export default function Hero({ title1, title2, span, p, buttom , height , sing ,
                     </div>}
                     {
                         enroll && <div  className='inroll-deatils'>
-                        <Link to={`/Inroll/${id}`}><button>Enroll Now</button></Link>
+                        <button><Link to={`/Inroll/${id}`}>Enroll Now</Link></button>
                     </div>
                     }
                     {sing && <span className='span1'></span>}
@@ -74,7 +74,7 @@ export default function Hero({ title1, title2, span, p, buttom , height , sing ,
                     </motion.div>
                 }
             </div>
-            <div className='Contact-FolowingBox'>
+            {inrole && <div className='Contact-FolowingBox'>
                 <div className='Icons'>
                     <span><img src="/whatsapp.svg" alt="" /></span>
                     <span><img src="/ic_baseline-wechat.svg" alt="" /></span>
@@ -83,7 +83,7 @@ export default function Hero({ title1, title2, span, p, buttom , height , sing ,
                     <span><img src="/streamline-flex_tiktok-solid.svg" alt="" /></span>
                 </div>
                 <p><h4>Chat With US</h4></p>
-            </div>
+            </div>}
         </div>
     )
 }
