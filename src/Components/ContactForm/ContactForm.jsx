@@ -1,104 +1,150 @@
 import './ContactForm.css';
-import { useState, useRef } from 'react'; // 🚨 إضافة useState و useRef
-import emailjs from 'emailjs-com'; // 🚨 استيراد مكتبة emailjs-com
+import { useState, useRef } from 'react';
+import emailjs from 'emailjs-com';
+import { motion } from "framer-motion"; // 🚨 استيراد Framer Motion
 
-// 🚨 بيانات التهيئة - يجب استبدالها ببيانات حسابك
-const SERVICE_ID = 'service_p47p5x7'; // مثال: service_xxxxxxx
-const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // مثال: template_xxxxxxx
-const PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // مثال: user_xxxxxxx
+// 🚨 بيانات التهيئة (كما هي)
+const SERVICE_ID = 'service_p47p5x7';
+const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
 
+// ---------------------------
+// 🚨 1. متغيرات الحركة
+// ---------------------------
+
+// حركة الظهور من اليسار (للنموذج نفسه)
+const slideInLeft = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+};
+
+// حركة الظهور من اليمين (للمعلومات الجانبية)
+const slideInRight = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut", delay: 0.2 } }, // تأخير بسيط
+};
+
+// متغيرات التتابع لحقول النموذج
+const formContainerVariants = {
+    visible: {
+        transition: {
+            staggerChildren: 0.1, // تظهر الحقول بتتابع 
+        },
+    },
+};
+
+// متغيرات حقل الإدخال الواحد
+const inputItemVariants = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0 },
+};
+
+// ---------------------------
+// 🚨 مكون ContactDetail (تعديل بسيط لتطبيق الحركة)
+// ---------------------------
 const ContactDetail = ({ icon, text }) => (
- <div className="contact-detail">
-  <img src={icon} style={{marginRight:"8px"}}/>
-  <span>{text}</span>
- </div>
+    // تطبيق حركة بسيطة لكل تفصيل (يجب أن يتم تكرارها داخل قائمة)
+    <motion.div
+        className="contact-detail"
+        variants={inputItemVariants} // نستخدم نفس حركة الحقول البسيطة
+    >
+        <img src={icon} style={{ marginRight: "8px" }} />
+        <span>{text}</span>
+    </motion.div>
 );
 
 
 const ContactFormFields = () => {
-    // 🚨 1. استخدام useRef لربط النموذج بالـ DOM
     const form = useRef();
-
-    // 🚨 2. استخدام useState لإدارة حالة الإرسال
     const [isSending, setIsSending] = useState(false);
     const [statusMessage, setStatusMessage] = useState('');
 
-    // 🚨 3. دالة إرسال البريد الإلكتروني
     const sendEmail = (e) => {
-        e.preventDefault(); // منع الإرسال الافتراضي
-
+        e.preventDefault();
         setStatusMessage('');
         setIsSending(true);
 
-        // استخدام sendForm مع المراجع (ref)
         emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
             .then((result) => {
-                // نجاح الإرسال
                 console.log(result.text);
                 setStatusMessage('Message sent successfully! Thank you for contacting us. 🎉');
                 setIsSending(false);
-                e.target.reset(); // تفريغ حقول النموذج بعد النجاح
+                e.target.reset();
             }, (error) => {
-                // فشل الإرسال
                 console.log(error.text);
                 setStatusMessage(`Failed to send message: ${error.text}. Please try again. 😢`);
                 setIsSending(false);
             });
     };
 
- return (
-  <div className='liftFormSide'>
-   <h1>Let’s Talk!</h1>
+    return (
+        // 🚨 تغليف القسم الأيسر بالحركة
+        <motion.div
+            className='liftFormSide'
+            variants={slideInLeft}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.1 }}
+        >
+            <h1>Let’s Talk!</h1>
 
-   <p>Feel free to drop your message</p>
-            {/* 🚨 ربط دالة الإرسال بالنموذج وربط ref */}
-   <form ref={form} onSubmit={sendEmail}>
-    <div>
-                    {/* 🚨 إضافة الخاصية name */}
-     <input type="text" name="user_name" placeholder='Full Name' required />
-     <img src="/frame1.svg" alt="profile" />
-    </div>
-    <div>
-                    {/* 🚨 إضافة الخاصية name */}
-     <input type="email" name="user_email" placeholder='Email' required />
-     <img src="/sms.svg" alt="" />
-    </div>
-    <div>
-                    {/* 🚨 إضافة الخاصية name */}
-     <input type="text" name="user_phone" placeholder='Phone' />
-     <img src="/call.svg" alt="" />
-    </div>
-    <div>
-                    {/* 🚨 استخدام textarea للرسالة الطويلة، وإضافة الخاصية name */}
-     <textarea name="message" placeholder='Message' required style={{ resize: 'vertical' }}></textarea>
-     <img src="/message-text.svg" alt="" />
-    </div>
-    <div className='buttoncontactform'>
-                    {/* 🚨 استخدام خاصية disabled أثناء الإرسال وعرض حالة الإرسال */}
-     <button type="submit" disabled={isSending}>
+            <p>Feel free to drop your message</p>
+
+            <motion.form
+                ref={form}
+                onSubmit={sendEmail}
+                variants={formContainerVariants}
+                initial="hidden"
+                animate="visible" // نستخدم 'animate' لأنه يتم تشغيله بواسطة 'whileInView' للعنصر الأب 
+            >
+                {/* 🚨 تطبيق حركة الابن على كل حقل */}
+                <div>
+                    <motion.input type="text" name="user_name" placeholder='Full Name' required variants={inputItemVariants} />
+                    <img src="/frame1.svg" alt="profile" />
+                </div>
+                <div>
+                    <motion.input type="email" name="user_email" placeholder='Email' required variants={inputItemVariants} />
+                    <img src="/sms.svg" alt="" />
+                </div>
+                <div>
+                    <motion.input type="text" name="user_phone" placeholder='Phone' variants={inputItemVariants} />
+                    <img src="/call.svg" alt="" />
+                </div>
+                <div>
+                    <motion.textarea name="message" placeholder='Message' required style={{ resize: 'vertical' }} variants={inputItemVariants}></motion.textarea>
+                    <img src="/message-text.svg" alt="" />
+                </div>
+                <div className='buttoncontactform'>
+                    <motion.button type="submit" disabled={isSending} variants={inputItemVariants}>
                         {isSending ? 'Sending...' : 'Send'}
-                    </button>
+                    </motion.button>
 
-    </div>
-                {/* 🚨 عرض رسالة الحالة */}
+                </div>
                 {statusMessage && <p style={{ marginTop: '15px', fontWeight: 'bold', color: statusMessage.includes('successfully') ? 'green' : 'red' }}>{statusMessage}</p>}
-   </form>
-  </div>
- );
+            </motion.form>
+        </motion.div>
+    );
 };
 
-// لا يوجد تغيير هنا
+// ---------------------------
+// 🚨 مكون ContactForm (لتغليف القسم الأيمن)
+// ---------------------------
 const ContactForm = () => {
-    // ... باقي الكود لم يتغير
-    // (تم حذف باقي الـ ContactForm لتوفير المساحة وعدم تكرار الكود غير المُعدَّل)
- return (
-  <div className="">
-   <div className="">
-    <div className="continerforform">
-     <div className="">
-      <ContactFormFields />
-     </div>
-     <div className="rightsideform">
+    return (
+        <div className="">
+            <div className="">
+                <div className="continerforform">
+                    <div className="">
+                        <ContactFormFields />
+                    </div>
+                    {/* 🚨 تغليف القسم الأيمن بالحركة */}
+                    <motion.div
+                        className="rightsideform"
+                        variants={slideInRight}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: true, amount: 0.1 }}
+                    >
                         <div className="map-container mb-5 border rounded-3">
                             <iframe
                                 title="Tripureshwar Map"
@@ -112,7 +158,13 @@ const ContactForm = () => {
                             ></iframe>
                         </div>
 
-                        <div className="row mt-3 forsrespons">
+                        <motion.div
+                            className="row mt-3 forsrespons"
+                            variants={formContainerVariants} // نستخدم التتابع لعرض التفاصيل
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.1 }}
+                        >
                             <div className="col-sm-6 col-6">
                                 <ContactDetail icon="/locationRED.svg" text="Tripureshwar, Kathmandu" color="text-danger" />
                                 <ContactDetail icon="/mdi_facebookred.svg" text="academia@gmail.com" color="text-danger" />
@@ -123,12 +175,12 @@ const ContactForm = () => {
                                 <ContactDetail icon="/mingcute_whatsapp-fillRED.svg" text="+60-147580403" color="text-danger" />
                                 <ContactDetail icon="/streamline-flex_tiktok-solidRED.svg" text="academia@gmail.com" color="text-danger" />
                             </div>
-                        </div>
-     </div>
-    </div>
-   </div>
-  </div>
- );
+                        </motion.div>
+                    </motion.div>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 
