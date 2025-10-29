@@ -22,7 +22,11 @@
     display: flex;
     align-items: center;
 }
-
+.search-bar img
+{
+    width: 44px;
+    height: 44px;
+}
 .input-icon {
     position: absolute;
     left: 16px;
@@ -36,7 +40,7 @@
 .search-bar input {
     width: 40vw;
     height: 48px;
-    padding-left: 48px;
+    padding-left: 66px;
     /* مساحة للأيقونة داخل الحقل */
     border-radius: 32px;
     border: 2px solid rgba(220, 220, 220, 1);

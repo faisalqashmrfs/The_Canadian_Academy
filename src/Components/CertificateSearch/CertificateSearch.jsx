@@ -19,7 +19,7 @@ export default function CertificateSearch() {
             <h2>Search for Your Certificate</h2>
 
             <div className="search-bar">
-                <img src="/icons/Icon2.png" alt="Input Icon" className="input-icon" />
+                <img src="/Iconssrrin.svg" alt="Input Icon" className="input-icon" />
                 <input
                     type="text"
                     placeholder="Type the Certification Number ........"
@@ -27,7 +27,7 @@ export default function CertificateSearch() {
                     onChange={(e) => setCertNumber(e.target.value)}
                 />
                 <button className="search-button" onClick={handleSearch}>
-                    <img src="/icons/Icon.svg" alt="Search Icon" />
+                    <img src="/arrow-right.svg" alt="Search Icon" />
                 </button>
             </div>
 

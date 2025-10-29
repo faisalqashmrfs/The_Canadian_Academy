@@ -8,18 +8,18 @@ import axios from 'axios';
 
 // مصفوفات الدورات
 const englesh = [
-    { id: 1, title: "English For Kids", description: "...", span1: "Flexibility in timing", span2: "7 14 years", image: "Imagec1.png", },
-    { id: 2, title: "Academic English", description: "...", span1: "IELTS", span2: "PTEh", image: "Imagec2.png", },
-    { id: 3, title: "Professional Business English", description: "...", span1: "Flexibility in timing", span2: "4-Skills", image: "Imagec3.png", },
-    { id: 4, title: "VIP English Course", description: "...", span1: "Choose your hours", span2: "One to One Teaching", image: "Courses.png", },
-    { id: 5, title: "Summer/Winter Camp", description: "...", span1: "Flexibility in timing", span2: "Choose your Time", image: "Imagec5.png", },
+  { id: 1, title: "English For Kids", description: "...", span1: "Flexibility in timing", span2: "7 14 years", image: "Imagec1.png", },
+  { id: 2, title: "Academic English", description: "...", span1: "IELTS", span2: "PTEh", image: "Imagec2.png", },
+  { id: 3, title: "Professional Business English", description: "...", span1: "Flexibility in timing", span2: "4-Skills", image: "Imagec3.png", },
+  { id: 4, title: "VIP English Course", description: "...", span1: "Choose your hours", span2: "One to One Teaching", image: "Courses.png", },
+  { id: 5, title: "Summer/Winter Camp", description: "...", span1: "Flexibility in timing", span2: "Choose your Time", image: "Imagec5.png", },
 ];
 const mandarin = [
-    { id: 6, title: "HSK ( Hanyu Shuiping Kaoshi )", description: "...", span1: "Flexibility in timing", span2: "7 14 years", image: "Image(6).png", },
-    { id: 7, title: "YCT ( Youth Chinese Test )", description: "...", span1: "IELTS - Lingua", span2: "PTE", image: "Image(7).png", },
-    { id: 8, title: "Professional Business English", description: "...", span1: "Flexibility in timing", span2: "4-Skills", image: "Image(8).png", },
-    { id: 9, title: "VIP English Course", description: "...", span1: "Choose your hours", span2: "One to One Teaching", image: "Courses.png", },
-    { id: 10, title: "Summer/Winter Camp", description: "...", span1: "Choose your Time", image: "Image(10).png", },
+  { id: 6, title: "HSK ( Hanyu Shuiping Kaoshi )", description: "...", span1: "Flexibility in timing", span2: "7 14 years", image: "Image(6).png", },
+  { id: 7, title: "YCT ( Youth Chinese Test )", description: "...", span1: "IELTS - Lingua", span2: "PTE", image: "Image(7).png", },
+  { id: 8, title: "Professional Business English", description: "...", span1: "Flexibility in timing", span2: "4-Skills", image: "Image(8).png", },
+  { id: 9, title: "VIP English Course", description: "...", span1: "Choose your hours", span2: "One to One Teaching", image: "Courses.png", },
+  { id: 10, title: "Summer/Winter Camp", description: "...", span1: "Choose your Time", image: "Image(10).png", },
 ];
 
 // دمج مصفوفات الدورات في مصفوفة واحدة
@@ -30,6 +30,13 @@ const API_URL = 'https://api.thecanadianacademy.edu.my/api/notifications';
 
 export default function Inroll() {
     const [progress, setprogress] = useState(0);
+    // 🚨 الحالة الجديدة لإدارة ظهور الـ Pop-up
+    const [popup, setPopup] = useState({
+        isVisible: false,
+        message: '',
+        isConfirm: false, // لتمييز بوب اب التأكيد
+        onConfirm: null, // لتخزين دالة التأكيد
+    });
 
     // 1. استخراج الـ id وتحويله إلى رقم
     const { id } = useParams();
@@ -59,6 +66,17 @@ export default function Inroll() {
     const [wantsVipHours, setWantsVipHours] = useState(false);
     const [vipHoursCount, setVipHoursCount] = useState(''); // hours
     const [isSubmitting, setIsSubmitting] = useState(false); // حالة الإرسال
+    
+    // 🚨 دالة عرض الـ Pop-up
+    const showPopup = (message, duration = 2000, isConfirm = false, onConfirm = null) => {
+        setPopup({ isVisible: true, message, isConfirm, onConfirm });
+        // إخفاء تلقائي إذا لم يكن Pop-up تأكيد
+        if (!isConfirm) {
+            setTimeout(() => {
+                setPopup(prev => ({ ...prev, isVisible: false }));
+            }, duration);
+        }
+    };
 
     // دالة للتحقق من بيانات الخطوة الأولى
     const handleNextStep1 = () => {
@@ -68,31 +86,12 @@ export default function Inroll() {
         }
         setprogress(1);
     };
-
-    // دالة لتأكيد وإرسال البيانات (في الخطوة الثانية)
-    const handleEnrollSubmission = async (e) => {
-        e.preventDefault();
-
-        // التحقق من الحقول الأساسية في الخطوة 2
-        if (!selectedLanguage || !selectedType || !enrollPeriod) {
-            alert("Please complete all course fields.");
-            return;
-        }
-        
-        // التحقق من حقل VIP إذا كان مفعّلاً
-        if (wantsVipHours && !vipHoursCount) {
-             alert("Please specify the number of VIP hours.");
-             return;
-        }
-
-        // 🚨 مرحلة التأكيد (البوب اب)
-        const isConfirmed = window.confirm("Are you sure you want to submit your enrollment request?");
-
-        if (!isConfirmed) {
-            return; // إلغاء الإرسال
-        }
-
+    
+    // دالة تنفيذ الإرسال الفعلية
+    const executeSubmission = async () => {
         setIsSubmitting(true);
+        // إغلاق بوب اب التأكيد قبل الإرسال
+        setPopup({ isVisible: false, message: '', isConfirm: false, onConfirm: null });
 
         const payload = {
             name: `${firstName} ${lastName}`, // دمج الاسم الأول والأخير
@@ -118,10 +117,10 @@ export default function Inroll() {
             if (response.status >= 200 && response.status < 300) {
                 // نجاح الإرسال (حالة 2xx)
                 setprogress(2);
-                alert("Enrollment submitted successfully!");
+                // 🚨 استبدال Alert بنجاح التسجيل
+                showPopup("Enrollment submitted successfully!", 3000); 
             } else {
                 // فشل الإرسال (للحالات التي قد تكون ضمن نطاق Axios)
-                // في الواقع، Axios يطلق خطأ للحالات 4xx/5xx، لكن هذا كاحتياط
                 alert(`Submission failed. Status: ${response.status}. Please check your inputs.`);
             }
         } catch (error) {
@@ -135,6 +134,33 @@ export default function Inroll() {
         } finally {
             setIsSubmitting(false);
         }
+    };
+
+    // دالة لتأكيد وإرسال البيانات (في الخطوة الثانية)
+    const handleEnrollSubmission = (e) => { // تم تغييرها إلى دالة عادية (غير async)
+        e.preventDefault();
+
+        // التحقق من الحقول الأساسية في الخطوة 2
+        if (!selectedLanguage || !selectedType || !enrollPeriod) {
+            alert("Please complete all course fields.");
+            return;
+        }
+        
+        // التحقق من حقل VIP إذا كان مفعّلاً
+        if (wantsVipHours && !vipHoursCount) {
+             alert("Please specify the number of VIP hours.");
+             return;
+        }
+
+        // 🚨 استبدال window.confirm بـ Pop-up التأكيد
+        showPopup(
+            "Are you sure you want to submit your enrollment request?", 
+            0, // لا يختفي تلقائياً
+            true, // هو Pop-up تأكيد
+            executeSubmission // الدالة التي يجب تنفيذها عند التأكيد
+        );
+
+        // تم حذف الكود الخاص بـ window.confirm
     };
 
 
@@ -157,122 +183,206 @@ export default function Inroll() {
     useEffect(() => {
         const styleTag = document.createElement('style');
         styleTag.innerHTML = `
-     .form-title {
-         font-weight: 800;
-         font-size: 1.8rem;
-         color: #333;
-         margin-bottom: 25px;
-     }
+  .form-title {
+    font-weight: 800;
+    font-size: 1.8rem;
+    color: #333;
+    margin-bottom: 25px;
+  }
+        /* 🚨 CSS لـ Pop-up */
+        .custom-popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
 
-     .form-subtitle {
-         font-size: 1.2rem;
-         margin-top: 30px;
-         margin-bottom: 15px;
-         font-weight: bold;
-     }
+        .custom-popup {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 85%;
+            width: 350px;
+            color: #333;
+            animation: fadeInScale 0.3s ease-out;
+        }
+        .custom-popup p {
+            margin: 0 0 15px 0;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .custom-popup-buttons button {
+            padding: 8px 15px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .custom-popup-buttons .confirm {
+            background-color: #dc3545;
+            color: white;
+        }
+        .custom-popup-buttons .cancel {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        /* نهاية CSS لـ Pop-up */
+  .form-subtitle {
+    font-size: 1.2rem;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
 
-     .form-group-custom {
-         position: relative;
-         margin-bottom: 1.5rem;
-     }
-     
-     /* نمط حقل ساعات VIP */
-     .form-group-custom.vip-hours-input input {
-          margin-top: 10px;
-          border-bottom: 2px solid #dc3545;
-     }
+  .form-group-custom {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* نمط حقل ساعات VIP */
+  .form-group-custom.vip-hours-input input {
+     margin-top: 10px;
+     border-bottom: 2px solid #dc3545;
+  }
 
-     .form-group-custom select,
-     .form-group-custom textarea,
-     .form-group-custom input {
-         width: 100%;
-         padding: 8px;
-         border: none;
-         border-bottom: 1px solid #ccc;
-         background-color: transparent;
-         font-size: 1rem;
-         color: #333;
-     }
+  .form-group-custom select,
+  .form-group-custom textarea,
+  .form-group-custom input {
+    width: 100%;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    background-color: transparent;
+    font-size: 1rem;
+    color: #333;
+  }
 
-     .form-group-custom select:focus,
-     .form-group-custom textarea:focus,
-     .form-group-custom input:focus {
-         outline: none;
-         border-color: #dc3545;
-     }
+  .form-group-custom select:focus,
+  .form-group-custom textarea:focus,
+  .form-group-custom input:focus {
+    outline: none;
+    border-color: #dc3545;
+  }
 
-     .toggle-group {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         margin-bottom: 25px;
-         font-size: 1rem;
-         color: #6c757d;
-     }
+  .toggle-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    font-size: 1rem;
+    color: #6c757d;
+  }
 
-     .toggle-switch input {
-         display: none;
-     }
+  .toggle-switch input {
+    display: none;
+  }
 
-     .toggle-switch label {
-         cursor: pointer;
-         width: 40px;
-         height: 20px;
-         background: #ccc;
-         border-radius: 10px;
-         position: relative;
-         transition: background-color 0.3s;
-     }
+  .toggle-switch label {
+    cursor: pointer;
+    width: 40px;
+    height: 20px;
+    background: #ccc;
+    border-radius: 10px;
+    position: relative;
+    transition: background-color 0.3s;
+  }
 
-     .toggle-switch label:after {
-         content: '';
-         position: absolute;
-         top: 2px;
-         left: 2px;
-         width: 16px;
-         height: 16px;
-         background: #fff;
-         border-radius: 50%;
-         transition: transform 0.3s;
-     }
+  .toggle-switch label:after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
 
-     .toggle-switch input:checked + label {
-         background: #dc3545;
-     }
+  .toggle-switch input:checked + label {
+    background: #dc3545;
+  }
 
-     .toggle-switch input:checked + label:after {
-         transform: translateX(20px);
-     }
+  .toggle-switch input:checked + label:after {
+    transform: translateX(20px);
+  }
 
-     .enroll-button {
-         font-weight: bold;
-         padding: 10px 0;
-         width: 100%;
-         margin-top: 20px;
-         border-radius: 25px;
-         background-color: #dc3545;
-         color: #fff;
-         font-size: 1.1rem;
-         border: none;
-         cursor: pointer;
-         display: flex;
-         justify-content: center;
-         align-items: center;
-     }
+  .enroll-button {
+    font-weight: bold;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 25px;
+    background-color: #dc3545;
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-     .enroll-button svg {
-         margin-left: 8px;
-         width: 10px;
-         height: 14px;
-         fill: currentColor;
-     }
-    `;
+  .enroll-button svg {
+    margin-left: 8px;
+    width: 10px;
+    height: 14px;
+    fill: currentColor;
+  }
+  `;
         document.head.appendChild(styleTag);
         return () => document.head.removeChild(styleTag);
     }, []);
 
     return (
         <div>
+            {/* 🚨 Pop-up العنصر الجديد */}
+            {popup.isVisible && (
+                <div className="custom-popup-overlay">
+                    <div className="custom-popup">
+                        <p>{popup.message}</p>
+                        {popup.isConfirm && (
+                            <div className="custom-popup-buttons">
+                                <button 
+                                    className="cancel" 
+                                    onClick={() => setPopup({ isVisible: false, message: '', isConfirm: false, onConfirm: null })}
+                                >
+                                    Cancel
+                                </button>
+                                <button 
+                                    className="confirm" 
+                                    onClick={popup.onConfirm}
+                                    disabled={isSubmitting} // منع النقر المتعدد أثناء الإرسال
+                                >
+                                    {isSubmitting ? 'Sending...' : 'Confirm'}
+                                </button>
+                            </div>
+                        )}
+                    </div>
+                </div>
+            )}
+            {/* نهاية Pop-up العنصر الجديد */}
+
             <Hero title1="" title2="Enroll Now" height={true} sing={false} />
             <div className="inrollWindows">
                 {/* شريط التقدم */}
@@ -426,7 +536,7 @@ export default function Inroll() {
                     {progress === 2 && (
                         <nav className="form1 disabligap">
                            <div className='PopUpCongrats'>
-                                <h2>Your Course Enrollment  <br /><span>is Confirmed!</span></h2>
+                                <h2>Your Course Enrollment <br /><span>is Confirmed!</span></h2>
                                 <p>We’re excited to have you on board at The Canadian Academy. You’ve successfully reserved your spot in [<span>Course Name</span>]. A confirmation email with all the details has been sent to your Email.</p>
                            </div>
                            <div className='lastclassbtninroll'>

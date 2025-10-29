@@ -76,11 +76,11 @@ export default function Hero({ title1, title2, span, p, buttom , height , sing ,
             </div>
             {inrole && <div className='Contact-FolowingBox'>
                 <div className='Icons'>
-                    <span><img src="/whatsapp.svg" alt="" /></span>
-                    <span><img src="/ic_baseline-wechat.svg" alt="" /></span>
-                    <span><img src="/mdi_facebook.svg" alt="" /></span>
-                    <span><img src="/basil_instagram-solid.svg" alt="" /></span>
-                    <span><img src="/streamline-flex_tiktok-solid.svg" alt="" /></span>
+                    <span><Link target='_blank' to={"https://wa.me/60147580403"}><img src="/whatsapp.svg" alt="" /></Link></span>
+                    <span><Link target='_blank' to={"https://wa.me/60147580403"}><img src="/ic_baseline-wechat.svg" alt="" /></Link></span>
+                    <span><Link target='_blank' to={"https://www.facebook.com/academia@gmail.com"}><img src="/mdi_facebook.svg" alt="" /></Link></span>
+                    <span><Link target='_blank' to={"https://www.instagram.com/academia@gmail.com"}><img src="/basil_instagram-solid.svg" alt="" /></Link></span>
+                    <span><Link target='_blank' to={"https://www.tiktok.com/academia@gmail.com"}><img src="/streamline-flex_tiktok-solid.svg" alt="" /></Link></span>
                 </div>
                 <p><h4>Chat With US</h4></p>
             </div>}

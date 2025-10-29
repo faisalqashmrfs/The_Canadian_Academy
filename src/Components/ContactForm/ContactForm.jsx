@@ -1,56 +1,104 @@
 import './ContactForm.css';
+import { useState, useRef } from 'react'; // 🚨 إضافة useState و useRef
+import emailjs from 'emailjs-com'; // 🚨 استيراد مكتبة emailjs-com
+
+// 🚨 بيانات التهيئة - يجب استبدالها ببيانات حسابك
+const SERVICE_ID = 'service_p47p5x7'; // مثال: service_xxxxxxx
+const TEMPLATE_ID = 'YOUR_TEMPLATE_ID'; // مثال: template_xxxxxxx
+const PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // مثال: user_xxxxxxx
 
 const ContactDetail = ({ icon, text }) => (
-    <div className="contact-detail">
-        <img src={icon} style={{marginRight:"8px"}}/>
-        <span>{text}</span>
-    </div>
+ <div className="contact-detail">
+  <img src={icon} style={{marginRight:"8px"}}/>
+  <span>{text}</span>
+ </div>
 );
 
 
 const ContactFormFields = () => {
+    // 🚨 1. استخدام useRef لربط النموذج بالـ DOM
+    const form = useRef();
 
-    return (
-        <div className='liftFormSide'>
-            <h1>Let’s Talk!</h1>
+    // 🚨 2. استخدام useState لإدارة حالة الإرسال
+    const [isSending, setIsSending] = useState(false);
+    const [statusMessage, setStatusMessage] = useState('');
 
-            <p>Feel free to drop your message</p>
-            <form action="">
-                <div>
-                    <input type="text" placeholder='Full Name' />
-                    <img src="/frame1.svg" alt="profile" />
-                </div>
-                <div>
-                    <input type="text" placeholder='Email' />
-                    <img src="/sms.svg" alt="" />
-                </div>
-                <div>
-                    <input type="text" placeholder='Phone' />
-                    <img src="/call.svg" alt="" />
-                </div>
-                <div>
-                    <input type="text" placeholder='Message' />
-                    <img src="/message-text.svg" alt="" />
-                </div>
-                <div className='buttoncontactform'>
-                    <button>Send</button>
+    // 🚨 3. دالة إرسال البريد الإلكتروني
+    const sendEmail = (e) => {
+        e.preventDefault(); // منع الإرسال الافتراضي
 
-                </div>
-            </form>
-        </div>
-    );
+        setStatusMessage('');
+        setIsSending(true);
+
+        // استخدام sendForm مع المراجع (ref)
+        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+            .then((result) => {
+                // نجاح الإرسال
+                console.log(result.text);
+                setStatusMessage('Message sent successfully! Thank you for contacting us. 🎉');
+                setIsSending(false);
+                e.target.reset(); // تفريغ حقول النموذج بعد النجاح
+            }, (error) => {
+                // فشل الإرسال
+                console.log(error.text);
+                setStatusMessage(`Failed to send message: ${error.text}. Please try again. 😢`);
+                setIsSending(false);
+            });
+    };
+
+ return (
+  <div className='liftFormSide'>
+   <h1>Let’s Talk!</h1>
+
+   <p>Feel free to drop your message</p>
+            {/* 🚨 ربط دالة الإرسال بالنموذج وربط ref */}
+   <form ref={form} onSubmit={sendEmail}>
+    <div>
+                    {/* 🚨 إضافة الخاصية name */}
+     <input type="text" name="user_name" placeholder='Full Name' required />
+     <img src="/frame1.svg" alt="profile" />
+    </div>
+    <div>
+                    {/* 🚨 إضافة الخاصية name */}
+     <input type="email" name="user_email" placeholder='Email' required />
+     <img src="/sms.svg" alt="" />
+    </div>
+    <div>
+                    {/* 🚨 إضافة الخاصية name */}
+     <input type="text" name="user_phone" placeholder='Phone' />
+     <img src="/call.svg" alt="" />
+    </div>
+    <div>
+                    {/* 🚨 استخدام textarea للرسالة الطويلة، وإضافة الخاصية name */}
+     <textarea name="message" placeholder='Message' required style={{ resize: 'vertical' }}></textarea>
+     <img src="/message-text.svg" alt="" />
+    </div>
+    <div className='buttoncontactform'>
+                    {/* 🚨 استخدام خاصية disabled أثناء الإرسال وعرض حالة الإرسال */}
+     <button type="submit" disabled={isSending}>
+                        {isSending ? 'Sending...' : 'Send'}
+                    </button>
+
+    </div>
+                {/* 🚨 عرض رسالة الحالة */}
+                {statusMessage && <p style={{ marginTop: '15px', fontWeight: 'bold', color: statusMessage.includes('successfully') ? 'green' : 'red' }}>{statusMessage}</p>}
+   </form>
+  </div>
+ );
 };
 
 // لا يوجد تغيير هنا
 const ContactForm = () => {
-    return (
-        <div className="">
-            <div className="">
-                <div className="continerforform">
-                    <div className="">
-                        <ContactFormFields />
-                    </div>
-                    <div className="rightsideform">
+    // ... باقي الكود لم يتغير
+    // (تم حذف باقي الـ ContactForm لتوفير المساحة وعدم تكرار الكود غير المُعدَّل)
+ return (
+  <div className="">
+   <div className="">
+    <div className="continerforform">
+     <div className="">
+      <ContactFormFields />
+     </div>
+     <div className="rightsideform">
                         <div className="map-container mb-5 border rounded-3">
                             <iframe
                                 title="Tripureshwar Map"
@@ -76,11 +124,12 @@ const ContactForm = () => {
                                 <ContactDetail icon="/streamline-flex_tiktok-solidRED.svg" text="academia@gmail.com" color="text-danger" />
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
+     </div>
+    </div>
+   </div>
+  </div>
+ );
 };
+
 
 export default ContactForm;
