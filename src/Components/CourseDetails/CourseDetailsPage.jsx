@@ -301,8 +301,8 @@ const CourseDetailsPage = () => {
                         <Link className={activ == 2 ? 'active' : ''} onClick={() => setactiv(2)}>Prerequisites</Link>
                         <Link className={activ == 3 ? 'active' : ''} onClick={() => setactiv(3)}>Program Highlights</Link>
                         <Link className={activ == 4 ? 'active' : ''} onClick={() => setactiv(4)}>Levels Offered</Link>
-                        <Link className={activ == 5 ? 'active' : ''} onClick={() => setactiv(5)}>Meet Our Educator</Link>
-                        <button>Enroll Now</button>
+                        <Link to={`/Inroll/${id}`}><button>Enroll Now</button></Link>
+                        
                     </div>
                     <div className='parts'>
                         <div className='part'>
@@ -331,16 +331,6 @@ const CourseDetailsPage = () => {
                         <div className='part'>
                             <h2>Levels Offered</h2>
                             <p>{data.levelsOffered}</p>
-                        </div>
-                        <div className='part Educatorp'>
-                            <h2>Meet Our Educator</h2>
-                            <div className='fatherEducator'>
-                                <div className='Educator'>
-                                    <img src="/images/Avatar.png" alt="" />
-                                    <span>{data.educator.name}</span>
-                                </div>
-                                <p>{data.educator.bio}</p>
-                            </div>
                         </div>
                     </div>
                 </div>

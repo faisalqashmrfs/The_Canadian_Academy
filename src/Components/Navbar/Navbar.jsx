@@ -8,20 +8,15 @@ export default function Navbar() {
   
   const [isScrolledPast40, setIsScrolledPast40] = useState(false);
 
-  // 2. دالة التعامل مع حدث التمرير
   const handleScroll = () => {
-    // الحصول على قيمة التمرير العمودي (vertical scroll position)
     const scrollPosition = window.scrollY;
 
-    // الشرط: إذا كان التمرير 40 بكسل أو أكثر
     if (scrollPosition >= 40) {
-      // قم بتحديث الحالة فقط إذا لم تكن قد تحققت بالفعل
       if (!isScrolledPast40) {
         setIsScrolledPast40(true);
         console.log('✅ الشرط تحقق: تم التمرير 40 بكسل للأسفل أو أكثر.');
       }
     } else {
-      // قم بتحديث الحالة فقط إذا كانت قد تحققت سابقاً والآن عادت للصفر
       if (isScrolledPast40) {
         setIsScrolledPast40(false);
         console.log('❌ الشرط لم يعد محققاً: التمرير أقل من 40 بكسل.');
@@ -29,18 +24,14 @@ export default function Navbar() {
     }
   };
 
-  // 3. استخدام useEffect لإضافة وإزالة مستمع الحدث
   useEffect(() => {
-    // إضافة مستمع لحدث 'scroll' عند تحميل المكون
     window.addEventListener('scroll', handleScroll);
 
-    // دالة التنظيف (Cleanup Function)
-    // مهمة جداً: لإزالة مستمع الحدث عند إزالة المكون (unmounting) لتجنب تسرب الذاكرة
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isScrolledPast40]); // نضع isScrolledPast40 كـ dependency لتجنب مشاكل الـ closure في الدالة handleScroll
+  }, [isScrolledPast40]); 
 
 
   const [activ , setactiv] = useState(() => {
@@ -66,6 +57,7 @@ export default function Navbar() {
       if (path === '/Courses') return 2;
       if (path === '/HelpCenter') return 3;
       if (path === '/ContactUs') return 4;
+      if (path === '/Certificate') return 5;
       return activ; 
     };
 
@@ -86,25 +78,26 @@ export default function Navbar() {
   return (
     <>
     <nav className="navbarAcademy">
-      <img src="/Logo.svg" alt="" />
+      <Link to={'/'} className={activ === 0 ? 'activlinkfornav' : ''}><img src="/Logo.svg" alt="" /></Link>
       <ul className="links">
         <li className="link"><Link to={'/'} className={activ === 0 ? 'activlinkfornav' : ''}>Home</Link></li>
         <li className="link"><Link to={'/AboutUs'} className={activ === 1 ? 'activlinkfornav' : ''}>About Us</Link></li>
         <li className="link"><Link to={'/Courses'}  className={activ === 2 ? 'activlinkfornav' : ''}>Courses</Link></li>
         <li className="link"><Link to={'/HelpCenter'}  className={activ === 3 ? 'activlinkfornav' : ''}>Help Center</Link></li>
         <li className="link"><Link to={'/ContactUs'}  className={activ === 4 ? 'activlinkfornav' : ''}>Contact Us</Link></li>
+        <li className="link"><Link to={'/Certificate'}  className={activ === 5 ? 'activlinkfornav' : ''}>Certificate</Link></li>
       </ul>
     </nav>
     
     <nav>
       <div className="NavForMobilemain" style={{backgroundColor :`${isScrolledPast40 ? '#ffffffb6' : ''}`}}>
-        <img src="/Logored.svg" alt="Logo" />
+        <Link to={'/'} className={activ === 0 ? 'activlinkfornav' : ''}><img src="/Logored.svg" alt="Logo" /></Link>
         <img src="/Frame18.svg" alt="togel-icone" onClick={() => settogle(!togle)}/>
       </div>
     </nav>
     <nav className="NavForMobile" style={{transform: `translateX(${togle ? '100vw' : '0vw'})`}}>
       <div className="Top">
-        <img src="/Logored.svg" alt="Logo" />
+        <Link to={'/'}  onClick={handleMobileLinkClick} className={activ === 0 ? 'activlinkfornav' : ''}><img src="/Logored.svg" alt="Logo" /></Link>
         <img src="/cross1.svg" alt="close"  onClick={() => settogle(true)}/>
       </div>
       <ul className="linkss">
@@ -113,9 +106,13 @@ export default function Navbar() {
         <li className="link"><Link to={'/Courses'}  className={activ === 2 ? 'activlinkfornav' : ''} onClick={handleMobileLinkClick}>Courses</Link></li>
         <li className="link"><Link to={'/HelpCenter'}  className={activ === 3 ? 'activlinkfornav' : ''} onClick={handleMobileLinkClick}>Help Center</Link></li>
         <li className="link"><Link to={'/ContactUs'}  className={activ === 4 ? 'activlinkfornav' : ''} onClick={handleMobileLinkClick}>Contact Us</Link></li>
+                <li className="link"><Link to={'/Certificate'}  className={activ === 5 ? 'activlinkfornav' : ''}>Certificate</Link></li>
       </ul>
       <span>x</span>
     </nav>
     </>
   );
 }
+
+
+

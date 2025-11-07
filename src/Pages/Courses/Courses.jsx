@@ -66,7 +66,7 @@ export default function Courses() {
     },
     {
       id: 8,
-      title: "Professional Business English",
+      title: "Professional Business Mandarin",
       description: "The Canadian Academy offers a specialized Business Chinese Test (BCT) preparation course designed for professionals looking to enhance their Mandarin skills in a business context.Our expert instructors ..",
       span1: "Flexibility in timing",
       span2: "4-Skills",
@@ -74,7 +74,7 @@ export default function Courses() {
     },
     {
       id: 9,
-      title: "VIP English Course",
+      title: "VIP Mandarin Course",
       description: "Experience the ultimate in language learning with VIP Mandarin at The Canadian Academy   a premium one-on-one course tailored specifically to your goals, pace, and interestsh ..",
       span1: "Choose your hours",
       span2: "One to One Teaching",

@@ -47,49 +47,49 @@ export default function Meetourteam() {
                     <div style={{ width: `${widtharia}vw` }} className="one">
                         <img src="/Imageteatcher.png" alt="" />
                         <div>
-                            <h2>John Doe</h2>
-                            <span>English Teacher</span>
-                            <p>Passionate about literature and creative writing.</p>
+                            <h2>Ted</h2>
+                            <span>English Specialist Teacher</span>
+                            <p>Passionate British teacher focused on modern learning.</p>
                         </div>
                     </div>
                     <div style={{ width: `${widtharia}vw` }} className="one">
                         <img src="/Imaget2.png" alt="" />
                         <div>
-                            <h2>Jane Smith</h2>
-                            <span>ESL Instructor</span>
-                            <p>Focuses on immersive language experiences.</p>
+                            <h2>Antony</h2>
+                            <span>English Specialist Teacher</span>
+                            <p>Passionate New Zealander skilled in cultural exchange.</p>
                         </div>
                     </div>
                     <div style={{ width: `${widtharia}vw` }} className="one">
                         <img src="/Imaget3.png" alt="" />
                         <div>
-                            <h2>Emily Johnson</h2>
-                            <span>Language Arts Educator</span>
-                            <p>Specializes in interactive learning techniques.</p>
+                            <h2>Ben</h2>
+                            <span>English Specialist Teacher</span>
+                            <p>Passionate UK teacher inspiring confident speaking.</p>
                         </div>
                     </div>
                     <div style={{ width: `${widtharia}vw` }} className="one">
                         <img src="/Imageteatcher.png" alt="" />
                         <div>
-                            <h2>John Doe</h2>
+                            <h2>Marshal</h2>
                             <span>English Teacher</span>
-                            <p>Passionate about literature and creative writing.</p>
+                            <p>Passionate Slovak educator promoting clear expression.</p>
                         </div>
                     </div>
                     <div style={{ width: `${widtharia}vw` }} className="one">
                         <img src="/Imaget2.png" alt="" />
                         <div>
-                            <h2>Jane Smith</h2>
-                            <span>ESL Instructor</span>
-                            <p>Focuses on immersive language experiences.</p>
+                            <h2>Zach</h2>
+                            <span>English Teacher</span>
+                            <p>Passionate Malaysian mentor fostering creative minds.</p>
                         </div>
                     </div>
                     <div style={{ width: `${widtharia}vw` }} className="one">
                         <img src="/Imaget3.png" alt="" />
                         <div>
-                            <h2>Emily Johnson</h2>
-                            <span>Language Arts Educator</span>
-                            <p>Specializes in interactive learning techniques.</p>
+                            <h2>Leen</h2>
+                            <span>English Teacher</span>
+                            <p>Passionate Syrian teacher guiding student success.</p>
                         </div>
                     </div>
 

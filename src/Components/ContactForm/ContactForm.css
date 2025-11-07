@@ -57,7 +57,7 @@
 }
 .contact-detail span{
   font-family: var(--text-font-family);
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   color: #262338;
 }
@@ -108,7 +108,7 @@
   position: relative;
   height: 50px;
 }
-.liftFormSide form div input
+.liftFormSide form div input , .liftFormSide form div textarea
 {
   width: 100%;
   padding: 0 10px;

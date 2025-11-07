@@ -11,6 +11,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 import Footer from './Components/Footer/Footer';
 import Inroll from './Pages/Inroll/Inroll';
 import CourseDetailsPage from './Components/CourseDetails/CourseDetailsPage';
+import Certificate from './Pages/Certificate/Certificate';
 
 function App() {
 
@@ -20,17 +21,18 @@ function App() {
 
   return (
     <main className='UltraSection'>
-      {!hideNavbar && <Navbar />}
+      {!hideNavbar && <Navbar/>}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/AboutUs" element={<AboutUs />} />
-        <Route path="/Courses" element={<Courses />} />
-        <Route path="/HelpCenter" element={<HelpCenter />} />
-        <Route path="/ContactUs" element={<ContactUs />} />
-        <Route path="/course-details/:id" element={<CourseDetailsPage />} />
-        <Route path="/Inroll/:id" element={<Inroll />} />
+        <Route path="/" element={<Home />}/>
+        <Route path="/AboutUs" element={<AboutUs />}/>
+        <Route path="/Courses" element={<Courses />}/>
+        <Route path="/HelpCenter" element={<HelpCenter />}/>
+        <Route path="/ContactUs" element={<ContactUs />}/>
+        <Route path="/course-details/:id" element={<CourseDetailsPage/>}/>
+        <Route path="/Certificate" element={<Certificate />}/>
+        <Route path="/Inroll/:id" element={<Inroll />}/>
       </Routes>
-      <Footer />
+      <Footer/>
     </main>
   );
 }

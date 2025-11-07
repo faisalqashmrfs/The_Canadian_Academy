@@ -37,51 +37,47 @@ const Footer = () => {
                         <h6 className="footer-title">Quick Links</h6>
                         <ul className="list-unstyled footer-list quick-links-mobile-grid">
                             <li><Link to="/" className="footer-link">Home</Link></li>
-                            <li><Link to="/about" className="footer-link">About Us</Link></li>
-                            <li><Link to="/courses" className="footer-link">Courses</Link></li>
-                            <li><Link to="/admissions" className="footer-link">Admissions</Link></li>
-                            <li><Link to="/contact" className="footer-link">Contact Us</Link></li>
+                            <li><Link to="/AboutUs" className="footer-link">About Us</Link></li>
+                            <li><Link to="/Courses" className="footer-link">Courses</Link></li>
+                            <li><Link to="/HelpCenter" className="footer-link">Help Center</Link></li>
+                            <li><Link to="/ContactUs" className="footer-link">Contact Us</Link></li>
                         </ul>
                     </Col>
-
+                    
                     {/* Column 3: Contact Info (Visible only on large screens) */}
                     <Col lg={3} md={4} sm={6} className="contact-column">
                         <h6 className="footer-title contact-title">Contact</h6>
                         <ul className="list-unstyled footer-list contact-list">
                             <li>
-                                <img src={ICONS.location} alt="Location" className="contact-icon" />
-                                <span>Tripureshwor</span>
+                                <img src="/Vectorlocationwite.svg" alt="Location" className="contact-icon" />
+                                <span>Bukit Bintang</span>
                             </li>
                             <li>
-                                <img src={ICONS.email} alt="Email" className="contact-icon" />
-                                <span>academy@gmail.com</span>
+                                <img src="/dashicons_emawightl.svg" alt="Email" className="contact-icon" />
+                                <span>Info@thecanadianacademy.edu.my</span>
                             </li>
                             <li>
-                                <img src={ICONS.whatsapp} alt="WhatsApp" className="contact-icon" />
-                                <span>+60-147580403</span>
+                                <img src="/mingcute_whatsapp-fillwight.svg" alt="WhatsApp" className="contact-icon" />
+                                <span>+60-1167503828</span>
                             </li>
                         </ul>
                     </Col>
 
                     {/* Column 4: Social Media */}
-                    <Col lg={1} md={4} sm={12}>
+                    {/* <Col lg={1} md={4} sm={12}>
                         <h6 className="footer-title">Join us on</h6>
-
-                        {/* أيقونات فقط للشاشات الكبيرة */}
                         <div className="social-icons-wrapper">
-                            <img src={ICONS.tiktok} alt="TikTok" className="social-icon" />
-                            <img src={ICONS.instagram} alt="Instagram" className="social-icon" />
-                            <img src={ICONS.facebook} alt="Facebook" className="social-icon" />
+                            <img src="/streamline-flex_tiktok-solid.svg" alt="TikTok" className="social-icon" />
+                            <img src="/basil_instagram-solid.svg" alt="Instagram" className="social-icon" />
+                            <img src="/mdi_facebook.svg" alt="Facebook" className="social-icon" />
                         </div>
-
-                        {/* أسماء فقط للشاشات الصغيرة */}
                         <ul className="list-unstyled footer-list social-links-mobile-list">
                             <li className="social-link">Facebook</li>
                             <li className="social-link">Instagram</li>
                             <li className="social-link">LinkedIn</li>
                             <li className="social-link">TikTok</li>
                         </ul>
-                    </Col>
+                    </Col> */}
                 </Row>
 
                 <hr className="footer-hr" />

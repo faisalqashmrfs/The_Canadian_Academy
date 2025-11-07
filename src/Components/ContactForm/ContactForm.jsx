@@ -1,47 +1,38 @@
 import './ContactForm.css';
 import { useState, useRef } from 'react';
 import emailjs from 'emailjs-com';
-import { motion } from "framer-motion"; // 🚨 استيراد Framer Motion
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion"; 
+import { Link } from 'react-router-dom';
 
-// 🚨 بيانات التهيئة (كما هي)
-const SERVICE_ID = 'service_p47p5x7';
-const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+const SERVICE_ID = 'service_me6tc4q';
+const TEMPLATE_ID = 'template_r0p8edm';
+const PUBLIC_KEY = 'jS_MzaP75bFS9HTFa';
 
-// ---------------------------
-// 🚨 1. متغيرات الحركة
-// ---------------------------
-
-// حركة الظهور من اليسار (للنموذج نفسه)
 const slideInLeft = {
     hidden: { opacity: 0, x: -50 },
     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
 };
 
-// حركة الظهور من اليمين (للمعلومات الجانبية)
+
 const slideInRight = {
     hidden: { opacity: 0, x: 50 },
-    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut", delay: 0.2 } }, // تأخير بسيط
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut", delay: 0.2 } }, 
 };
 
-// متغيرات التتابع لحقول النموذج
 const formContainerVariants = {
     visible: {
         transition: {
-            staggerChildren: 0.1, // تظهر الحقول بتتابع 
+            staggerChildren: 0.1, 
         },
     },
 };
 
-// متغيرات حقل الإدخال الواحد
 const inputItemVariants = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 },
 };
 
-// ---------------------------
-// 🚨 مكون ContactDetail (تعديل بسيط لتطبيق الحركة)
-// ---------------------------
 const ContactDetail = ({ icon, text }) => (
     // تطبيق حركة بسيطة لكل تفصيل (يجب أن يتم تكرارها داخل قائمة)
     <motion.div
@@ -52,14 +43,12 @@ const ContactDetail = ({ icon, text }) => (
         <span>{text}</span>
     </motion.div>
 );
-
-
 const ContactFormFields = () => {
     const form = useRef();
     const [isSending, setIsSending] = useState(false);
     const [statusMessage, setStatusMessage] = useState('');
 
-    const sendEmail = (e) => {
+   const sendEmail = (e) => {
         e.preventDefault();
         setStatusMessage('');
         setIsSending(true);
@@ -120,7 +109,7 @@ const ContactFormFields = () => {
                     </motion.button>
 
                 </div>
-                {statusMessage && <p style={{ marginTop: '15px', fontWeight: 'bold', color: statusMessage.includes('successfully') ? 'green' : 'red' }}>{statusMessage}</p>}
+                {statusMessage && <p style={{ marginTop: '15px' , fontSize: "16px" , fontWeight: 'bold', color: statusMessage.includes('successfully') ? 'green' : 'red' }}>{statusMessage}</p>}
             </motion.form>
         </motion.div>
     );
@@ -148,7 +137,7 @@ const ContactForm = () => {
                         <div className="map-container mb-5 border rounded-3">
                             <iframe
                                 title="Tripureshwar Map"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.477930546637!2d85.31450607538393!3d27.69934397620759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb190f9d3b1f3f%3A0x7e5e8f2e8c3f6c7e!2sTripureshwor%2C%20Kathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1697031234567!5m2!1sen!2snp"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3983.8003026098913!2d101.7117117!3d3.1473309!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31cc37b69ac5e207%3A0xd89ec08f21a83795!2sThe%20Canadian%20Academy%20(TCA)!5e0!3m2!1sar!2sus!4v1762445194363!5m2!1sar!2sus"
                                 width="100%"
                                 height="300"
                                 style={{ border: 0 }}
@@ -166,13 +155,13 @@ const ContactForm = () => {
                             viewport={{ once: true, amount: 0.1 }}
                         >
                             <div className="col-sm-6 col-6">
-                                <ContactDetail icon="/locationRED.svg" text="Tripureshwar, Kathmandu" color="text-danger" />
+                                <ContactDetail icon="/locationRED.svg" text="Bukit Bintang, Kuala Lumpur" color="text-danger" />
                                 <ContactDetail icon="/mdi_facebookred.svg" text="academia@gmail.com" color="text-danger" />
                                 <ContactDetail icon="/basil_instagram-solidRED.svg" text="academia@gmail.com" color="text-danger" />
                             </div>
                             <div className="col-sm-6 col-6">
-                                <ContactDetail icon="/sms.svg" text="academia@gmail.com" color="text-danger" />
-                                <ContactDetail icon="/mingcute_whatsapp-fillRED.svg" text="+60-147580403" color="text-danger" />
+                                <ContactDetail icon="/sms.svg" text="Info@thecanadianacademy.edu.my" color="text-danger" />
+                                <Link><ContactDetail icon="/mingcute_whatsapp-fillRED.svg" text="+60-147580403" color="text-danger" /></Link>
                                 <ContactDetail icon="/streamline-flex_tiktok-solidRED.svg" text="academia@gmail.com" color="text-danger" />
                             </div>
                         </motion.div>
