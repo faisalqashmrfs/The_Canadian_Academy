@@ -41,7 +41,7 @@ export default function Hero({ title1, title2, span, p, buttom, height, sing, de
             <div className={wechat ? "wecchate" : "wecchateooff"}>
                 <div>
                     <img src="/WechatQR.png" alt="" />
-                    <button onClick={() => setwechat(false)}>cencel</button>
+                    <button onClick={() => setwechat(false)}>Cancel</button>
                 </div> 
             </div>
             <div className='Title'>

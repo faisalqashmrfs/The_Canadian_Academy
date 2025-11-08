@@ -45,7 +45,7 @@ export default function Meetourteam() {
             <div className='slide' >
                 <div className='son' style={{ transform: `translateX(-${transs * status}vw)`, width: `${father}vw` }}>
                     <div style={{ width: `${widtharia}vw` }} className="one">
-                        <img src="/Imageteatcher.png" alt="" />
+                        <img src="/tech/Ted.png" alt="" />
                         <div>
                             <h2>Ted</h2>
                             <span>English Specialist Teacher</span>
@@ -53,7 +53,7 @@ export default function Meetourteam() {
                         </div>
                     </div>
                     <div style={{ width: `${widtharia}vw` }} className="one">
-                        <img src="/Imaget2.png" alt="" />
+                        <img src="/tech/Antony.png" alt="" />
                         <div>
                             <h2>Antony</h2>
                             <span>English Specialist Teacher</span>
@@ -61,7 +61,7 @@ export default function Meetourteam() {
                         </div>
                     </div>
                     <div style={{ width: `${widtharia}vw` }} className="one">
-                        <img src="/Imaget3.png" alt="" />
+                        <img src="/tech/Ben.png" alt="" />
                         <div>
                             <h2>Ben</h2>
                             <span>English Specialist Teacher</span>
@@ -69,7 +69,7 @@ export default function Meetourteam() {
                         </div>
                     </div>
                     <div style={{ width: `${widtharia}vw` }} className="one">
-                        <img src="/Imageteatcher.png" alt="" />
+                        <img src="/tech/Marshal.png" alt="" />
                         <div>
                             <h2>Marshal</h2>
                             <span>English Teacher</span>
@@ -77,7 +77,7 @@ export default function Meetourteam() {
                         </div>
                     </div>
                     <div style={{ width: `${widtharia}vw` }} className="one">
-                        <img src="/Imaget2.png" alt="" />
+                        <img src="/tech/Zach.png" alt="" />
                         <div>
                             <h2>Zach</h2>
                             <span>English Teacher</span>
@@ -85,7 +85,7 @@ export default function Meetourteam() {
                         </div>
                     </div>
                     <div style={{ width: `${widtharia}vw` }} className="one">
-                        <img src="/Imaget3.png" alt="" />
+                        <img src="/tech/Leen.png" alt="" />
                         <div>
                             <h2>Leen</h2>
                             <span>English Teacher</span>

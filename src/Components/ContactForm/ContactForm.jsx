@@ -156,13 +156,13 @@ const ContactForm = () => {
                         >
                             <div className="col-sm-6 col-6">
                                 <ContactDetail icon="/locationRED.svg" text="Bukit Bintang, Kuala Lumpur" color="text-danger" />
-                                <ContactDetail icon="/mdi_facebookred.svg" text="academia@gmail.com" color="text-danger" />
-                                <ContactDetail icon="/basil_instagram-solidRED.svg" text="academia@gmail.com" color="text-danger" />
+                                <ContactDetail icon="/mdi_facebookred.svg" text="TheCanadianAcademy" color="text-danger" />
+                                <ContactDetail icon="/basil_instagram-solidRED.svg" text="TheCanadianAcademy" color="text-danger" />
                             </div>
                             <div className="col-sm-6 col-6">
                                 <ContactDetail icon="/sms.svg" text="Info@thecanadianacademy.edu.my" color="text-danger" />
-                                <Link><ContactDetail icon="/mingcute_whatsapp-fillRED.svg" text="+60-147580403" color="text-danger" /></Link>
-                                <ContactDetail icon="/streamline-flex_tiktok-solidRED.svg" text="academia@gmail.com" color="text-danger" />
+                                <ContactDetail icon="/mingcute_whatsapp-fillRED.svg" text="+60-147580403" color="text-danger" />
+                                <ContactDetail icon="/streamline-flex_tiktok-solidRED.svg" text="TheCanadianAcademy" color="text-danger" />
                             </div>
                         </motion.div>
                     </motion.div>

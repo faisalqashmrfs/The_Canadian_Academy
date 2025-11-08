@@ -85,7 +85,7 @@ const Footer = () => {
                 <Row>
                     <Col className="text-start copyright-mobile-center">
                         <small className="copyright-text">
-                            © 2077 Untitled UI. All rights reserved.
+                            © 2025 TheCanadianAcademy All rights reserved.
                         </small>
                     </Col>
                 </Row>
