@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './CertificateSearch.css';
 import { QRCodeSVG } from 'qrcode.react';
-import LogoImage from '/Logo.png';
+import LogoImage from '/Logo1.png';
 
 export default function CertificateSearch() {
 
