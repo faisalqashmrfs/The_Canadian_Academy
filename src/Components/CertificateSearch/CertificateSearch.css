@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Niconne&display=swap');
+
+
 .certificate-search {
     padding: 40px 20px;
     background-color: #ffffff;
@@ -116,7 +119,185 @@
     object-fit: contain;
 }
 
+.PhotoforCertificate{
+    padding: 20px;
+    box-shadow: 0px 0px 15px .4px rgb(228, 228, 228);
+    margin: 50px auto;
+    border-radius: 3px;
+}
+.PhotoforCertificate .centerimages
+{
+    width: 1200px;
+    margin: 0 auto;
+    height: 848px;
+    background-image: url('/EmptyCertificate.png');
+    background-position: center;
+    background-size: cover;
+    position: relative;  
+}
+.PhotoforCertificate .centerimages .titlename
+{
+    position: absolute;
+    top: 380px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: "Niconne", cursive;
+    font-weight: 600;
+    font-size: 40px;
+    color: #02316a;
+}
 
+.PhotoforCertificate .centerimages .titlelevel
+{
+    position: absolute;
+    top: 520px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 36px;
+    color: #02316a;
+}
+.PhotoforCertificate .centerimages .titleDate
+{
+    position: absolute;
+    bottom: 90px;
+    left: 80px;
+    font-weight: 500;
+    color: rgb(148, 148, 148);
+    font-size: 20px;
+}
+.PhotoforCertificate .centerimages .titleno
+{
+    position: absolute;
+    bottom: 60px;
+    left: 80px;
+    font-weight: 500;
+    color: rgb(148, 148, 148);
+    font-size: 20px;
+}
+.PhotoforCertificate .centerimages .titleQR
+{
+    position: absolute;
+    bottom: 55px;
+    right: 80px;
+}
+
+@media(max-width:1400px)
+{
+    .PhotoforCertificate .centerimages
+    {
+        width: 800px;
+        height: 566px;
+    }
+    .PhotoforCertificate .centerimages .titlename
+    {
+        top: 250px;
+        font-size: 30px;
+    }
+    .PhotoforCertificate .centerimages .titlelevel
+    {
+        top: 350px;
+        font-size: 24px;
+    }
+    .PhotoforCertificate .centerimages .titleQR
+    {
+        position: absolute;
+        bottom: 30px;
+        right: 50px;
+    }
+    .PhotoforCertificate .centerimages .titleDate
+    {
+
+        bottom: 65px;
+        left: 60px;
+        font-size: 16px;
+    }
+    .PhotoforCertificate .centerimages .titleno
+    {
+        bottom: 40px;
+        left: 60px;
+        font-size: 16px;
+    }
+}
+@media(max-width:960px)
+{
+    .PhotoforCertificate .centerimages
+    {
+        width: 500px;
+        height: 354px;
+    }
+    .PhotoforCertificate .centerimages .titlename
+    {
+        top: 155px;
+        font-size: 18px;
+    }
+    .PhotoforCertificate .centerimages .titlelevel
+    {
+        top: 210px;
+        font-size: 16px;
+    }
+    .PhotoforCertificate .centerimages .titleQR
+    {
+        position: absolute;
+        bottom: 10px;
+        right: 25px;
+    }
+    .PhotoforCertificate .centerimages .titleDate
+    {
+
+        bottom: 35px;
+        left: 40px;
+        font-size: 12px;
+    }
+    .PhotoforCertificate .centerimages .titleno
+    {
+        bottom: 16px;
+        left: 40px;
+        font-size: 12px;
+    }
+}
+@media(max-width:650px)
+{
+    .PhotoforCertificate .centerimages
+    {
+        width: 300px;
+        height: 212px;
+    }
+    .PhotoforCertificate .centerimages .titlename
+    {
+        top: 95px;
+        font-size: 10px;
+    }
+    .PhotoforCertificate .centerimages .titlelevel
+    {
+        top: 130px;
+        font-size: 10px;
+    }
+    .PhotoforCertificate .centerimages .titleQR
+    {
+        position: absolute;
+        bottom: -5px;
+        right: 15px;
+    }
+    .PhotoforCertificate .centerimages .titleDate
+    {
+
+        bottom: 15px;
+        left: 27px;
+        font-size: 8px;
+    }
+    .PhotoforCertificate .centerimages .titleno
+    {
+        bottom: 2px;
+        left: 27px;
+        font-size: 8px;
+    }
+    .PhotoforCertificate{
+    padding: 5px;
+    box-shadow: 0px 0px 15px .4px rgb(228, 228, 228);
+    margin: 50px auto;
+    border-radius: 3px;
+    }
+}
 @media(max-width:600px)
 {
     .certificate-search {
