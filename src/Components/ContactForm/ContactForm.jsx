@@ -84,9 +84,8 @@ const ContactFormFields = () => {
                 onSubmit={sendEmail}
                 variants={formContainerVariants}
                 initial="hidden"
-                animate="visible" // نستخدم 'animate' لأنه يتم تشغيله بواسطة 'whileInView' للعنصر الأب 
+                animate="visible" 
             >
-                {/* 🚨 تطبيق حركة الابن على كل حقل */}
                 <div>
                     <motion.input type="text" name="user_name" placeholder='Full Name' required variants={inputItemVariants} />
                     <img src="/frame1.svg" alt="profile" />
@@ -115,9 +114,6 @@ const ContactFormFields = () => {
     );
 };
 
-// ---------------------------
-// 🚨 مكون ContactForm (لتغليف القسم الأيمن)
-// ---------------------------
 const ContactForm = () => {
     return (
         <div className="">
@@ -126,7 +122,6 @@ const ContactForm = () => {
                     <div className="">
                         <ContactFormFields />
                     </div>
-                    {/* 🚨 تغليف القسم الأيمن بالحركة */}
                     <motion.div
                         className="rightsideform"
                         variants={slideInRight}
@@ -149,7 +144,7 @@ const ContactForm = () => {
 
                         <motion.div
                             className="row mt-3 forsrespons"
-                            variants={formContainerVariants} // نستخدم التتابع لعرض التفاصيل
+                            variants={formContainerVariants}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.1 }}
@@ -161,7 +156,7 @@ const ContactForm = () => {
                             </div>
                             <div className="col-sm-6 col-6">
                                 <ContactDetail icon="/sms.svg" text="Info@thecanadianacademy.edu.my" color="text-danger" />
-                                <ContactDetail icon="/mingcute_whatsapp-fillRED.svg" text="+60-147580403" color="text-danger" />
+                                <ContactDetail icon="/mingcute_whatsapp-fillRED.svg" text="+60 11-6750 3828" color="text-danger" />
                                 <ContactDetail icon="/streamline-flex_tiktok-solidRED.svg" text="TheCanadianAcademy" color="text-danger" />
                             </div>
                         </motion.div>

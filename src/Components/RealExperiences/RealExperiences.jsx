@@ -22,7 +22,7 @@ export default function RealExperiences() {
   useEffect(() => {
     console.log(widthscreen);
     if (widthscreen <= 555) {
-      setWidtharia(99);
+      setWidtharia(90);
     } else if(widthscreen <= 774)
     {
       setWidtharia(89);

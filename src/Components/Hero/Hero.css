@@ -444,18 +444,26 @@
 
     .course-deatils span {
         font-size: 12px;
-        padding: 4px 12px;
+        padding: 0px 12px;
         font-weight: 600;
     }
 
     .inroll-deatils button {
         padding: 10px 0;
         font-size: 16px;
-        width: 250px;
+        width: 200px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .inroll-deatils button {
         margin-top: 32px;
+    }
+    .inroll-deatils button a 
+    {
+        transform: translateY(-20px);
     }
 }
 
@@ -480,13 +488,17 @@
 }
 @media(max-width:400px) {
     .Hero .Title h1 {
-        font-size: 50px;
+        font-size: 45px;
         line-height: 50px;
         width: 330px;
     }
 
     .Hero .Title h2 {
         font-size: 52px;
+    }
+            .inroll-deatils button a 
+    {
+        transform: translateY(-10px);
     }
 }
 @media(max-width:350px) {
@@ -499,4 +511,5 @@
         font-size: 42px;
         width: 300px;
     }
+
 }

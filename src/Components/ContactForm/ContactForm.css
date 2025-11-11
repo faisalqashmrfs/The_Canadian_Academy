@@ -55,7 +55,8 @@
   align-items: center;
   margin-bottom: 15px;
 }
-.contact-detail span{
+
+.contact-detail span {
   font-family: var(--text-font-family);
   font-size: 20px;
   font-weight: 600;
@@ -73,43 +74,44 @@
   padding-top: 40px;
   padding-bottom: 60px;
 }
-.continerforform
-{
+
+.continerforform {
   display: flex;
   padding: 50px 156px;
   justify-content: space-between;
 }
-.continerforform .rightsideform
-{
+
+.continerforform .rightsideform {
   width: 55%;
 }
-.liftFormSide h1
-{
+
+.liftFormSide h1 {
   font-size: 96px;
   color: var(--red);
   font-family: var(--title-font-family);
   /* margin-bottom: 32px; */
 }
-.liftFormSide p
-{
+
+.liftFormSide p {
   font-size: 32px;
   color: #262338;
   font-family: var(--text-font-family);
   margin-bottom: 44px;
 }
-.liftFormSide form
-{
+
+.liftFormSide form {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.liftFormSide form div
-{
+
+.liftFormSide form div {
   position: relative;
   height: 50px;
 }
-.liftFormSide form div input , .liftFormSide form div textarea
-{
+
+.liftFormSide form div input,
+.liftFormSide form div textarea {
   width: 100%;
   padding: 0 10px;
   margin-top: 15px;
@@ -119,15 +121,14 @@
   border-bottom: 1px solid black;
   font-size: 24px;
 }
-.liftFormSide form div img
-{
+
+.liftFormSide form div img {
   position: absolute;
   right: 10px;
   top: 50%;
 }
 
-.buttoncontactform button
-{
+.buttoncontactform button {
   color: #fff;
   background-color: var(--red);
   width: 300px;
@@ -137,89 +138,88 @@
   margin-top: 16px;
 }
 
-@media(max-width:1650px)
-{
-  .continerforform
-{
-  padding: 40px 106px;
-}
-  .contact-detail span{
-  font-size: 18px;
-}
-.liftFormSide h1
-{
-  font-size: 78px;
-}
-.liftFormSide p
-{
-  font-size: 28px;
-}
+@media(max-width:1650px) {
+  .continerforform {
+    padding: 40px 106px;
+  }
+
+  .contact-detail span {
+    font-size: 18px;
+  }
+
+  .liftFormSide h1 {
+    font-size: 78px;
+  }
+
+  .liftFormSide p {
+    font-size: 28px;
+  }
 }
 
-@media(max-width:1250px)
-{
-.continerforform
-{
-  display: flex;
-  padding: 50px 80px;
-  justify-content: space-between;
-  flex-direction: column;
-}
-.continerforform .rightsideform
-{
-  width: 100%;
-}
-.continerforform .liftFormSide
-{
-  margin-bottom: 32px;
-}
-  .contact-detail span{
-  font-size: 18px;
-}
-.liftFormSide h1
-{
-  font-size: 78px;
-}
-.liftFormSide p
-{
-  font-size: 28px;
-}
+@media(max-width:1250px) {
+  .continerforform {
+    display: flex;
+    padding: 50px 80px;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+
+  .continerforform .rightsideform {
+    width: 100%;
+  }
+
+  .continerforform .liftFormSide {
+    margin-bottom: 32px;
+  }
+
+  .contact-detail span {
+    font-size: 18px;
+  }
+
+  .liftFormSide h1 {
+    font-size: 78px;
+  }
+
+  .liftFormSide p {
+    font-size: 28px;
+  }
 }
 
 
-@media(max-width:735px)
-{
-  .continerforform
-{
-  padding: 50px 19px;
-}
-.contact-detail span{
-  font-size: 12px;
-}
-.liftFormSide h1
-{
-  font-size: 32px;
-}
-.liftFormSide p
-{
-  font-size: 14px;
-}
-.liftFormSide form div input
-{
-  font-size: 14px;
-}
-.liftFormSide form div img
-{
-  width: 24px;
+@media(max-width:735px) {
+  .continerforform {
+    padding: 50px 19px;
+  }
+
+  .contact-detail span {
+    font-size: 12px;
+  }
+
+  .liftFormSide h1 {
+    font-size: 32px;
+  }
+
+  .liftFormSide p {
+    font-size: 14px;
+  }
+
+  .liftFormSide form div input {
+    font-size: 14px;
+  }
+
+  .liftFormSide form div img {
+    width: 24px;
+  }
+  .liftFormSide form div textarea
+  {
+    font-size: 16px;
+    padding-top: 10px;
+  }
 }
 
-}
-
-@media(max-width:439px)
-{
-  .forsrespons
-{
-  display: flex;
-  flex-direction: column;
-}
+@media(max-width:439px) {
+  .forsrespons {
+    display: flex;
+    flex-direction: column;
+  }
 }

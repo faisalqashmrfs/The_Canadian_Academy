@@ -282,16 +282,18 @@
         height: 232px;
         top: -20px;
     }
-    .RealExperiences .sLIDEaREA .slidewindows
-    {
-        width: 99vw;
-    }
-    .RealExperiences .sLIDEaREA .slidewindows p
-    {
-        width: 495vw;
-    }
     .sLIDEaREA .buttonsslide
     {
         width: 100%;
+    }
+}
+
+@media (max-width: 444px) {
+    .RealExperiences .sLIDEaREA h4 {
+        width: 160px;
+    }
+    .RealExperiences .Infoslide h3
+    {
+        padding-left: 0px;
     }
 }

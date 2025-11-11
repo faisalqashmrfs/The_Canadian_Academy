@@ -288,8 +288,6 @@ const CourseDetailsPage = () => {
     const data = MOCK_COURSE_DATA[0];
     const [activ, setactiv] = useState(1);
 
-    console.log(data);
-
     return (
         <>
             <Hero title1={data.title} deatils={data.deatils} enroll={true} id={id} inrole={true} />
