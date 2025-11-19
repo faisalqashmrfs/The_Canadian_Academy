@@ -30,6 +30,8 @@ export default function CertificateSearch() {
 
             const data = await response.json();
             setCertificateData(data)
+            console.log(data);
+            
 
             if (data && data.certificate_id) {
                 setCertificateData(data);
@@ -117,10 +119,10 @@ export default function CertificateSearch() {
             {certificateData &&
                 <div className='PhotoforCertificate'>
                     <div className='centerimages'>
-                        <h2 className='titlename'>{certificateData.name}</h2>
-                        <h2 className='titlelevel'>{certificateData.level} {certificateData.lang}</h2>
-                        <h2 className='titleDate'>Date : {certificateData.timegrad.split('T')[0]}</h2>
-                        <h2 className='titleno'>Certificate No : {certificateData.no}</h2>
+                        <h2 className='titlename'>{certificateData?.name}</h2>
+                        <h2 className='titlelevel'>{certificateData?.level} {certificateData?.lang}</h2>
+                        <h2 className='titleDate'>Date : {certificateData.timereg?.split('T')[0]}</h2>
+                        <h2 className='titleno'>Certificate No : {certificateData?.no}</h2>
                         <h2 className='titleQR'>
                             <div style={{display: 'inline-block', padding: '10px'}}>
                                 <QRCodeSVG
@@ -136,7 +138,7 @@ export default function CertificateSearch() {
                                         y: undefined,            
                                         height: qrSize * 0.2,    
                                         width: qrSize * 0.2,     
-                                        excavate: true,          
+                                        excavate: true,
                                     }}
                                 />
                             </div>

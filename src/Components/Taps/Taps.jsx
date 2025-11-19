@@ -40,7 +40,7 @@ export default function Taps() {
                                 <p>You will need to apply for a student visa. The supporting documents you must provide are:</p>
                                 <p><img src="/Bullet.svg" alt="" />Two passport-size photos with a white background.</p>
                                 <p><img src="/Bullet.svg" alt="" />Application Form.</p>
-                                <p><img src="/Bullet.svg" alt="" />Health Declaration Form(can be downloaded here).</p>
+                                <p><img src="/Bullet.svg" alt="" />Health Declaration Form<a href='https://visa.educationmalaysia.gov.my/media/docs/Lampiran_B_-_Health_Declaration_Form_For_Applicant.pdf'>(can be downloaded here)</a>.</p>
                                 <p><img src="/Bullet.svg" alt="" />High school and most recent academic certificates.</p>
                                 <p><img src="/Bullet.svg" alt="" />Scanned files of all pages of your passport, with at least 1 year of validity. </p>
                                 <p><img src="/Bullet.svg" alt="" />Proof of Payment.</p>
@@ -50,7 +50,7 @@ export default function Taps() {
                         <div className='info2'>
                             <h2>
                                     Study Periods
-                                    <span>Longer than 6 Months:</span>
+                                    <span>Less than 6 Months:</span>
                                 </h2>
                                 <p>You can apply for a visitor visa. Required documents include:</p>
                                 <p><img src="/Bullet.svg" alt="" />One passport-size photo with a white background.</p>
@@ -67,7 +67,7 @@ export default function Taps() {
                                 <span>Need Help?</span>
                             </h2>
                             <p><img src="/Bullet.svg" alt="" />If you're a foreigner and plan to study <span>for 6 months or more</span>, you need a <span>visa</span> to study at The Canadian Academy in Bukit Bintang. It is better to start your application before leaving your home country. If you have entered Malaysia before your application, you may be required to leave the country and regain entry after your student visa is approved.</p>
-                            <p><img src="/Bullet.svg" alt="" />Else, bring your passport (valid for at least 6 months) and fill out the Malaysia Digital Arrival Card prior to arrival. English is widely spoken in Kuala Lumpur, making the transition smooth even if you have not learned Malay.</p>
+                            <p><img src="/Bullet.svg" alt="" />Else, bring your passport (at least 1 year of validity) and fill out the Malaysia Digital Arrival Card prior to arrival. English is widely spoken in Kuala Lumpur, making the transition smooth even if you have not learned Malay.</p>
                             <p><img src="/Bullet.svg" alt="" />Let us know your nationality and course duration, and we can give you a step-by-step guide!</p>
                         </div>
                         <div className='Imagesrightside'>

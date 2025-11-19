@@ -537,7 +537,7 @@ export default function Inroll() {
                         <nav className="form1 disabligap">
                            <div className='PopUpCongrats'>
                                 <h2>Your Course Enrollment <br /><span>is Confirmed!</span></h2>
-                                <p>We’re excited to have you on board at The Canadian Academy. You’ve successfully reserved your spot in [<span>Course Name</span>]. A confirmation email with all the details has been sent to your Email.</p>
+                                <p>We’re excited to have you on board at The Canadian Academy. You’ve successfully reserved your spot in [<span>{selectedType}</span>]. A confirmation email with all the details has been sent to your Email.</p>
                            </div>
                            <div className='lastclassbtninroll'>
                             <Link className={'a1'} to={'/Courses'}> <button>Explore More Courses</button></Link>

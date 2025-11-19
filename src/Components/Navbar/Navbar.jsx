@@ -14,12 +14,10 @@ export default function Navbar() {
     if (scrollPosition >= 40) {
       if (!isScrolledPast40) {
         setIsScrolledPast40(true);
-        console.log('✅ الشرط تحقق: تم التمرير 40 بكسل للأسفل أو أكثر.');
       }
     } else {
       if (isScrolledPast40) {
         setIsScrolledPast40(false);
-        console.log('❌ الشرط لم يعد محققاً: التمرير أقل من 40 بكسل.');
       }
     }
   };
